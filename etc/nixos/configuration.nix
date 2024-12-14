@@ -11,6 +11,7 @@
     ];
 
   # Bootloader.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -65,6 +66,18 @@
     };
    };
   };
+  services.tailscale = {
+    enable = true;
+  };
+  services.openssh = {
+    enable = true;
+    settings = {
+      UseDns = false;
+      PasswordAuthentication = true;
+    };
+  };
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
   security.rtkit.enable = true;
@@ -83,8 +96,6 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 #  font.packages = [ ... ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
 	fonts.packages = [
 	pkgs.nerd-fonts.hack
@@ -109,9 +120,35 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
+    tailscale
     inputs.zen-browser.packages."x86_64-linux".specific
   ];
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
