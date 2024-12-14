@@ -33,6 +33,34 @@
     };
   wayland.windowManager.hyprland.enable=true;
   wayland.windowManager.hyprland.settings = {
+    general = {
+      gaps_in = 5;
+      gaps_out = 10;
+      border_size = 2;
+      allow_tearing = true;
+      layout = "dwindle";
+    };
+    decoration = {
+      rounding = 10;
+      blur = {
+        enabled = false ;
+        size = 7;
+        passes = 4;
+        new_optimizations = true;
+      };
+    };
+    animations = {
+      enabled = true;
+      bezier = "myBezier, 0.10, 0.9, 0.1, 1.05";
+      animation = [
+      "windows, 1, 7, myBezier, slide"
+      "windowsOut, 1, 7, myBezier, slide"
+      "border, 1, 10, default"
+      "borderangle, 1, 8, default"
+      "fade, 1, 7, default"
+      "workspaces, 1, 6, default"
+      ];
+    };
     monitor = [ 
       "eDP-1,1920x1080@60,0x0,1"
       "HDMI-A-1,1920x1080@60,1920x0,1"
@@ -48,6 +76,10 @@
     "hyprpanel &"
     "hyprpaper &"
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+    ];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
     ];
     bind=[
     "$mod, RETURN, exec,kitty"

@@ -18,12 +18,12 @@
   # environment.
   home.packages = with pkgs; [
     vesktop
-    bitwarden-cli
     bitwarden-desktop
     lazygit
     lazydocker
     docker
     gcc
+    jq
     wofi
     wlogout
     hack-font
@@ -44,6 +44,8 @@
     libnotify
     hyprpanel
     exercism
+    bitwarden-cli
+    coreutils
   ];
   home.pointerCursor = {
   gtk.enable = true;
