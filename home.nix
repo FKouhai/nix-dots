@@ -17,7 +17,6 @@
   ];
   # environment.
   home.packages = with pkgs; [
-    firefox
     vesktop
     bitwarden-cli
     bitwarden-desktop
@@ -26,8 +25,6 @@
     docker
     gcc
     wofi
-    go
-    gopls
     wlogout
     hack-font
     playerctl
@@ -46,6 +43,7 @@
     ags
     libnotify
     hyprpanel
+    exercism
   ];
   home.pointerCursor = {
   gtk.enable = true;

@@ -6,7 +6,7 @@
   config = lib.mkIf config.gleam.enable{
     home.packages = with pkgs; [
         gleam
-        erlang
+        erlang_26 # there seems to be an issue with erlang27(latest version) where gleam tends to fail on running any project https://forum.exercism.org/t/escript-error-in-gleam-exercise/11486
       ];
   };
 }
