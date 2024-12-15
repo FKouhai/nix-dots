@@ -5,10 +5,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
-  outputs = { home-manager, nixpkgs, ... }@inputs:
+  outputs = { home-manager,nixpkgs, nixvim, ... }@inputs:
   let
     system = "x86_64-linux";
     username = "franky";

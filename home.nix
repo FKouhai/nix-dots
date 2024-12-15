@@ -1,5 +1,4 @@
 { pkgs, lib, config, inputs, ... }:
-
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -11,9 +10,12 @@
   imports = [
   ./hypr.nix
   ./prompt
+  ./nixvim
   ./shelltools
   ./devtooling
+  ./keymaps.nix
   #./modules/desktop.nix
+   inputs.nixvim.homeManagerModules.nixvim
   ];
   # environment.
   home.packages = with pkgs; [
@@ -22,6 +24,7 @@
     lazygit
     lazydocker
     docker
+    ripgrep
     gcc
     jq
     wofi
@@ -56,6 +59,29 @@
   prompt.enable = true;
   devtooling.enable = true;
   shelltools.enable = true;
+  programs.nixvim = {
+      enable = true;
+      defaultEditor = true;
+      luaLoader.enable = false;
+      plugins = {
+        nix = {
+	  enable = true;
+	};
+        web-devicons = {
+          enable = true;
+        };
+      };
+      colorschemes = {
+        tokyonight = {
+	  enable = true;
+	  settings = {
+	    style = "night";
+	  };
+	};
+
+      };
+    };
+  nixvimcfg.enable = true;
 
 
   home.file = {

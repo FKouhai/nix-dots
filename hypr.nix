@@ -26,8 +26,9 @@
         scrollback_lines = -1;
         tab_bar_edge = "top";
         allow_remote_control = "yes";
-        shell_integration = "enabled";
-        shell = "zsh";
+      };
+      shellIntegration = {
+        enableZshIntegration = true;
       };
       theme = "Glacier";
     };
