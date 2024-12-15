@@ -69,6 +69,7 @@
     env = [
     "BROWSER=zen"
     "XDG_CONFIG_HOME=/home/franky/.config"
+    "XDG_SESSION_TYPE=wayland"
     "XCURSOR_SIZE=22"
     "EDITOR=nvim"
     ];

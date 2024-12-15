@@ -14,7 +14,7 @@
   ./shelltools
   ./devtooling
   ./keymaps.nix
-  #./modules/desktop.nix
+  ./vimopts.nix
    inputs.nixvim.homeManagerModules.nixvim
   ];
   # environment.
@@ -76,7 +76,7 @@
 	  enable = true;
           settings = {
             transparent = true;
-            theme  = "lotus";
+            theme  = "wave";
         };
 	};
       };

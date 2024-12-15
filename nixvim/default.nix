@@ -16,6 +16,9 @@
     ./plugins/harpoon
     ./plugins/dashboard
     ./plugins/tree-sitter
+    ./plugins/telekasten
+    ./plugins/toggleterm
+    ./plugins/clipboard-image
   ];
 
   options = {
@@ -33,5 +36,8 @@
     harpoon.enable = lib.mkDefault true;
     dashboard.enable = lib.mkDefault true;
     sitter.enable = lib.mkDefault true;
+    telekasten.enable = lib.mkDefault true;
+    toggleterm.enable = lib.mkDefault true;
+    clipboard-image.enable = lib.mkDefault true;
   };
 }
