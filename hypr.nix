@@ -30,7 +30,7 @@
       shellIntegration = {
         enableZshIntegration = true;
       };
-      theme = "Glacier";
+      theme = "Kanagawa";
     };
   wayland.windowManager.hyprland.enable=true;
   wayland.windowManager.hyprland.settings = {

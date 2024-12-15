@@ -49,6 +49,7 @@
     exercism
     bitwarden-cli
     coreutils
+    fd
   ];
   home.pointerCursor = {
   gtk.enable = true;

@@ -8,7 +8,46 @@
     # Keymaps
     keymaps =
     [
-      # oil mapping for file tree
+      {
+        action = ":m '>+1<CR>gv=gv'";
+        key = "J";
+        mode = "v";
+        options = {
+          silent = true;
+          noremap =true;
+          desc = "Move selection down";
+        };
+      }
+      {
+        action = ">gv";
+        key = ">";
+        mode = "v";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Move selection right";
+        };
+      }
+      {
+        action = "<gv";
+        key = "<";
+        mode = "v";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Move selection left";
+        };
+      }
+      {
+        action = ":m '<-2<CR>gv=gv'";
+        key = "K";
+        mode = "v";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Move selection up";
+        };
+      }
       {
         action = ":Oil<CR>";
         key = "-";
@@ -123,6 +162,15 @@
         };
       }
       # Telescope search (live grep)
+      {
+          action = ":Telescope harpoon marks<CR>";
+          key = "<leader>e";
+          options = {
+            silent = true;
+            noremap = true;
+            desc = "Search grep";
+        };
+      }
       {
         action = ":Telescope live_grep<CR>";
         key = "<leader>fg";

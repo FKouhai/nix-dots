@@ -19,6 +19,7 @@
     ./plugins/telekasten
     ./plugins/toggleterm
     ./plugins/clipboard-image
+    ./plugins/which-key
   ];
 
   options = {
@@ -39,5 +40,6 @@
     telekasten.enable = lib.mkDefault true;
     toggleterm.enable = lib.mkDefault true;
     clipboard-image.enable = lib.mkDefault true;
+    which-key.enable = lib.mkDefault true;
   };
 }
