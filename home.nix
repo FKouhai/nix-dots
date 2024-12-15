@@ -72,13 +72,13 @@
         };
       };
       colorschemes = {
-        tokyonight = {
+        kanagawa = {
 	  enable = true;
-	  settings = {
-	    style = "night";
-	  };
+          settings = {
+            transparent = true;
+            theme  = "lotus";
+        };
 	};
-
       };
     };
   nixvimcfg.enable = true;
