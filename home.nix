@@ -63,11 +63,16 @@
   programs.nixvim = {
       enable = true;
       defaultEditor = true;
-      luaLoader.enable = false;
+      luaLoader.enable = true;
+    extraConfigLua = "require('go').setup()";
+    extraPlugins = with pkgs.vimPlugins; [
+      plenary-nvim
+      go-nvim
+    ];
       plugins = {
         nix = {
-	  enable = true;
-	};
+          enable = true;
+        };
         web-devicons = {
           enable = true;
         };

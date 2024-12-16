@@ -21,6 +21,7 @@
     ./plugins/clipboard-image
     ./plugins/which-key
     ./plugins/markdown-preview
+    ./plugins/images
   ];
 
   options = {
@@ -43,5 +44,6 @@
     clipboard-image.enable = lib.mkDefault true;
     which-key.enable = lib.mkDefault true;
     markdown-preview.enable = lib.mkDefault true;
+    image.enable = lib.mkDefault true;
   };
 }
