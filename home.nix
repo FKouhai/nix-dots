@@ -19,6 +19,7 @@
   ];
   # environment.
   home.packages = with pkgs; [
+    hyprpanel
     vesktop
     bitwarden-desktop
     lazygit
@@ -27,6 +28,7 @@
     ripgrep
     gcc
     jq
+    upower
     wofi
     wlogout
     hack-font
@@ -45,7 +47,6 @@
     bind
     ags
     libnotify
-    hyprpanel
     exercism
     bitwarden-cli
     coreutils

@@ -84,7 +84,7 @@
       "$mod, mouse:273, resizewindow"
     ];
     bind=[
-    "$mod, RETURN, exec,kitty"
+    "$mod, RETURN, exec,ghostty"
     "$mod, W, exec, zen"
     "$mod, C, exec, cider"
     "$mod, D, exec,vesktop"

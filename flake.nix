@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { home-manager,nixpkgs, nixvim,hyprpanel,... } @ inputs:
@@ -20,9 +21,6 @@
   {
     homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs { inherit system; 
-          overlays = [
-            hyprpanel.overlay
-          ];
 
         };
 
@@ -34,7 +32,11 @@
         };
 
       # import your home.nix
-      modules = [ ./home.nix ];
+        modules = [
+          ./home.nix 
+          {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
+
+        ];
     };
   };
 }

@@ -22,6 +22,7 @@
     ./plugins/which-key
     ./plugins/markdown-preview
     ./plugins/images
+    ./plugins/dap
   ];
 
   options = {
@@ -45,5 +46,6 @@
     which-key.enable = lib.mkDefault true;
     markdown-preview.enable = lib.mkDefault true;
     image.enable = lib.mkDefault true;
+    dap.enable = lib.mkDefault true;
   };
 }
