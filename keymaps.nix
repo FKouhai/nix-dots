@@ -6,15 +6,14 @@
     };
 
     # Keymaps
-    keymaps =
-    [
+    keymaps = [
       {
         action = ":m '>+1<CR>gv=gv'";
         key = "J";
         mode = "v";
         options = {
           silent = true;
-          noremap =true;
+          noremap = true;
           desc = "Move selection down";
         };
       }
@@ -58,59 +57,96 @@
         };
       }
       {
-          action = ":Telekasten panel<CR>";
-          key = "<leader>z";
-          options = {
-            silent = true;
-            noremap = true;
-            desc = "Open telekasten panel";
-          };
+        action = ":Trouble diagnostics toggle<CR>";
+        key = "<leader>xx";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Toggle trouble diagnostics Mapping";
+        };
       }
       {
-          action = ":Telekasten find_notes<CR>";
-          key = "<leader>zf";
-          options = {
-            silent = true;
-            noremap = true;
-            desc = "Open notes panel";
-          };
+        action = ":Trouble qflist toggle<CR>";
+        key = "<leader>xQ";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Quick fix list using trouble";
+        };
       }
       {
-          action = ":Telekasten search_notes<CR>";
-          key = "<leader>zs";
-          options = {
-            silent = true;
-            noremap = true;
-            desc = "Open livegrep notes panel";
-          };
+        action = ":Trouble loclist toggle<CR>";
+        key = "<leader>xL";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Location list";
+        };
       }
       {
-          action = ":ToggleTerm";
-          key = "<leader>tt<CR>";
-          options = {
-            silent = true;
-            noremap = true;
-            desc = "Open livegrep notes panel";
-          };
+        action = ":Trouble diagnostics toggle filter.buf=0<CR>";
+        key = "<leader>xl";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Location list";
+        };
+      }
+
+      {
+        action = ":Telekasten panel<CR>";
+        key = "<leader>z";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Open telekasten panel";
+        };
       }
       {
-          action = ":TermExec cmd='go run main.go'<CR>";
-          key = "<leader>eg";
-          options = {
-            silent = true;
-            noremap = true;
-            desc = "go run main.go";
-          };
+        action = ":Telekasten find_notes<CR>";
+        key = "<leader>zf";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Open notes panel";
+        };
+      }
+      {
+        action = ":Telekasten search_notes<CR>";
+        key = "<leader>zs";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Open livegrep notes panel";
+        };
+      }
+      {
+        action = ":ToggleTerm";
+        key = "<leader>tt<CR>";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Open livegrep notes panel";
+        };
+      }
+      {
+        action = ":TermExec cmd='go run main.go'<CR>";
+        key = "<leader>eg";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "go run main.go";
+        };
       }
       # Go to definition
       {
-          action = ":TermExec cmd='hms && exit'<CR>";
-          key = "<leader>eh";
-          options = {
-            silent = true;
-            noremap = true;
-            desc = "home-manager switch";
-          };
+        action = ":TermExec cmd='hms && exit'<CR>";
+        key = "<leader>eh";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "home-manager switch";
+        };
       }
       {
         action = ":lua vim.lsp.buf.definition()<CR>";
@@ -163,12 +199,12 @@
       }
       # Telescope search (live grep)
       {
-          action = ":Telescope harpoon marks<CR>";
-          key = "<leader>e";
-          options = {
-            silent = true;
-            noremap = true;
-            desc = "Search grep";
+        action = ":Telescope harpoon marks<CR>";
+        key = "<leader>e";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Search grep";
         };
       }
       {
@@ -355,4 +391,3 @@
     ];
   };
 }
-

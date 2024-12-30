@@ -1,4 +1,4 @@
-{pkgs, lib, config, ...}:
+{lib, config, ...}:
 {
   options = {
     lsp.enable = lib.mkEnableOption "Enable lsp nixvim plugins module";
@@ -7,6 +7,9 @@
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
+        #capabilities = ''
+        #capabilities = require('blink.cmp').get_lsp_capabilities()
+        #'';
       keymaps = {
         silent = true;
         diagnostic = {
@@ -25,13 +28,23 @@
       };
        servers = {
           gopls.enable = true;
-          golangci_lint_ls.enable = true;
+          golangci_lint_ls.enable = false;
           lua_ls.enable = true;
           nil_ls.enable = true;
           gleam.enable = true;
-          marksman.enable = true;
+          marksman.enable = false;
+          markdown_oxide = {
+            enable = true;
+            filetypes = [
+              "markdown"
+              "md"
+            ];
+          };
           tflint.enable = true;
-          nixd.enable = true;
+          nixd = {
+            enable = true;
+            settings.formatting.command = ["alejandra -qq"];
+          };
           ts_ls.enable = true;
           rust_analyzer = {
             enable = true;

@@ -1,4 +1,4 @@
-{pkgs, lib, config, ...}:
+{lib, config, ...}:
 {
   options = {
     sitter.enable = lib.mkEnableOption "Enable sitter nixvim plugin module";
@@ -13,7 +13,8 @@
       settings = {
         indent.enable = true;
         highlight.enable = true;
-        auto_install = true;
+        auto_install = false;
+        ensure_instaled = "all";
       };
     };
     treesitter-refactor = {
