@@ -226,6 +226,15 @@
           desc = "open lazygit";
         };
       }
+      {
+        action = ":Fugit2<CR>";
+        key = "<leader>lf";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "open lazygit";
+        };
+      }
       # markdown preview mapping
       {
         action = ":MarkdownPreview<CR>";

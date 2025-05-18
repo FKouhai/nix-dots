@@ -36,7 +36,7 @@
         enable = true;
       };
       fugit2 = {
-        enable = false;
+        enable = true;
       };
       fugitive.enable = true;
       git-conflict = {
