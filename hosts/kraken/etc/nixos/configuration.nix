@@ -41,7 +41,7 @@ in
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 3d";
     };
   };
 
@@ -60,6 +60,9 @@ in
 
   # network config
 
+  systemd.services = {
+    dhcpd.enable = false;
+  };
   networking = {
     hostName = "kraken"; # Define your hostname.
     search = [ "universe.home" ];
@@ -67,6 +70,18 @@ in
       "192.168.0.2"
       "192.168.0.1"
     ];
+    interfaces.enp8s0 = {
+      ipv4.addresses = [
+        {
+          address = "192.168.0.38";
+          prefixLength = 24;
+        }
+      ];
+    };
+    defaultGateway = {
+      address = "192.168.0.1";
+      interface = "enp8s0";
+    };
     networkmanager = {
       plugins = with pkgs; [
         networkmanager-openvpn
@@ -81,6 +96,7 @@ in
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   services = {
+    journald.extraConfig = "SystemMaxUse=50M";
     pulseaudio.enable = false;
     openssh = {
       enable = true;
@@ -222,9 +238,9 @@ in
       };
     };
     blueman.enable = true;
-pipewire = {
-        enable = true;
-extraConfig = {
+    pipewire = {
+      enable = true;
+      extraConfig = {
         pipewire = {
           "10-custom-latency.conf" = {
             "context.properties" = {

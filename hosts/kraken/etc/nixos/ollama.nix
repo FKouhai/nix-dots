@@ -15,13 +15,13 @@
     acceleration = "cuda";
     package = (
       pkgs.ollama.overrideAttrs {
-        version = "0.12.0";
+        version = "0.12.4-rc4";
         doCheck = false;
         src = pkgs.fetchFromGitHub {
           owner = "ollama";
           repo = "ollama";
-          tag = "v0.12.0";
-          hash = "sha256-CRlrq2vFdk+YlxCSg6FNVg6YpAZ4PSMHeAaGwkx9QFw=";
+          tag = "v0.12.4-rc4";
+          hash = "sha256-ooDGwTklGJ/wzDlAY3uJiqpZUxT1cCsqVNJKU8BAPbQ=";
         };
       }
     );
@@ -60,6 +60,6 @@
       ProtectSystem = "strict";
       ProtectHome = false;
     };
-    enable = true;
+    enable = false;
   };
 }
