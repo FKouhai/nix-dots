@@ -53,7 +53,6 @@
       # jetbrains.goland
       age
       ags
-      tmux-sessionizer
       alejandra
       bind
       bitwarden-desktop
@@ -64,8 +63,6 @@
       cava
       coreutils
       cosmic-files
-      crush
-      devbox
       dysk
       element-desktop
       exercism
@@ -77,7 +74,6 @@
       gcc
       gh
       git-lfs
-      glava
       gnome-keyring
       gnome-secrets
       gnome-themes-extra
@@ -99,9 +95,9 @@
       libnotify
       libnvidia-container
       lmstudio
-      markdown-oxide
       matugen
       mpv
+      nitch
       nix-search-tv
       nixos-generators
       nvidia-docker
@@ -112,17 +108,12 @@
       opencode
       pavucontrol
       playerctl
-      plex-desktop
-      plex-mpv-shim
-      protonvpn-cli
-      protonvpn-gui
       pulseaudio
       pulseaudio-ctl
       pulsemixer
       revive
       ripgrep
-      sassc
-      solaar
+      sesh
       statix
       statping-ng
       telegram-desktop
@@ -132,13 +123,9 @@
       tmux
       tokyonight-gtk-theme
       treefmt
-      ttyd
       vesktop
       vhs
-      vial
-      virtualgl
       vulkan-tools
-      waybar
       wl-clipboard
       wlogout
       zed-editor
