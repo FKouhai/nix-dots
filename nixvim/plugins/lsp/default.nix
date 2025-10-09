@@ -44,6 +44,7 @@
           };
           lua_ls.enable = true;
           gleam.enable = true;
+          pyrefly.enable = true;
           marksman.enable = false;
           markdown_oxide = {
             enable = true;
