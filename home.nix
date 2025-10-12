@@ -46,6 +46,8 @@
     };
 
     sessionVariables = {
+      OZONE_PLATFORM = "wayland";
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       # EDITOR = "emacs";
     };
 
@@ -80,6 +82,7 @@
       gowall
       gpgme
       gtk-engine-murrine
+      gum
       hack-font
       heroic
       hubble
