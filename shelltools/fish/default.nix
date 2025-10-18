@@ -27,9 +27,9 @@
         hms = "home-manager switch";
         k = "kubectl";
         fzfcheckout = "git branch | fzf | xargs git checkout";
-        rebuild = "sudo nixos-rebuild switch --flake ~/.config/home-manager";
-        upgrade = "nix flake update --flake ~/.config/home-manager && sudo nixos-rebuild switch --flake ~/.config/home-manager --upgrade";
-        cleanup = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 2d  && sudo nix-collect-garbage --delete-older-than 2d";
+        rebuild = "nh os switch ~/.config/home-manager";
+        upgrade = "nh os switch ~/.config/home-manager --update";
+        cleanup = "nh clean all -v";
         seshc = "sesh connect $(sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --prompt='⚡')";
       };
     };
