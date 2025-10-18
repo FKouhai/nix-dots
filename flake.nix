@@ -106,7 +106,6 @@
           }
         ];
       };
-
       nixosConfigurations."kraken" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         inherit pkgs;
@@ -132,7 +131,7 @@
                   hostName = "kraken";
                   isDesktop = true;
                   class = "desktop";
-                  wallpaper = "${wallpapers}/kanagawa-dragon/sciel.jpg";
+                  wallpaper = "${wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/02341.png";
                   mainMonitor = {
                     name = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. GS27QA 24286B001135";
                     width = "2560";

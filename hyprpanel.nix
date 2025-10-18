@@ -31,8 +31,8 @@
         };
       };
       wallpaper = {
-        enable = true;
-        pywal = false;
+        enable = false;
+        pywal = true;
         image = "${vars.wallpaper}";
       };
       scalingPriority = "hyprland";
