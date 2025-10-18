@@ -60,6 +60,7 @@
       bitwarden-desktop
       brave
       btop
+      bulletty
       calibre
       calibre-web
       cava
@@ -131,6 +132,7 @@
       vulkan-tools
       wl-clipboard
       wlogout
+      python3
       zed-editor
     ];
     pointerCursor = {
