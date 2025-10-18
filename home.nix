@@ -66,6 +66,7 @@
       cava
       coreutils
       cosmic-files
+      cliphist
       dysk
       element-desktop
       exercism
@@ -148,6 +149,12 @@
   shelltools.enable = true;
   programs = {
     home-manager.enable = true;
+    btop = {
+      enable = true;
+      settings = {
+        theme_background = false;
+      };
+    };
     git = {
       delta.tokyonight.enable = false;
       lfs.enable = true;
