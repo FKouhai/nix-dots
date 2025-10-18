@@ -10,9 +10,9 @@
   };
 
   config = lib.mkIf config.presence.enable {
-    programs.nixvim.plugins.presence-nvim = {
+    programs.nixvim.plugins.presence = {
       enable = true;
-      extraOptions = {
+      settings = {
         neovim_image_text = "nvim";
       };
     };

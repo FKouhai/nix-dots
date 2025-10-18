@@ -11,6 +11,18 @@
 
   config = lib.mkIf config.git_helpers.enable {
     programs.nixvim.plugins = {
+      coverage = {
+        enable = true;
+        settings = {
+          command = true;
+          lang = {
+            go = {
+              coverage_file = "vim.fn.getcwd() .. ' /coverage.out '";
+            };
+          };
+        };
+      };
+
       git-worktree = {
         enable = true;
         enableTelescope = true;
@@ -18,7 +30,9 @@
           update_on_change = true;
         };
       };
+
       octo.enable = true;
+
       gitsigns = {
         enable = true;
         settings = {
@@ -33,14 +47,18 @@
           };
         };
       };
+
       lazygit = {
         enable = true;
       };
+
       fugit2 = {
         enable = true;
       };
+
       fugitive.enable = true;
       diffview.enable = true;
+
       git-conflict = {
         enable = true;
         settings = {
