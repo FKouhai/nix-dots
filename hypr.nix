@@ -68,6 +68,10 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    plugins = [
+      pkgs.hyprlandPlugins.hyprtrails
+      pkgs.hyprlandPlugins.hyprfocus
+    ];
     settings = {
       general = {
         gaps_in = 5;
@@ -75,6 +79,14 @@ in
         border_size = 2;
         allow_tearing = true;
         layout = "dwindle";
+      };
+      plugin = {
+        hyprtrails = {
+          color = "rgba(ffaa00ff)";
+        };
+        hyprfocus = {
+          mode = "flash";
+        };
       };
       decoration = {
         rounding = 10;
@@ -134,6 +146,7 @@ in
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "hyprpaper &"
         "add_record_player"
+        "wl-paste --watch cliphist store &"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
@@ -151,6 +164,7 @@ in
         "$mod, N, exec, swaync-client -t -sw"
         "$mod, V, togglefloating,"
         "$mod, R, exec, fuzzel"
+        "$mod, P, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
         "$mod, S, exec, hyprshot -m region"
         "$mod SHIFT, R, exec, wlogout"
         "$mod, D, exec, vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --ozone-platform-hint=auto "
