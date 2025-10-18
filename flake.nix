@@ -9,18 +9,17 @@
     };
     tokyonight = {
       url = "github:mrjones2014/tokyonight.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
       url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty";
-    };
     wallpapers = {
       url = "github:FKouhai/Kanagawa-wallpapers";
     };
@@ -34,7 +33,6 @@
       home-manager,
       nixpkgs,
       zen-browser,
-      ghostty,
       stylix,
       wallpapers,
       nixvim,
@@ -52,7 +50,7 @@
       };
       env_pkgs = {
         environment.systemPackages = [
-          ghostty.packages.x86_64-linux.default
+          pkgs.ghostty
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
           wallpapers.packages.x86_64-linux.default
