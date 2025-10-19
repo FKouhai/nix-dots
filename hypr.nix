@@ -48,6 +48,7 @@ in
       ];
     };
   };
+
   programs.kitty = {
     enable = true;
     settings = {
@@ -65,6 +66,7 @@ in
     };
     themeFile = "kanagawa";
   };
+
   wayland.windowManager.hyprland = {
     enable = true;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
@@ -85,7 +87,7 @@ in
           color = "rgba(ffaa00ff)";
         };
         hyprfocus = {
-          mode = "flash";
+          mode = "slide";
         };
       };
       decoration = {
@@ -101,12 +103,14 @@ in
         enabled = true;
         bezier = "myBezier, 0.10, 0.9, 0.1, 1.05";
         animation = [
-          "windows, 1, 7, myBezier, slide"
-          "windowsOut, 1, 7, myBezier, slide"
+          "windows, 1, 7, myBezier, popin"
+          "windowsOut, 1, 7, myBezier, popin"
           "border, 1, 10, default"
           "borderangle, 1, 8, default"
           "fade, 1, 7, default"
           "workspaces, 1, 6, default"
+          "hyprfocusIn, 1, 1.7, myBezier"
+          "hyprfocusOut, 1, 1.7, myBezier"
         ];
       };
       windowrule = [
