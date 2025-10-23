@@ -10,11 +10,26 @@
   };
 
   config = lib.mkIf config.git.enable {
-    programs.git = {
-      enable = true;
-      package = pkgs.git;
-      userName = "FKouhai";
-      userEmail = "frandres00@gmail.com";
+    programs = {
+
+      git = {
+        enable = true;
+        package = pkgs.git;
+        settings = {
+          user = {
+            name = "FKouhai";
+            email = "frandres00@gmail.com";
+            signingkey = "~/.ssh/bw.pub";
+          };
+
+          commit.gpgsign = true;
+          gpg.format = "ssh";
+          signing = {
+            format = "ssh";
+            key = "~/.ssh/bw.pub";
+          };
+        };
+      };
       delta = {
         enable = true;
         options = {
@@ -30,15 +45,7 @@
           features = "decorations";
         };
       };
-      extraConfig = {
-        commit.gpgsign = true;
-        gpg.format = "ssh";
-        user.signingkey = "~/.ssh/bw.pub";
-      };
-      signing = {
-        format = "ssh";
-        key = "~/.ssh/bw.pub";
-      };
+      git-worktree-switcher.enable = true;
     };
   };
 }

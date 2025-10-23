@@ -23,9 +23,11 @@
       };
       treesitter-refactor = {
         enable = false;
-        highlightDefinitions = {
-          enable = true;
-          clearOnCursorMove = false;
+        settings = {
+          highlight_definitions = {
+            enable = true;
+            clear_on_cursor_move = false;
+          };
         };
       };
       hmts.enable = false;
