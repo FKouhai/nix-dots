@@ -93,22 +93,32 @@ in
       decoration = {
         rounding = 10;
         blur = {
-          enabled = false;
-          size = 7;
-          passes = 4;
+          enabled = true;
+          size = 6;
+          passes = 3;
           new_optimizations = true;
+          xray = true;
+          ignore_opacity = true;
         };
       };
       animations = {
         enabled = true;
-        bezier = "myBezier, 0.10, 0.9, 0.1, 1.05";
+        bezier = [
+          "myBezier, 0.10, 0.9, 0.1, 1.05"
+          "wind, 0.05, 0.9, 0.1, 1.05"
+          "windIn, 0.1, 1.1, 0.1, 1.1"
+          "windOut, 0.3, -0.3, 0, 1"
+          "liner, 1, 1, 1, 1"
+        ];
         animation = [
-          "windows, 1, 7, myBezier, popin"
-          "windowsOut, 1, 7, myBezier, popin"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+          "windows, 1, 6, wind, slide"
+          "windowsIn, 1, 6, windIn, slide"
+          "windowsOut, 1, 5, windOut, slide"
+          "windowsMove, 1, 5, wind, slide"
+          "border, 1, 1, liner"
+          "borderangle, 1, 30, liner, loop"
+          "fade, 1, 10, default"
+          "workspaces, 1, 5, wind"
           "hyprfocusIn, 1, 1.7, myBezier"
           "hyprfocusOut, 1, 1.7, myBezier"
         ];
@@ -176,6 +186,10 @@ in
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
         "$mod, J, movefocus, d"
+        "$mod+Shift, H, movewindow, l"
+        "$mod+Shift, L, movewindow, r"
+        "$mod+Shift, K, movewindow, u"
+        "$mod+Shift, J, movewindow, d"
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
