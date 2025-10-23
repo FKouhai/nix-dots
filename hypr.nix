@@ -125,6 +125,8 @@ in
       };
       windowrule = [
         "float,title:(Picture-in-Picture)"
+        "float,class:^(pavucontrol)$"
+        "float,title:^(Volume Control)$"
         "pin,title:(Picture-in-Picture)"
         "noshadow,title:(Picture-in-Picture)"
         "size 25% 25%,title:(Picture-in-Picture)"
@@ -136,18 +138,17 @@ in
         "size 50% 50%,class:(mpv)"
         "move 100%-w-20,class:(mpv)"
         "noinitialfocus,class:(mpv)"
-        "float, class:(GLava)"
-        "size 100% 25%,class:(GLava)"
-        "move 100%-w-20,class:(GLava)"
-        "noshadow,class:(GLava)"
-        "noinitialfocus,title:(GLava)"
+        "opacity 0.90 0.90,class:^(zen-beta)$"
+        "opacity 0.90 0.90,class:^(Cider)$"
+        "opacity 0.90 0.90,class:^(cosmic-files)$"
+        "opacity 0.90 0.90,class:^(vesktop)$"
       ];
       monitor = [
         "${vars.mainMonitor.name},${vars.mainMonitor.width}x${vars.mainMonitor.height}@${vars.mainMonitor.refresh},0x0,1"
         "${vars.secondaryMonitor.name},${vars.secondaryMonitor.width}x${vars.secondaryMonitor.height}@${vars.secondaryMonitor.refresh},2560x0,1"
       ];
       env = [
-        "BROWSER=brave"
+        "BROWSER=zen"
         "XDG_CONFIG_HOME=/home/franky/.config"
         "XDG_SESSION_TYPE=wayland"
         "XCURSOR_SIZE=22"
@@ -168,7 +169,7 @@ in
       ];
       bind = [
         "$mod, RETURN, exec,ghostty"
-        "$mod, W, exec, brave"
+        "$mod, W, exec, zen"
         "$mod, C, exec, Cider"
         "$mod, D, exec,vesktop"
         "$mod, Q, killactive,"
