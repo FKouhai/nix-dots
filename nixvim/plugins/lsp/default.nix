@@ -69,6 +69,7 @@
                 formatting.command = [ "nixfmt" ];
               };
           };
+          statix.enable = true;
           ts_ls.enable = true;
           elixirls = {
             enable = true;
