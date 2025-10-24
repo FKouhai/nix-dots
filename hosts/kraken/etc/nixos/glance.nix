@@ -46,10 +46,6 @@
                   cache = "12h";
                   feeds = [
                     {
-                      url = "https://lobste.rs/t/programming.rss";
-                      name = "lobsters";
-                    }
-                    {
                       url = "https://news.ycombinator.com/rss";
                       name = "hackernews";
                     }
@@ -87,6 +83,17 @@
                   ];
                   collapse-after = 15;
                   cache = "12h";
+                }
+                {
+                  type = "lobsters";
+                  sort-by = "hot";
+                  tags = [
+                    "go"
+                    "linux"
+                    "devops"
+                  ];
+                  limit = 15;
+                  collapse-after = 5;
                 }
               ];
             }
