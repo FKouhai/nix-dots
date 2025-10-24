@@ -64,6 +64,12 @@ in
     dhcpd.enable = false;
   };
   networking = {
+    firewall = {
+      allowedTCPPorts = [
+        22
+        10767
+      ];
+    };
     useDHCP = false;
     hostName = "kraken"; # Define your hostname.
     search = [ "universe.home" ];
