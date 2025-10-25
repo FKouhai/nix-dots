@@ -1,5 +1,11 @@
 # NixOS dotfiles
 This repo contains the nix configurations for my main workstations
+## How does the config looks like
+![Glance](./assets/glance.png)
+![image ](./assets/tmux_btop.png)
+![image](./assets/tmux_nvim.png)
+![image](./assets/nitch_full_screen.png)
+![Image](https://github.com/user-attachments/assets/27fbc144-2977-4a9e-bd4c-798ed0e07922)
 
 ## Structure
 
