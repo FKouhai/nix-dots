@@ -61,8 +61,6 @@
       brave
       btop
       bulletty
-      calibre
-      calibre-web
       cava
       coreutils
       cosmic-files
@@ -161,6 +159,7 @@
     };
     onlyoffice.enable = true;
     wofi.enable = false;
+
     fuzzel = {
       enable = true;
       settings = {
@@ -183,9 +182,9 @@
   };
 
   qt = {
-    enable = true;
+    enable = false;
     platformTheme.name = "gtk";
-    style.name = "qt6gtk2";
+    style.name = "kvantum";
   };
   stylix = {
     autoEnable = false;
