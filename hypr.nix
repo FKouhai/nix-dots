@@ -49,22 +49,68 @@ in
     };
   };
 
-  programs.kitty = {
-    enable = true;
-    settings = {
-      font_family = "Hack Nerd Font";
-      bold_font = "auto";
-      italic_font = "auto";
-      bold_italic_font = "auto";
-      enable_audio_bell = false;
-      scrollback_lines = -1;
-      tab_bar_edge = "top";
-      allow_remote_control = "yes";
+  programs = {
+    kitty = {
+      enable = true;
+      settings = {
+        font_family = "Hack Nerd Font";
+        bold_font = "auto";
+        italic_font = "auto";
+        bold_italic_font = "auto";
+        enable_audio_bell = false;
+        scrollback_lines = -1;
+        tab_bar_edge = "top";
+        allow_remote_control = "yes";
+      };
+      shellIntegration = {
+        enableZshIntegration = true;
+      };
+      themeFile = "kanagawa";
     };
-    shellIntegration = {
-      enableZshIntegration = true;
+
+    hyprlock = {
+      enable = true;
+      settings = {
+        general = {
+          hide_cursor = true;
+          ignore_empty_input = true;
+        };
+        animations = {
+          enabled = true;
+          fade_in = {
+            duration = 300;
+            bezier = "easeOutQuint";
+          };
+          fade_out = {
+            duration = 300;
+            bezier = "easeOutQuint";
+          };
+        };
+
+        background = [
+          {
+            path = "${vars.wallpaper}";
+            blur_passes = 3;
+            blur_size = 8;
+          }
+        ];
+        input_field = [
+          {
+            size = "200, 50";
+            position = "0, -80";
+            monitor = "${vars.mainMonitor.name}";
+            dots_center = true;
+            fade_on_empty = false;
+            font_color = "rgb(202, 211, 245)";
+            inner_color = "rgb(91, 96, 120)";
+            outer_color = "rgb(24, 25, 38)";
+            outline_thickness = 5;
+            placeholder_text = "Password";
+            shadow_passes = 2;
+          }
+        ];
+      };
     };
-    themeFile = "kanagawa";
   };
 
   wayland.windowManager.hyprland = {
@@ -94,10 +140,12 @@ in
         rounding = 10;
         blur = {
           enabled = true;
-          size = 6;
+          size = 7;
           passes = 3;
           new_optimizations = true;
-          xray = true;
+          noise = 0.08;
+          contrast = 1.5;
+          xray = false;
           ignore_opacity = true;
         };
       };
@@ -123,6 +171,7 @@ in
           "hyprfocusOut, 1, 1.7, myBezier"
         ];
       };
+      #"opacity 0.90 0.90,class:^(zen-beta)$"
       windowrule = [
         "float,title:(Picture-in-Picture)"
         "float,class:^(pavucontrol)$"
@@ -138,7 +187,6 @@ in
         "size 50% 50%,class:(mpv)"
         "move 100%-w-20,class:(mpv)"
         "noinitialfocus,class:(mpv)"
-        "opacity 0.90 0.90,class:^(zen-beta)$"
         "opacity 0.90 0.90,class:^(Cider)$"
         "opacity 0.90 0.90,class:^(cosmic-files)$"
         "opacity 0.90 0.90,class:^(vesktop)$"
@@ -182,6 +230,7 @@ in
         "$mod, P, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
         "$mod, S, exec, hyprshot -m region"
         "$mod SHIFT, R, exec, wlogout"
+        "$mod SHIFT, M, exec, hyprlock"
         "$mod, D, exec, vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --ozone-platform-hint=auto "
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
