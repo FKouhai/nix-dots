@@ -863,11 +863,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1751797826,
-        "narHash": "sha256-iHpTLz8e912TgKaNaNhCJ1oZRn2ydQRjEl4FAIXxQKg=",
+        "lastModified": 1761774211,
+        "narHash": "sha256-WrY9nroEc+ZUN7yqHWmsu7512Z3EBnihJv30EQZC2oQ=",
         "owner": "FKouhai",
         "repo": "Kanagawa-wallpapers",
-        "rev": "22202fc1bd8c667270cbc7574978faf534dc8e84",
+        "rev": "68cadfc184a141a04555d60297d25bf2092cd532",
         "type": "github"
       },
       "original": {

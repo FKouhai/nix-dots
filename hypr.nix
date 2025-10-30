@@ -205,9 +205,7 @@ in
       ];
       "$mod" = "SUPER";
       exec-once = [
-        "hyprpanel &"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "hyprpaper &"
         "add_record_player"
         "wl-paste --watch cliphist store &"
       ];
