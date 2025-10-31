@@ -37,8 +37,31 @@
     homeDirectory = "/home/franky";
     stateVersion = "24.11"; # Please read the comment before changing.
     file = {
+      "${config.xdg.configHome}/ghostty/theme".text = ''
+        palette = 0=#12141c
+        palette = 1=#4D5360
+        palette = 2=#546876
+        palette = 3=#BB6968
+        palette = 4=#627985
+        palette = 5=#708995
+        palette = 6=#7C97A4
+        palette = 7=#b9c6ce
+        palette = 8=#818a90
+        palette = 9=#4D5360
+        palette = 10=#546876
+        palette = 11=#BB6968
+        palette = 12=#627985
+        palette = 13=#708995
+        palette = 14=#7C97A4
+        palette = 15=#b9c6ce
+        background = #12141c
+        foreground = #b9c6ce
+        cursor-color = #b9c6ce
+        selection-background = #12141c
+        selection-foreground = #b9c6ce
+      '';
       "${config.xdg.configHome}/ghostty/config".text = ''
-        theme = "Kanagawa Dragon"
+        theme = "${config.xdg.configHome}/ghostty/theme"
         background-opacity = 0.9
         window-decoration = false
         font-family = "Hack Nerd Font"
