@@ -118,34 +118,38 @@
       };
 
       colorschemes = {
-        kanagawa-paper = {
+        kanagawa = {
           enable = true;
 
           settings = {
-            background = "dark";
+            #background = "dark";
             transparent = true;
-            undercurl = true;
-            terminal_colors = true;
-            theme = "ink";
-
-            styles = {
-              comments = {
-                italic = true;
-              };
-
-              functions = {
-                italic = true;
-              };
-
-              keywords = {
-                bold = true;
-              };
-
-              statement_style = {
-                bold = true;
-              };
-
+            #undercurl = true;
+            #terminal_colors = true;
+            theme = "dragon";
+            terminalColors = true;
+            commentStyle = {
+              italic = true;
             };
+
+            #styles = {
+            #  comments = {
+            #    italic = true;
+            #  };
+            #
+            #              functions = {
+            #                italic = true;
+            #              };
+            #
+            #              keywords = {
+            #                bold = true;
+            #              };
+
+            #              statement_style = {
+            ##                bold = true;
+            #              };
+
+            #            };
 
           };
 
