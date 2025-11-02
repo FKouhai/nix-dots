@@ -39,7 +39,9 @@
     host = "192.168.0.38";
     port = 8088;
   };
+
   systemd.services.lms = {
+
     description = "lms systemd unit";
     after = [
       "network-online.target"

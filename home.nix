@@ -105,6 +105,7 @@
       gowall
       gpgme
       gtk-engine-murrine
+      gh-dash
       gum
       hack-font
       heroic
