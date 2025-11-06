@@ -18,6 +18,9 @@
           "nixd"
         ];
       };
+      comment = {
+        enable = true;
+      };
       lsp = {
         enable = true;
         inlayHints = true;
