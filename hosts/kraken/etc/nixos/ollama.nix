@@ -15,17 +15,6 @@
     acceleration = "cuda";
     package = pkgs.ollama;
 
-    # package = pkgs.ollama.overrideAttrs {
-    #   version = "0.12.4-rc4";
-    #   doCheck = false;
-    #   src = pkgs.fetchFromGitHub {
-    #     owner = "ollama";
-    #     repo = "ollama";
-    #     tag = "v0.12.4-rc4";
-    #     hash = "sha256-ooDGwTklGJ/wzDlAY3uJiqpZUxT1cCsqVNJKU8BAPbQ=";
-    #   };
-    # };
-
     loadModels = [
       "qwen2.5-coder:14b"
     ];
