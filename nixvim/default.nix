@@ -131,34 +131,12 @@
           enable = true;
 
           settings = {
-            #background = "dark";
             transparent = true;
-            #undercurl = true;
-            #terminal_colors = true;
             theme = "dragon";
             terminalColors = true;
             commentStyle = {
               italic = true;
             };
-
-            #styles = {
-            #  comments = {
-            #    italic = true;
-            #  };
-            #
-            #              functions = {
-            #                italic = true;
-            #              };
-            #
-            #              keywords = {
-            #                bold = true;
-            #              };
-
-            #              statement_style = {
-            ##                bold = true;
-            #              };
-
-            #            };
 
           };
 
