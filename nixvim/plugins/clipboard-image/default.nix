@@ -11,7 +11,7 @@
 
   config = lib.mkIf config.clipboard-image.enable {
     programs.nixvim.plugins.clipboard-image = {
-      enable = true;
+      enable = false;
       clipboardPackage = null;
       settings = {
         default = {
