@@ -73,6 +73,15 @@
     # basic nixvim config
     programs.nixvim = {
       enable = true;
+      package = pkgs.neovim-unwrapped.overrideAttrs {
+        version = "v0.12.0-dev";
+        src = pkgs.fetchFromGitHub {
+          owner = "neovim";
+          repo = "neovim";
+          rev = "af5ac171bde3ae7f961a23e9464309cee7ef9c13";
+          hash = "sha256-z2lLrDK3WRgGS9LA4KEQRgYxnZiVXh+bdg09puaBfk4=";
+        };
+      };
       defaultEditor = true;
       luaLoader.enable = false;
 
