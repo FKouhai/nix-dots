@@ -53,6 +53,11 @@
         action = ":cprev<CR>";
       }
       {
+        mode = "n";
+        key = "<leader>r";
+        action = ":mksession! Session.vim | restart source Session.vim<CR>";
+      }
+      {
         action = ":m '>+1<CR>gv=gv'";
         key = "J";
         mode = "v";
@@ -175,8 +180,8 @@
         };
       }
       {
-        action = ":ToggleTerm";
-        key = "<leader>tt<CR>";
+        action = ":ToggleTerm<CR>";
+        key = "<leader>tt";
         options = {
           silent = true;
           noremap = true;
