@@ -13,7 +13,7 @@
   imports = [
     ./hypr.nix
     ./prompt
-    ./nixvim
+    # ./nixvim
     ./shelltools
     ./devtooling
     ./gtk
@@ -227,6 +227,6 @@
       wofi.enable = true;
     };
   };
-  nixvimcfg.enable = true;
+  #nixvimcfg.enable = true;
   gtk-mod.enable = true;
 }

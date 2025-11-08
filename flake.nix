@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    frostvim.url = "github:FKouhai/frostvim/main";
     agenix.url = "github:ryantm/agenix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
@@ -15,10 +16,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     wallpapers = {
       url = "github:FKouhai/Kanagawa-wallpapers";
@@ -30,12 +27,12 @@
       self,
       agenix,
       chaotic,
+      frostvim,
       home-manager,
       nixpkgs,
       zen-browser,
       stylix,
       wallpapers,
-      nixvim,
       tokyonight,
       ...
     }@inputs:
@@ -51,6 +48,7 @@
       env_pkgs = {
         environment.systemPackages = [
           pkgs.ghostty
+          frostvim.packages.${system}.default
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
           wallpapers.packages.x86_64-linux.default
