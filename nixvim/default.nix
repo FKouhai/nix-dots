@@ -11,32 +11,30 @@
     # import home manager module
     inputs.nixvim.homeModules.nixvim
     # import plugin config
-    ./plugins/lualine
-    ./plugins/packer
-    ./plugins/oil
-    ./plugins/overseer
-    ./plugins/telescope
-    ./plugins/git
-    ./plugins/cmp
-    ./plugins/lsp
-    ./plugins/lint
-    ./plugins/harpoon
-    ./plugins/dashboard
-    ./plugins/tree-sitter
-    ./plugins/telekasten
-    ./plugins/toggleterm
-    ./plugins/clipboard-image
-    ./plugins/which-key
-    ./plugins/markdown-preview
-    ./plugins/images
-    ./plugins/presence
-    ./plugins/blink
-    ./plugins/trouble
-    ./plugins/hot-reload
-    ./plugins/luasnip
-    ./plugins/code_companion
-    ./plugins/avante
     ./keymaps.nix
+    ./plugins/blink
+    ./plugins/clipboard-image
+    ./plugins/cmp
+    ./plugins/code_companion
+    ./plugins/dashboard
+    ./plugins/git
+    ./plugins/harpoon
+    ./plugins/images
+    ./plugins/lint
+    ./plugins/lsp
+    ./plugins/lualine
+    ./plugins/luasnip
+    ./plugins/lzn
+    ./plugins/markdown-preview
+    ./plugins/oil
+    ./plugins/opencode
+    ./plugins/presence
+    ./plugins/telekasten
+    ./plugins/telescope
+    ./plugins/toggleterm
+    ./plugins/tree-sitter
+    ./plugins/trouble
+    ./plugins/which-key
     ./vimopts.nix
   ];
 
@@ -44,7 +42,6 @@
     nixvimcfg.enable = lib.mkEnableOption "Enable nixvim config module";
   };
   config = lib.mkIf config.nixvimcfg.enable {
-    avante.enable = lib.mkDefault true;
     blink.enable = lib.mkDefault false;
     clipboard-image.enable = lib.mkDefault true;
     cmp.enable = lib.mkDefault true;
@@ -59,10 +56,9 @@
     luasnip.enable = lib.mkDefault true;
     markdown-preview.enable = lib.mkDefault true;
     oil.enable = lib.mkDefault true;
-    overseer.enable = lib.mkDefault false;
-    packer.enable = lib.mkDefault true;
+    opencode.enable = lib.mkDefault true;
+    lzn.enable = lib.mkDefault true;
     presence.enable = lib.mkDefault true;
-    reload.enable = lib.mkDefault true;
     sitter.enable = lib.mkDefault true;
     telekasten.enable = lib.mkDefault true;
     telescope.enable = lib.mkDefault true;

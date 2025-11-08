@@ -6,7 +6,7 @@
 }:
 {
   options = {
-    toggleterm.enable = lib.mkEnableOption "Enable packer nixvim plugin module";
+    toggleterm.enable = lib.mkEnableOption "Enable toggleterm nixvim plugin module";
   };
 
   config = lib.mkIf config.toggleterm.enable {

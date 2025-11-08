@@ -9,7 +9,7 @@
     oil.enable = lib.mkEnableOption "Enable oil nixvim plugin module";
   };
 
-  config = lib.mkIf config.packer.enable {
+  config = lib.mkIf config.oil.enable {
     programs.nixvim.plugins.oil = {
       enable = true;
       settings = {

@@ -58,6 +58,22 @@
         action = ":mksession! Session.vim | restart source Session.vim<CR>";
       }
       {
+        mode = [
+          "n"
+          "x"
+        ];
+        key = "<C-a>";
+        action.__raw = ''function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode" }'';
+      }
+      {
+        mode = [
+          "n"
+          "x"
+        ];
+        key = "<C-x>";
+        action.__raw = ''function() require("opencode").select() end'';
+      }
+      {
         action = ":m '>+1<CR>gv=gv'";
         key = "J";
         mode = "v";
