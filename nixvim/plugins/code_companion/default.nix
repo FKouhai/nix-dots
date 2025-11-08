@@ -1,13 +1,8 @@
 {
   lib,
-  self,
   config,
-  options,
   ...
 }:
-let
-  ollama_key_path = config.age.secrets.ollama.path;
-in
 {
   options = {
     companion.enable = lib.mkEnableOption "Enable code companion nixvim plugin module";
@@ -23,26 +18,13 @@ in
               ollama = {
                 __raw = ''
                   function()
-                      local function read_file(path)
-                      local file = io.open(path, "r")
-                      if not file then return nil end
-                      local content = file:read("*a")
-                      file:close()
-                      return content:gsub("^%s*(.-)%s*$", "%1")
-                      end
-                      local key = read_file("/run/user/1000/agenix/ollama")
                     return require('codecompanion.adapters').extend('ollama', {
                         env = {
-                            url = "https://ollama.com";
-                            api_key = key;
-                        },
-                        headers = { 
-                          ["Content-Type"] = "application/json",
-                          ["Authorization"] = "Bearer " .. key,
+                            url = "http://127.0.0.1:11434",
                         },
                         schema = {
                             model = {
-                                default = 'qwen3-coder:480b',
+                                default = 'qwen2.5-coder:14b',
                             },
                             num_ctx = {
                                 default = 32768,
