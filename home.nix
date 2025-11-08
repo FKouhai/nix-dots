@@ -13,7 +13,6 @@
   imports = [
     ./hypr.nix
     ./prompt
-    # ./nixvim
     ./shelltools
     ./devtooling
     ./gtk
