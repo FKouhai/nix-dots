@@ -301,11 +301,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1762634847,
-        "narHash": "sha256-MQsxJ+2fehlla3lgsPNu5piCAAkyQMYrClrTfuH4uDY=",
+        "lastModified": 1762637010,
+        "narHash": "sha256-RfQtnRaWiFxLBmSdFxpRGyxdPTvhJSl6Q3WgZxcj7tk=",
         "owner": "FKouhai",
         "repo": "frostvim",
-        "rev": "04639cb593864cefaefa3e0305cddee0c526c383",
+        "rev": "a2f00c3d9229d47392103af456f0d79cb6087301",
         "type": "github"
       },
       "original": {
