@@ -131,8 +131,8 @@
       nwg-look
       obsidian
       oci-cli
-      opencloud-desktop
       opencode
+      opencloud-desktop
       pavucontrol
       playerctl
       pulseaudio
