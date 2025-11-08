@@ -227,6 +227,5 @@
       wofi.enable = true;
     };
   };
-  #nixvimcfg.enable = true;
   gtk-mod.enable = true;
 }
