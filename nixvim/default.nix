@@ -61,7 +61,7 @@
     presence.enable = lib.mkDefault true;
     sitter.enable = lib.mkDefault true;
     telekasten.enable = lib.mkDefault true;
-    telescope.enable = lib.mkDefault true;
+    telescope.enable = lib.mkDefault false;
     toggleterm.enable = lib.mkDefault true;
     trouble.enable = lib.mkDefault true;
     which-key.enable = lib.mkDefault true;

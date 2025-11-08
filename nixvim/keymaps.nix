@@ -281,18 +281,18 @@
           desc = "Open markdown preview in browser";
         };
       }
-      # Telescope search (live grep)
+      # Harpoon marks
       {
         action = ":Telescope harpoon marks<CR>";
         key = "<leader>e";
         options = {
           silent = true;
           noremap = true;
-          desc = "Search grep";
+          desc = "Harpoon marks";
         };
       }
       {
-        action = ":Telescope live_grep<CR>";
+        action.__raw = "function() Snacks.picker.grep() end";
         key = "<leader>fg";
         options = {
           silent = true;
@@ -300,9 +300,9 @@
           desc = "Search grep";
         };
       }
-      # Telescope search buffers
+      # Snacks picker search buffers
       {
-        action = ":Telescope buffers<CR>";
+        action.__raw = "function() Snacks.picker.buffers() end";
         key = "<leader>fb";
         options = {
           silent = true;
@@ -310,9 +310,9 @@
           desc = "Search buffers";
         };
       }
-      # Telescope buffer
+      # Snacks picker buffer
       {
-        action = ":Telescope current_buffer_fuzzy_find<CR>";
+        action.__raw = "function() Snacks.picker.lines() end";
         key = "<leader>b";
         options = {
           silent = true;
@@ -320,9 +320,9 @@
           desc = "Search current buffer";
         };
       }
-      # Telescope search commands
+      # Snacks picker search commands
       {
-        action = ":Telescope command_history<CR>";
+        action.__raw = "function() Snacks.picker.command_history() end";
         key = "<leader>fh";
         options = {
           silent = true;
@@ -330,9 +330,9 @@
           desc = "Search commands";
         };
       }
-      # Telescope search files
+      # Snacks picker search files
       {
-        action = ":Telescope find_files<CR>";
+        action.__raw = "function() Snacks.picker.files() end";
         key = "<leader>ff";
         options = {
           silent = true;
@@ -340,9 +340,9 @@
           desc = "Search files";
         };
       }
-      # Telescope search commands
+      # Snacks picker search commands
       {
-        action = ":Telescope commands<CR>";
+        action.__raw = "function() Snacks.picker.commands() end";
         key = "<leader>fc";
         options = {
           silent = true;
@@ -350,9 +350,9 @@
           desc = "Search commands";
         };
       }
-      # Telescope diagnostics
+      # Snacks picker diagnostics
       {
-        action = ":Telescope diagnostics<CR>";
+        action.__raw = "function() Snacks.picker.diagnostics() end";
         key = "<leader>fd";
         options = {
           silent = true;
@@ -360,9 +360,9 @@
           desc = "Diagnostics";
         };
       }
-      # Telescope quickfixlist
+      # Snacks picker quickfixlist
       {
-        action = ":Telescope quickfix<CR>";
+        action.__raw = "function() Snacks.picker.qflist() end";
         key = "<leader>ql";
         options = {
           silent = true;
@@ -370,9 +370,9 @@
           desc = "Quickfix list";
         };
       }
-      # Telescope undo tree
+      # Snacks picker undo tree
       {
-        action = ":Telescope undo<CR>";
+        action.__raw = "function() Snacks.picker.undo() end";
         key = "<leader>fu";
         options = {
           silent = true;
@@ -381,7 +381,7 @@
         };
       }
       {
-        action = ":Telescope git_commits<CR>";
+        action.__raw = "function() Snacks.picker.git_log() end";
         key = "<leader>fx";
         options = {
           silent = true;
@@ -390,7 +390,7 @@
         };
       }
       {
-        action = ":Telescope git_branches<CR>";
+        action.__raw = "function() Snacks.picker.git_branches() end";
         key = "<leader>ft";
         options = {
           silent = true;
@@ -399,16 +399,16 @@
         };
       }
       {
-        action = ":Telescope git_worktree<CR>";
-        key = "<leader>fw";
+        action.__raw = "function() Snacks.picker.git_status() end";
+        key = "<leader>fst";
         options = {
           silent = true;
           noremap = true;
-          desc = "git worktree";
+          desc = "git status";
         };
       }
       {
-        action = ":Telescope git_status<CR>";
+        action.__raw = "function() Snacks.picker.git_status() end";
         key = "<leader>fst";
         options = {
           silent = true;
