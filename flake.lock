@@ -319,11 +319,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1762772382,
-        "narHash": "sha256-Q5f5Yy8xP9UjPRdr5yyZCeerGW3ypYIDDVeaVESDp6A=",
+        "lastModified": 1762807153,
+        "narHash": "sha256-G7ZYfCO+cF3i8ljAOv0XCH0DaCXW1rDSzg1Qy2QfAuM=",
         "owner": "FKouhai",
         "repo": "frostvim",
-        "rev": "e1e03ae9eb8958e90f787dcb7e4d3e8d053d7e4b",
+        "rev": "b7ed3aae8d13859cbd72cc1a9c1313da3a6758ad",
         "type": "github"
       },
       "original": {
