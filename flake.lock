@@ -227,6 +227,24 @@
         "type": "github"
       }
     },
+    "flake-parts_4": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1762440070,
+        "narHash": "sha256-xxdepIcb39UJ94+YydGP221rjnpkDZUlykKuF54PsqI=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "26d05891e14c88eb4a5d5bee659c0db5afb609d8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-schemas": {
       "locked": {
         "lastModified": 1721999734,
@@ -301,11 +319,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1762637010,
-        "narHash": "sha256-RfQtnRaWiFxLBmSdFxpRGyxdPTvhJSl6Q3WgZxcj7tk=",
+        "lastModified": 1762772382,
+        "narHash": "sha256-Q5f5Yy8xP9UjPRdr5yyZCeerGW3ypYIDDVeaVESDp6A=",
         "owner": "FKouhai",
         "repo": "frostvim",
-        "rev": "a2f00c3d9229d47392103af456f0d79cb6087301",
+        "rev": "e1e03ae9eb8958e90f787dcb7e4d3e8d053d7e4b",
         "type": "github"
       },
       "original": {
@@ -543,6 +561,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1761765539,
+        "narHash": "sha256-b0yj6kfvO8ApcSE+QmA6mUfu8IYG6/uU28OFn4PaC8M=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "719359f4562934ae99f5443f20aa06c2ffff91fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1762363567,
@@ -755,7 +788,8 @@
         "stylix": "stylix",
         "tokyonight": "tokyonight",
         "wallpapers": "wallpapers",
-        "zen-browser": "zen-browser"
+        "zen-browser": "zen-browser",
+        "zmk-cli": "zmk-cli"
       }
     },
     "rust-overlay": {
@@ -1055,6 +1089,28 @@
       "original": {
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
+        "type": "github"
+      }
+    },
+    "zmk-cli": {
+      "inputs": {
+        "flake-parts": "flake-parts_4",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762683062,
+        "narHash": "sha256-5W8pKrVmruZhMTXPBZBdAcDjAo08FNugU3/w8RG8HuI=",
+        "owner": "FKouhai",
+        "repo": "zmk-cli-flake",
+        "rev": "b068dd8658638ec94a78117a2249843f07e25c55",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FKouhai",
+        "ref": "main",
+        "repo": "zmk-cli-flake",
         "type": "github"
       }
     }

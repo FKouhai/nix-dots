@@ -20,6 +20,10 @@
     wallpapers = {
       url = "github:FKouhai/Kanagawa-wallpapers";
     };
+    zmk-cli = {
+      url = "github:FKouhai/zmk-cli-flake/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,6 +38,7 @@
       stylix,
       wallpapers,
       tokyonight,
+      zmk-cli,
       ...
     }@inputs:
     let
@@ -52,6 +57,7 @@
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
           wallpapers.packages.x86_64-linux.default
+          zmk-cli.packages.x86_64-linux.default
         ];
       };
       hm_user_cfg = {
