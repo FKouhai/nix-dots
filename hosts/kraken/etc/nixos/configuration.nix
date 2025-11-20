@@ -75,6 +75,7 @@ in
 
   systemd.services = {
     dhcpd.enable = false;
+    nvidia-container-toolkit-cdi-generator.serviceConfig.ExecStartPre = lib.mkForce null;
   };
   networking = {
     firewall = {
@@ -323,7 +324,7 @@ in
   };
 
   hardware = {
-    nvidia-container-toolkit.enable = false;
+    nvidia-container-toolkit.enable = true;
     logitech.wireless.enable = true;
     logitech.wireless.enableGraphical = true;
     graphics = {
