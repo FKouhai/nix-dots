@@ -323,7 +323,7 @@ in
   };
 
   hardware = {
-    nvidia-container-toolkit.enable = true;
+    nvidia-container-toolkit.enable = false;
     logitech.wireless.enable = true;
     logitech.wireless.enableGraphical = true;
     graphics = {
