@@ -12,7 +12,12 @@ This repo contains the nix configurations for my main workstations
 Under hosts I have the hardware and basic config of each of my hosts, these are divided by their hostname.
 ```
 .
-├── devtooling -> Direcotry that contains all the configs for my dev tools
+├── assets
+│   ├── glance.png
+│   ├── nitch_full_screen.png
+│   ├── tmux_btop.png
+│   └── tmux_nvim.png
+├── devtooling
 │   ├── default.nix
 │   ├── git
 │   │   └── default.nix
@@ -27,12 +32,13 @@ Under hosts I have the hardware and basic config of each of my hosts, these are 
 │   │   └── default.nix
 │   ├── rust
 │   │   └── default.nix
-│   └── tmux
+│   ├── tmux
+│   │   └── default.nix
+│   └── zed
 │       └── default.nix
-├
 ├── flake.lock
 ├── flake.nix
-├── gtk -> Needed gtk configs
+├── gtk
 │   ├── conf
 │   │   └── default.nix
 │   └── default.nix
@@ -42,70 +48,29 @@ Under hosts I have the hardware and basic config of each of my hosts, these are 
 │   │   └── etc
 │   │       └── nixos
 │   │           ├── configuration.nix
-│   │           ├── hardware-configuration.nix
-│   │           ├── wall-03.jpg
-│   │           └── wp2.jpg
+│   │           └── hardware-configuration.nix
 │   └── kraken
 │       └── etc
 │           └── nixos
 │               ├── configuration.nix
+│               ├── glance.nix
 │               ├── hardware-configuration.nix
+│               ├── logiops.nix
 │               ├── ollama.nix
-│               ├── udev.nix
-│               └── wp2.jpg
-├── hypr.nix -> Hyrpland configuration
-├── hyprpanel.nix -> currently not in use
-├── keymaps.nix -> nvim keymaps
-├── nixvim -> nvim configurations using nixvim
+│               └── udev.nix
+├── hyprland
+│   ├── config
+│   │   ├── animations.nix
+│   │   ├── bindings.nix
+│   │   └── windowrules.nix
 │   ├── default.nix
-│   └── plugins
-│       ├── blink
-│       │   └── default.nix
-│       ├── clipboard-image
-│       │   └── default.nix
-│       ├── cmp
-│       │   └── default.nix
-│       ├── code_companion
-│       │   └── default.nix
-│       ├── dashboard
-│       │   └── default.nix
-│       ├── git
-│       │   └── default.nix
-│       ├── harpoon
-│       │   └── default.nix
-│       ├── hot-reload
-│       │   └── default.nix
-│       ├── images
-│       │   └── default.nix
-│       ├── lint
-│       │   └── default.nix
-│       ├── lsp
-│       │   └── default.nix
-│       ├── lualine
-│       │   └── default.nix
-│       ├── luasnip
-│       │   └── default.nix
-│       ├── markdown-preview
-│       │   └── default.nix
-│       ├── oil
-│       │   └── default.nix
-│       ├── packer
-│       │   └── default.nix
-│       ├── presence
-│       │   └── default.nix
-│       ├── telekasten
-│       │   └── default.nix
-│       ├── telescope
-│       │   └── default.nix
-│       ├── toggleterm
-│       │   └── default.nix
-│       ├── tree-sitter
-│       │   └── default.nix
-│       ├── trouble
-│       │   └── default.nix
-│       └── which-key
-│           └── default.nix
-├── prompt -> prompt for zsh
+│   ├── hypr.nix
+│   ├── hyprlock.nix
+│   ├── hyprpanel.nix
+│   ├── hyprpaper.nix
+│   └── wlogout.nix
+├── packages.nix
+├── prompt
 │   ├── default.nix
 │   └── starship
 │       ├── default.nix
@@ -114,7 +79,10 @@ Under hosts I have the hardware and basic config of each of my hosts, these are 
 │       ├── oxo.toml
 │       └── tokyonight.nix
 ├── README.md
-├── shelltools -> general tools I use within my terminal
+├── secrets
+│   ├── ollama.age
+│   └── secrets.nix
+├── shelltools
 │   ├── atuin
 │   │   └── default.nix
 │   ├── bat
@@ -124,6 +92,8 @@ Under hosts I have the hardware and basic config of each of my hosts, these are 
 │   │   └── default.nix
 │   ├── eza
 │   │   └── default.nix
+│   ├── fish
+│   │   └── default.nix
 │   ├── fzf
 │   │   └── default.nix
 │   ├── yazi
@@ -132,5 +102,11 @@ Under hosts I have the hardware and basic config of each of my hosts, these are 
 │   │   └── default.nix
 │   └── zsh
 │       └── default.nix
-└── vimopts.nix -> nvim options
+├── stylix
+│   └── default.nix
+├── terminals
+│   ├── default.nix
+│   └── kitty.nix
+├── treefmt.toml
+└── .gitignore
 ```
