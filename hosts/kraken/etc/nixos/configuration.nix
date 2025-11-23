@@ -63,6 +63,7 @@ in
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [
       "pci=nomsi"

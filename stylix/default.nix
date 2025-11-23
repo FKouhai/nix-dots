@@ -18,13 +18,13 @@
         btop.enable = true;
         gtk.enable = false;
         hyprland.enable = true;
+        hyprpanel.enable = true;
         k9s.enable = true;
         kubecolor.enable = true;
-        opencode.enable = true;
         lazygit.enable = true;
         mpv.enable = true;
+        opencode.enable = true;
         vesktop.enable = true;
-        hyprpanel.enable = true;
         wofi.enable = true;
       };
     };
