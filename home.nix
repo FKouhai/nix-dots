@@ -11,12 +11,13 @@
   # manage.
 
   imports = [
-    ./hypr.nix
+    ./hyprland
     ./prompt
     ./shelltools
     ./devtooling
     ./gtk
-    ./hyprpanel.nix
+    ./terminals
+    ./stylix
     inputs.stylix.homeModules.stylix
     inputs.tokyonight.homeManagerModules.default
   ];
@@ -73,80 +74,7 @@
       EDITOR = "nvim";
     };
 
-    packages = with pkgs; [
-      age
-      ags
-      bind
-      bitwarden-desktop
-      brave
-      btop
-      bulletty
-      cava
-      coreutils
-      cosmic-files
-      cliphist
-      dysk
-      element-desktop
-      exercism
-      fastfetch
-      fd
-      ffmpeg
-      gamemode
-      gcc
-      gh
-      git-lfs
-      gnome-keyring
-      gnome-secrets
-      gnome-themes-extra
-      gowall
-      gpgme
-      gtk-engine-murrine
-      gum
-      hack-font
-      heroic
-      hubble
-      hyprshot
-      jetbrains-mono
-      jq
-      kanagawa-gtk-theme
-      kanagawa-icon-theme
-      lazygit
-      libnotify
-      libnvidia-container
-      lmstudio
-      mpv
-      nitch
-      nix-search-tv
-      nixos-generators
-      nvidia-docker
-      nwg-look
-      obsidian
-      oci-cli
-      #opencode
-      opencloud-desktop
-      pavucontrol
-      playerctl
-      pulseaudio
-      pulseaudio-ctl
-      pulsemixer
-      revive
-      ripgrep
-      sesh
-      statix
-      statping-ng
-      telegram-desktop
-      terraform-ls
-      tflint
-      tldr
-      tmux
-      tokyonight-gtk-theme
-      treefmt
-      vesktop
-      vulkan-tools
-      wl-clipboard
-      wlogout
-      python3
-    ];
+    packages = import ./packages.nix { inherit pkgs; };
     pointerCursor = {
       gtk.enable = true;
       package = pkgs.bibata-cursors;
@@ -199,24 +127,8 @@
     platformTheme.name = "gtk";
     style.name = "kvantum";
   };
-  stylix = {
-    autoEnable = false;
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
-    targets = {
-      bat.enable = true;
-      btop.enable = true;
-      gtk.enable = false;
-      hyprland.enable = true;
-      k9s.enable = true;
-      kubecolor.enable = true;
-      opencode.enable = true;
-      lazygit.enable = true;
-      mpv.enable = true;
-      vesktop.enable = true;
-      hyprpanel.enable = true;
-      wofi.enable = true;
-    };
-  };
+  stylix-mod.enable = true;
   gtk-mod.enable = true;
+  hyprland.enable = true;
+  terminals.enable = true;
 }
