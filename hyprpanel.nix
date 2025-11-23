@@ -65,7 +65,6 @@
       theme = {
         matugen = true;
         matugen_settings.mode = "dark";
-        #name = "gruvbox_split";
         osd.radius = "0.7em";
         bar = {
           transparent = true;

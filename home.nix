@@ -70,14 +70,12 @@
     sessionVariables = {
       OZONE_PLATFORM = "wayland";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-      # EDITOR = "emacs";
+      EDITOR = "nvim";
     };
 
     packages = with pkgs; [
-      # jetbrains.goland
       age
       ags
-      alejandra
       bind
       bitwarden-desktop
       brave
@@ -93,7 +91,6 @@
       fastfetch
       fd
       ffmpeg
-      fishPlugins.forgit
       gamemode
       gcc
       gh
@@ -104,24 +101,19 @@
       gowall
       gpgme
       gtk-engine-murrine
-      gh-dash
       gum
       hack-font
       heroic
       hubble
-      hyprpanel
-      hyprpaper
       hyprshot
       jetbrains-mono
       jq
       kanagawa-gtk-theme
       kanagawa-icon-theme
-      lazydocker
       lazygit
       libnotify
       libnvidia-container
       lmstudio
-      matugen
       mpv
       nitch
       nix-search-tv
@@ -150,12 +142,10 @@
       tokyonight-gtk-theme
       treefmt
       vesktop
-      vhs
       vulkan-tools
       wl-clipboard
       wlogout
       python3
-      zed-editor
     ];
     pointerCursor = {
       gtk.enable = true;
@@ -223,6 +213,7 @@
       lazygit.enable = true;
       mpv.enable = true;
       vesktop.enable = true;
+      hyprpanel.enable = true;
       wofi.enable = true;
     };
   };

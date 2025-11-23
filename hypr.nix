@@ -190,8 +190,8 @@ in
         "opacity 0.90 0.90,class:^(Cider)$"
         "opacity 0.90 0.90,class:^(cosmic-files)$"
         "opacity 0.90 0.90,class:^(vesktop)$"
-        "opacity 0.99 0.99,class:^(zen-beta)$"
-        "opacity 0.99 0.99,class:^(zen)$"
+        "opacity 1.0 1.0,class:^(zen-beta)$"
+        "noblur,class:^(zen-beta)$"
       ];
       monitor = [
         "${vars.mainMonitor.name},${vars.mainMonitor.width}x${vars.mainMonitor.height}@${vars.mainMonitor.refresh},0x0,1"
