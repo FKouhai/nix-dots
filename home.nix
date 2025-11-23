@@ -122,7 +122,7 @@
       nwg-look
       obsidian
       oci-cli
-      opencode
+      #opencode
       opencloud-desktop
       pavucontrol
       playerctl
@@ -210,6 +210,7 @@
       hyprland.enable = true;
       k9s.enable = true;
       kubecolor.enable = true;
+      opencode.enable = true;
       lazygit.enable = true;
       mpv.enable = true;
       vesktop.enable = true;

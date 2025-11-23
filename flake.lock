@@ -760,6 +760,26 @@
         "type": "github"
       }
     },
+    "opencode": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763899441,
+        "narHash": "sha256-CkUGA2HOMG+e25foixzujwU6Hn+r1BR7Q/gTOuhNvNI=",
+        "owner": "sst",
+        "repo": "opencode",
+        "rev": "55df80b80e93e5061ef8d3671324b047dbd334cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sst",
+        "repo": "opencode",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -787,6 +807,7 @@
         "frostvim": "frostvim",
         "home-manager": "home-manager_3",
         "nixpkgs": "nixpkgs_6",
+        "opencode": "opencode",
         "stylix": "stylix",
         "tokyonight": "tokyonight",
         "wallpapers": "wallpapers",

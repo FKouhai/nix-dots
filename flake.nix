@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    opencode = {
+      url = "github:sst/opencode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     tokyonight = {
       url = "github:mrjones2014/tokyonight.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +41,7 @@
       zen-browser,
       stylix,
       wallpapers,
+      opencode,
       tokyonight,
       zmk-cli,
       ...
@@ -56,6 +61,7 @@
           frostvim.packages.${system}.default
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
+          opencode.packages.x86_64-linux.default
           wallpapers.packages.x86_64-linux.default
           zmk-cli.packages.x86_64-linux.default
         ];
