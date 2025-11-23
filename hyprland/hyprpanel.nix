@@ -1,10 +1,16 @@
 {
+  lib,
   inputs,
   pkgs,
   vars,
+  config,
   ...
 }:
 {
+  options = {
+    hyprpanel.enable = lib.mkEnableOption "Enable hyprpanel module";
+  };
+  config = lib.mkIf config.hyprpanel.enable {
   programs.hyprpanel = {
     enable = true;
     systemd.enable = true;
@@ -150,4 +156,5 @@
       }
     '';
   };
+   };
 }
