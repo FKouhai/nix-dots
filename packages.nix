@@ -1,6 +1,7 @@
 { pkgs }:
 
 with pkgs; [
+
   age
   ags
   bind
@@ -9,9 +10,9 @@ with pkgs; [
   btop
   bulletty
   cava
+  cliphist
   coreutils
   cosmic-files
-  cliphist
   dysk
   element-desktop
   exercism
@@ -49,13 +50,13 @@ with pkgs; [
   nwg-look
   obsidian
   oci-cli
-  #opencode
   opencloud-desktop
   pavucontrol
   playerctl
   pulseaudio
   pulseaudio-ctl
   pulsemixer
+  python3
   revive
   ripgrep
   sesh
@@ -72,5 +73,5 @@ with pkgs; [
   vulkan-tools
   wl-clipboard
   wlogout
-  python3
+
 ]
