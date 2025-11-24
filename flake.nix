@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixvim.url = "github:nix-community/nixvim";
     frostvim.url = "github:FKouhai/frostvim/main";
     agenix.url = "github:ryantm/agenix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -37,6 +38,7 @@
       chaotic,
       frostvim,
       home-manager,
+      nixvim,
       nixpkgs,
       zen-browser,
       stylix,
@@ -58,7 +60,7 @@
       env_pkgs = {
         environment.systemPackages = [
           pkgs.ghostty
-          frostvim.packages.${system}.default
+          #frostvim.packages.${system}.default
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
           opencode.packages.x86_64-linux.default
