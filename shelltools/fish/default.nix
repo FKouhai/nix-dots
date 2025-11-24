@@ -17,6 +17,7 @@
         set -gx SSH_AUTH_SOCK /home/franky/.bitwarden-ssh-agent.sock
         fish_vi_key_bindings
         function last_history_item; echo $history[1]; end
+        export GEMINI_API_KEY=$(cat {$XDG_RUNTIME_DIR}/agenix/gemini)
         abbr -a !! --position anywhere --function last_history_item
       '';
 

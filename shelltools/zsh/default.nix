@@ -21,6 +21,7 @@
         source "$(fzf-share)/key-bindings.zsh"
         source "$(fzf-share)/completion.zsh"
         source <(fzf --zsh)
+        export GEMINI_API_KEY=$(cat ${config.age.secrets.gemini.path})
         export SSH_AUTH_SOCK=/home/franky/.bitwarden-ssh-agent.sock
       '';
       plugins = [
