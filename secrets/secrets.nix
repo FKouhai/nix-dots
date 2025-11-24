@@ -7,4 +7,8 @@ in
     franky
     kraken
   ];
+  "gemini.age".publicKeys = [
+    franky
+    kraken
+  ];
 }
