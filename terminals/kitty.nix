@@ -11,7 +11,7 @@
     programs.kitty = {
       enable = true;
       settings = {
-        font_family = "Hack Nerd Font";
+        font_family = "Maple Mono NF";
         bold_font = "auto";
         italic_font = "auto";
         bold_italic_font = "auto";

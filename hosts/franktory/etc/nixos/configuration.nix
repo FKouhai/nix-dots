@@ -125,6 +125,8 @@ in
   #  font.packages = [ ... ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
   fonts.packages = [
     pkgs.nerd-fonts.hack
+    pkgs.maple-mono.NF-unhinted
+    pkgs.maple-mono.truetype
   ];
   #fonts.packages = with pkgs; [ pkgs.nerdfonts ];
   users = {

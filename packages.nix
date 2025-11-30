@@ -1,6 +1,7 @@
 { pkgs }:
 
-with pkgs; [
+with pkgs;
+[
 
   age
   ags
@@ -31,6 +32,8 @@ with pkgs; [
   gtk-engine-murrine
   gum
   hack-font
+  pkgs.maple-mono.NF-unhinted
+  pkgs.maple-mono.truetype
   heroic
   hubble
   hyprshot

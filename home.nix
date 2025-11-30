@@ -23,6 +23,7 @@
     inputs.nixvim.homeModules.nixvim
     inputs.tokyonight.homeManagerModules.default
   ];
+  fonts.fontconfig.enable = true;
 
   age = {
     identityPaths = [ "/home/franky/.ssh/age" ];
