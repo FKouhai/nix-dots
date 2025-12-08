@@ -71,7 +71,7 @@
         theme = "${config.xdg.configHome}/ghostty/theme"
         background-opacity = 0.9
         window-decoration = false
-        font-family = "Hack Nerd Font"
+        font-family = "Maple Mono NF"
       '';
     };
 
