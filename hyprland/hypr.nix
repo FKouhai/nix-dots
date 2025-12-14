@@ -53,6 +53,10 @@
             allow_tearing = true;
             layout = "dwindle";
           };
+          input = {
+            kb_layout = "us";
+            kb_variant = "altgr-intl";
+          };
           decoration = {
             rounding = 10;
             blur = {
