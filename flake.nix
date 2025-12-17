@@ -5,6 +5,10 @@
     frostvim.url = "github:FKouhai/frostvim/main";
     agenix.url = "github:ryantm/agenix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    caelestia-shell = {
+      url = "github:anarion80/caelestia-shell/topbar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +40,7 @@
       self,
       agenix,
       chaotic,
+      caelestia-shell,
       frostvim,
       home-manager,
       nixvim,
@@ -61,8 +66,10 @@
         environment.systemPackages = [
           pkgs.ghostty
           #frostvim.packages.${system}.default
+
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
+          caelestia-shell.packages.x86_64-linux.default
           opencode.packages.x86_64-linux.default
           wallpapers.packages.x86_64-linux.default
           zmk-cli.packages.x86_64-linux.default
