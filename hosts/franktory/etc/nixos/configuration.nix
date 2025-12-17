@@ -113,6 +113,7 @@ in
   };
 
   programs = {
+    gpu-screen-recorder.enable = true;
     zsh.enable = true;
     hyprland = {
       enable = true;
