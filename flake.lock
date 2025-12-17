@@ -89,6 +89,53 @@
         "type": "github"
       }
     },
+    "caelestia-cli": {
+      "inputs": {
+        "caelestia-shell": [
+          "caelestia-shell"
+        ],
+        "nixpkgs": [
+          "caelestia-shell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764381410,
+        "narHash": "sha256-WR/oQQjveFqQxo8oHngZuOVgBQINDgPe+lCXLeNhAAg=",
+        "owner": "caelestia-dots",
+        "repo": "cli",
+        "rev": "ed12d4cb82600872a82feb577711be1148c7af35",
+        "type": "github"
+      },
+      "original": {
+        "owner": "caelestia-dots",
+        "repo": "cli",
+        "type": "github"
+      }
+    },
+    "caelestia-shell": {
+      "inputs": {
+        "caelestia-cli": "caelestia-cli",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1764749126,
+        "narHash": "sha256-2gqlD45TUQr6LvT90ypxGb5jeLdX6Clkqfd783GcSUw=",
+        "owner": "anarion80",
+        "repo": "caelestia-shell",
+        "rev": "1d98822bad3d90e27d3ac9e5c4e751493d14aae7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anarion80",
+        "ref": "topbar",
+        "repo": "caelestia-shell",
+        "type": "github"
+      }
+    },
     "chaotic": {
       "inputs": {
         "flake-schemas": "flake-schemas",
@@ -784,9 +831,31 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "caelestia-shell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764045583,
+        "narHash": "sha256-W24ReyRrhOKTKIsuAMkY5hnVlCufGoONM79sjUoyQkk=",
+        "ref": "refs/heads/master",
+        "rev": "e9bad67619ee9937a1bbecfc6ad3b4231d2ecdc3",
+        "revCount": 709,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "caelestia-shell": "caelestia-shell",
         "chaotic": "chaotic",
         "frostvim": "frostvim",
         "home-manager": "home-manager_3",
@@ -1068,11 +1137,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1761774211,
-        "narHash": "sha256-WrY9nroEc+ZUN7yqHWmsu7512Z3EBnihJv30EQZC2oQ=",
+        "lastModified": 1765921769,
+        "narHash": "sha256-h6PIrAuuPx7iDu+ymDPmgf84BzEYMh5kHY5+zMa+2NA=",
         "owner": "FKouhai",
         "repo": "Kanagawa-wallpapers",
-        "rev": "68cadfc184a141a04555d60297d25bf2092cd532",
+        "rev": "f9c7d78466b434da2d073c325ef791fab70be84a",
         "type": "github"
       },
       "original": {
