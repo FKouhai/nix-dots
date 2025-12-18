@@ -4,7 +4,7 @@
     nixvim.url = "github:nix-community/nixvim";
     frostvim.url = "github:FKouhai/frostvim/main";
     agenix.url = "github:ryantm/agenix";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     caelestia-shell = {
       url = "github:anarion80/caelestia-shell/topbar";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +39,7 @@
     {
       self,
       agenix,
-      chaotic,
+      nix-cachyos-kernel,
       caelestia-shell,
       frostvim,
       home-manager,
@@ -61,6 +61,9 @@
         config = {
           allowUnfree = true;
         };
+        overlays = [
+          nix-cachyos-kernel.overlay
+        ];
       };
       env_pkgs = {
         environment.systemPackages = [
@@ -105,7 +108,7 @@
                   hostName = "franktory";
                   isDesktop = false;
                   class = "laptop";
-                  wallpaper = "${wallpapers}/kanagawa-dragon/sciel.jpg";
+                  wallpaper = "${wallpapers}/kanagawa-dragon/3895e.jpg";
                   mainMonitor = {
                     name = "eDP-1";
                     width = "1920";
@@ -134,7 +137,6 @@
 
         modules = with pkgs; [
           ./hosts/kraken/etc/nixos/configuration.nix
-          chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
           env_pkgs
           hm_user_cfg
@@ -150,7 +152,7 @@
                   hostName = "kraken";
                   isDesktop = true;
                   class = "desktop";
-                  wallpaper = "${wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/cthulu_2.png";
+                  wallpaper = "${wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/3895e.jpg";
                   mainMonitor = {
                     name = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. GS27QA 24286B001135";
                     width = "2560";
