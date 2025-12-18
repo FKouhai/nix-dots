@@ -64,7 +64,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     kernelParams = [
       "pci=nomsi"
       "clearcpuid=514"
