@@ -14,6 +14,7 @@
   ];
 
   boot = {
+    blacklistedKernelModules = [ "nova_core" ];
     initrd = {
       availableKernelModules = [
         "nvme"
