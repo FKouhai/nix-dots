@@ -73,6 +73,7 @@ with pkgs;
   tokyonight-gtk-theme
   treefmt
   vesktop
+  vial
   vulkan-tools
   wl-clipboard
   wlogout
