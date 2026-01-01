@@ -10,6 +10,7 @@
     ./go
     ./kubernetes
     ./lua
+    ./nixvim
     ./rust
     ./tmux
     ./zed
@@ -24,6 +25,7 @@
     go.enable = lib.mkDefault true;
     kubernetes.enable = lib.mkDefault true;
     lua.enable = lib.mkDefault true;
+    nixvim.enable = lib.mkDefault true;
     rust.enable = lib.mkDefault true;
     tmux.enable = lib.mkDefault true;
     zed.enable = lib.mkDefault true;
