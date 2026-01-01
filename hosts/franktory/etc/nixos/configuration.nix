@@ -128,7 +128,7 @@ in
   ];
   #fonts.packages = with pkgs; [ pkgs.nerdfonts ];
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
     users.franky = {
       isNormalUser = true;
       description = "franky";
