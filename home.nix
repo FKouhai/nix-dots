@@ -103,7 +103,22 @@
       imports = [
         inputs.frostvim.nixvimModules.default
       ];
+
       plugins = {
+
+        avante = {
+          enable = true;
+          settings = {
+            provider = "opencode";
+            acp_providrs = {
+              opencode = {
+                command = "opencode";
+                args = [ "acp" ];
+              };
+            };
+          };
+        };
+
         minuet = {
           enable = true;
           settings = {
