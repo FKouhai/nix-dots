@@ -45,36 +45,18 @@
       wayland.windowManager.hyprland = {
         enable = true;
         portalPackage = pkgs.xdg-desktop-portal-hyprland;
+
         settings = {
-          general = {
-            gaps_in = 5;
-            gaps_out = 10;
-            border_size = 2;
-            allow_tearing = true;
-            layout = "dwindle";
-          };
           input = {
             kb_layout = "us";
             kb_variant = "altgr-intl";
-          };
-          decoration = {
-            rounding = 10;
-            blur = {
-              enabled = true;
-              size = 7;
-              passes = 3;
-              new_optimizations = true;
-              noise = 0.08;
-              contrast = 1.5;
-              xray = false;
-              ignore_opacity = true;
-            };
           };
 
           monitor = [
             "${vars.mainMonitor.name},${vars.mainMonitor.width}x${vars.mainMonitor.height}@${vars.mainMonitor.refresh},0x0,1"
             "${vars.secondaryMonitor.name},${vars.secondaryMonitor.width}x${vars.secondaryMonitor.height}@${vars.secondaryMonitor.refresh},2560x0,1"
           ];
+
           env = [
             "BROWSER=zen"
             "XDG_CONFIG_HOME=/home/franky/.config"
@@ -83,14 +65,11 @@
             "EDITOR=nvim"
             "QT_STYLE_OVERRIDE=''"
           ];
-          exec-once = [
-            "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-            "add_record_player"
-            "caelestia wallpaper --file ${vars.wallpaper}"
-            "caelestia scheme set -n dynamic"
-            "wl-paste --watch cliphist store &"
-          ];
+
         }
+        // (import ./config/general.nix)
+        // (import ./config/decoration.nix)
+        // (import ./config/exec.nix { inherit vars; })
         // (import ./config/animations.nix)
         // (import ./config/windowrules.nix)
         // (import ./config/bindings.nix);
