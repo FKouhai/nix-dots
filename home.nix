@@ -23,6 +23,7 @@
     inputs.nixvim.homeModules.nixvim
     inputs.caelestia-shell.homeManagerModules.default
     inputs.tokyonight.homeManagerModules.default
+    inputs.zed-extensions.homeManagerModules.default
   ];
   fonts.fontconfig.enable = true;
 
