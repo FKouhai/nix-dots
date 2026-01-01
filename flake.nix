@@ -96,13 +96,15 @@
         modules = with pkgs; [
           ./hosts/franktory/etc/nixos/configuration.nix
           home-manager.nixosModules.home-manager
-          agenix.homeManagerModules.default
           env_pkgs
           hm_user_cfg
           {
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = true;
+              sharedModules = [
+                agenix.homeManagerModules.age
+              ];
               extraSpecialArgs = {
                 vars = {
                   hostName = "franktory";

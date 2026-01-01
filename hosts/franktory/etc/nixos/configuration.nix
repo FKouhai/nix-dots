@@ -108,9 +108,6 @@ in
       };
     };
   };
-  virtualisation.qemu = {
-    package = pkgs.qemu;
-  };
 
   programs = {
     gpu-screen-recorder.enable = true;
