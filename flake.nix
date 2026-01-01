@@ -25,6 +25,9 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zed-extensions = {
+      url = "github:DuskSystems/nix-zed-extensions";
+    };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     wallpapers = {
       url = "github:FKouhai/Kanagawa-wallpapers";
@@ -50,6 +53,7 @@
       wallpapers,
       opencode,
       tokyonight,
+      zed-extensions,
       zmk-cli,
       ...
     }@inputs:
@@ -63,6 +67,7 @@
         };
         overlays = [
           nix-cachyos-kernel.overlay
+          zed-extensions.overlays.default
         ];
       };
       env_pkgs = {
