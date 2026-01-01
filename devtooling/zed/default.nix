@@ -9,7 +9,7 @@
     zed.enable = lib.mkEnableOption "Enable zed module";
   };
   config = lib.mkIf config.zed.enable {
-    programs= {
+    programs = {
       zed-editor = {
         enable = true;
         userSettings = {
@@ -40,9 +40,6 @@
             option_as_meta = false;
             button = false;
             shell = "system";
-            #{
-            #                    program = "zsh";
-            #};
             toolbar = {
               title = true;
             };

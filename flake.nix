@@ -73,7 +73,6 @@
       env_pkgs = {
         environment.systemPackages = [
           pkgs.ghostty
-          #frostvim.packages.${system}.default
 
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
