@@ -21,7 +21,7 @@
         settings = {
           bar = {
             status = {
-              showBattery = false;
+              showBattery = if !vars.isDesktop then true else false;
               showAudio = true;
               showNetwork = true;
             };
