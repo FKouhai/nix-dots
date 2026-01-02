@@ -4,7 +4,7 @@
     nixvim.url = "github:nix-community/nixvim";
     frostvim.url = "github:FKouhai/frostvim/main";
     agenix.url = "github:ryantm/agenix";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     caelestia-shell = {
       url = "github:anarion80/caelestia-shell/topbar";
       inputs.nixpkgs.follows = "nixpkgs";
