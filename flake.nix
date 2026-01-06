@@ -5,6 +5,10 @@
     frostvim.url = "github:FKouhai/frostvim/main";
     agenix.url = "github:ryantm/agenix";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     caelestia-shell = {
       url = "github:anarion80/caelestia-shell/topbar";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +48,7 @@
       agenix,
       nix-cachyos-kernel,
       caelestia-shell,
+      noctalia,
       frostvim,
       home-manager,
       nixvim,
@@ -114,6 +119,7 @@
                   hostName = "franktory";
                   isDesktop = false;
                   class = "laptop";
+                  shell = "noctalia";
                   wallpaper = "${wallpapers}/kanagawa-dragon/3895e.jpg";
                   mainMonitor = {
                     name = "eDP-1";
@@ -158,6 +164,7 @@
                   hostName = "kraken";
                   isDesktop = true;
                   class = "desktop";
+                  shell = "noctalia";
                   wallpaper = "${wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/3895e.jpg";
                   mainMonitor = {
                     name = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. GS27QA 24286B001135";
