@@ -19,9 +19,11 @@
     ./gtk
     ./terminals
     ./stylix
+    ./flameshot.nix
     inputs.stylix.homeModules.stylix
     inputs.nixvim.homeModules.nixvim
     inputs.caelestia-shell.homeManagerModules.default
+    inputs.noctalia.homeModules.default
     inputs.tokyonight.homeManagerModules.default
     inputs.zed-extensions.homeManagerModules.default
   ];
