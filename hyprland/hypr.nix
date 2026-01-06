@@ -72,7 +72,7 @@
         // (import ./config/exec.nix { inherit vars; })
         // (import ./config/animations.nix)
         // (import ./config/windowrules.nix)
-        // (import ./config/bindings.nix);
+        // (import ./config/bindings.nix { inherit lib vars; });
       };
     }
   );

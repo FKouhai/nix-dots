@@ -1,13 +1,13 @@
 {
   lib,
   config,
+  vars,
   ...
 }:
 {
   imports = [
     ./hypr.nix
-    ./caelestia.nix
-    ./hyprpanel.nix
+    ./bars
     ./hyprlock.nix
     ./hyprpaper.nix
     ./wlogout.nix
@@ -18,8 +18,10 @@
   };
   config = lib.mkIf config.hyprland.enable {
     hypr.enable = lib.mkDefault true;
-    caelestia.enable = lib.mkDefault true;
-    hyprpanel.enable = lib.mkDefault false;
+    # Shell-specific bar configuration using enum logic
+    bars.noctalia.enable = lib.mkIf (vars.shell == "noctalia") true;
+    bars.caelestia.enable = lib.mkIf (vars.shell == "caelestia") true;
+    bars.hyprpanel.enable = lib.mkIf (vars.shell == "hyprpanel") true;
     hyprlock.enable = lib.mkDefault true;
     hyprpaper.enable = lib.mkDefault true;
     wlogout.enable = lib.mkDefault true;
