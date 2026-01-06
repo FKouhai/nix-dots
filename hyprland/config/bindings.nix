@@ -61,11 +61,8 @@
   ++ lib.optionals (vars.shell == "noctalia") [
     "$mod, B, exec,  noctalia-shell ipc call lockScreen lock"
     "$mod, F, exec, noctalia-shell ipc call launcher toggle"
-    "$mod, R, exec, fuzzel"
-    "$mod, S, exec, noctalia-shell ipc call screenRecorder toggle"
+    "$mod, S, exec, flameshot gui"
     "$mod, N, exec, noctalia-shell ipc call controlCenter toggle"
-    # Session
-    "$mod+Shift, L, exec, qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
   ]
   ++ lib.optionals (vars.shell == "hyprpanel") [
     "$mod, B, exec, hyprpanel -t power"
