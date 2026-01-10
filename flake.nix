@@ -1,4 +1,19 @@
 {
+  nixConfig = {
+
+    extra-substituters = [
+      "https://nix-community.cachix.org/"
+      "https://attic.xuyh0120.win/lantian"
+      "https://cache.nixos.org/"
+    ];
+
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
@@ -29,9 +44,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zed-extensions = {
-      url = "github:DuskSystems/nix-zed-extensions";
-    };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     wallpapers = {
       url = "github:FKouhai/Kanagawa-wallpapers";
@@ -58,7 +70,6 @@
       wallpapers,
       opencode,
       tokyonight,
-      zed-extensions,
       zmk-cli,
       ...
     }@inputs:
@@ -72,21 +83,33 @@
         };
         overlays = [
           nix-cachyos-kernel.overlay
-          zed-extensions.overlays.default
         ];
       };
-      env_pkgs = {
+
+      # Create environment packages for different shells
+      mkEnvPkgs = shell: {
         environment.systemPackages = [
           pkgs.ghostty
-
           zen-browser.packages.x86_64-linux.default
           agenix.packages.x86_64-linux.default
-          caelestia-shell.packages.x86_64-linux.default
           opencode.packages.x86_64-linux.default
           wallpapers.packages.x86_64-linux.default
           zmk-cli.packages.x86_64-linux.default
-        ];
+        ]
+        ++ (
+          if shell == "caelestia" then
+            [
+              caelestia-shell.packages.x86_64-linux.default
+            ]
+          else if shell == "noctalia" then
+            [
+              noctalia.packages.x86_64-linux.default
+            ]
+          else
+            [ ]
+        );
       };
+
       hm_user_cfg = {
         home-manager.users."${username}" = {
           imports = [
@@ -105,7 +128,7 @@
         modules = with pkgs; [
           ./hosts/franktory/etc/nixos/configuration.nix
           home-manager.nixosModules.home-manager
-          env_pkgs
+          (mkEnvPkgs "noctalia")
           hm_user_cfg
           {
             home-manager = {
@@ -150,7 +173,7 @@
         modules = with pkgs; [
           ./hosts/kraken/etc/nixos/configuration.nix
           home-manager.nixosModules.home-manager
-          env_pkgs
+          (mkEnvPkgs "noctalia")
           hm_user_cfg
           {
             home-manager = {
