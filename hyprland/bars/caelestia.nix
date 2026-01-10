@@ -13,9 +13,9 @@
   config = lib.mkIf config.bars.caelestia.enable {
     programs = {
       caelestia = {
-        enable = true;
+        enable = lib.mkIf (vars.shell == "caelestia") true;
         systemd = {
-          enable = true;
+          enable = lib.mkIf (vars.shell == "caelestia") true;
           target = "graphical-session.target";
         };
         settings = {

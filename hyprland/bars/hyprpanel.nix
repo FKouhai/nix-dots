@@ -12,8 +12,8 @@
   };
   config = lib.mkIf config.bars.hyprpanel.enable {
     programs.hyprpanel = {
-      enable = true;
-      systemd.enable = true;
+      enable = lib.mkIf (vars.shell == "hyprpanel") true;
+      systemd.enable = lib.mkIf (vars.shell == "hyprpanel") true;
       package = pkgs.hyprpanel;
       settings = {
         bar.layouts = {

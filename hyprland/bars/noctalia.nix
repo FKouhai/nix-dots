@@ -12,8 +12,8 @@
   };
   config = lib.mkIf config.bars.noctalia.enable {
     programs.noctalia-shell = {
-      enable = true;
-      systemd.enable = true;
+      enable = lib.mkIf (vars.shell == "noctalia") true;
+      systemd.enable = lib.mkIf (vars.shell == "noctalia") true;
       settings = {
         appLauncher = {
           autoPasteClipboard = false;
@@ -44,13 +44,13 @@
           volumeStep = 5;
         };
         bar = {
-          backgroundOpacity = 0;
-          capsuleOpacity = 1;
-          density = "comfortable";
-          exclusive = true;
-          floating = true;
-          marginHorizontal = 1;
-          marginVertical = 0.25;
+          backgroundOpacity = lib.mkForce 0;
+          capsuleOpacity = lib.mkForce 1;
+          density = lib.mkForce "comfortable";
+          exclusive = lib.mkForce true;
+          floating = lib.mkForce true;
+          marginHorizontal = lib.mkForce 1;
+          marginVertical = lib.mkForce 0.25;
           monitors = [
 
           ];
@@ -174,7 +174,7 @@
                 enableColorization = false;
                 icon = "noctalia";
                 id = "ControlCenter";
-                useDistroLogo = false;
+                useDistroLogo = true;
               }
             ];
           };
@@ -209,7 +209,6 @@
           manualSunrise = "06:30";
           manualSunset = "18:30";
           matugenSchemeType = "scheme-fruit-salad";
-          #predefinedScheme = "Kanagawa";
           schedulingMode = "off";
           useWallpaperColors = true;
         };
@@ -281,23 +280,7 @@
           ];
         };
         dock = {
-          animationSpeed = 1;
-          backgroundOpacity = 1;
-          colorizeIcons = false;
-          deadOpacity = 0.6;
-          displayMode = "auto_hide";
           enabled = false;
-          floatingRatio = 1;
-          inactiveIndicators = false;
-          monitors = [
-
-          ];
-          onlySameOutput = true;
-          pinnedApps = [
-
-          ];
-          pinnedStatic = false;
-          size = 1;
         };
         general = {
           allowPanelsOnScreenWithoutBar = true;
@@ -325,7 +308,7 @@
         };
         hooks = {
           darkModeChange = "";
-          enabled = false;
+          enabled = true;
           performanceModeDisabled = "";
           performanceModeEnabled = "";
           screenLock = "";
@@ -364,7 +347,7 @@
           nightTemp = "4000";
         };
         notifications = {
-          backgroundOpacity = 1;
+          backgroundOpacity = lib.mkForce 1;
           criticalUrgencyDuration = 15;
           enableKeyboardLayoutToast = true;
           enabled = true;
@@ -393,7 +376,7 @@
         };
         osd = {
           autoHideMs = 2000;
-          backgroundOpacity = 1;
+          backgroundOpacity = lib.mkForce 1;
           enabled = true;
           enabledTypes = [
             0
@@ -511,12 +494,12 @@
           bluetoothDetailsViewMode = "grid";
           bluetoothHideUnnamedDevices = false;
           boxBorderEnabled = false;
-          fontDefault = "Sans Serif";
-          fontDefaultScale = 1;
-          fontFixed = "monospace";
+          fontDefault = lib.mkForce "Maple Mono NF";
+          fontDefaultScale = lib.mkForce 1;
+          fontFixed = lib.mkForce "monospace";
           fontFixedScale = 1;
           networkPanelView = "wifi";
-          panelBackgroundOpacity = 1;
+          panelBackgroundOpacity = lib.mkForce 1;
           panelsAttachedToBar = true;
           settingsPanelMode = "attached";
           tooltipsEnabled = true;

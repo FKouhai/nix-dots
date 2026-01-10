@@ -69,7 +69,7 @@
         }
         // (import ./config/general.nix)
         // (import ./config/decoration.nix)
-        // (import ./config/exec.nix { inherit vars; })
+        // (import ./config/exec.nix { inherit vars lib; })
         // (import ./config/animations.nix)
         // (import ./config/windowrules.nix)
         // (import ./config/bindings.nix { inherit lib vars; });
