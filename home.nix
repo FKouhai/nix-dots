@@ -25,7 +25,6 @@
     inputs.caelestia-shell.homeManagerModules.default
     inputs.noctalia.homeModules.default
     inputs.tokyonight.homeManagerModules.default
-    inputs.zed-extensions.homeManagerModules.default
   ];
   fonts.fontconfig.enable = true;
 

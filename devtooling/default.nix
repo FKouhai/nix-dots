@@ -13,7 +13,6 @@
     ./nixvim
     ./rust
     ./tmux
-    ./zed
   ];
 
   options = {
@@ -28,6 +27,5 @@
     nixvim.enable = lib.mkDefault true;
     rust.enable = lib.mkDefault true;
     tmux.enable = lib.mkDefault true;
-    zed.enable = lib.mkDefault true;
   };
 }
