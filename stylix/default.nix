@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  vars,
   ...
 }:
 {
@@ -24,6 +25,7 @@
         lazygit.enable = true;
         mpv.enable = true;
         opencode.enable = true;
+        noctalia-shell.enable = true;
         vesktop.enable = true;
         wofi.enable = true;
       };
