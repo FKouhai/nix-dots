@@ -60,6 +60,7 @@
     "$mod, B, exec,  noctalia-shell ipc call lockScreen lock"
     "$mod, F, exec, noctalia-shell ipc call launcher toggle"
     "$mod, S, exec, flameshot gui"
+    "$mod+shift, R, exec, noctalia-shell ipc call sessionMenu toggle"
     "$mod, X, exec, noctalia-shell ipc call settings toggle"
     "$mod+shift, S, exec, noctalia-shell ipc call screenRecorder toggle"
     "$mod+shift, N, exec, noctalia-shell ipc call nightLight toggle"
