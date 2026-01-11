@@ -14,6 +14,7 @@ with pkgs;
   cliphist
   coreutils
   cosmic-files
+  devenv
   dysk
   element-desktop
   exercism
