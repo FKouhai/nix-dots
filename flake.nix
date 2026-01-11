@@ -82,7 +82,7 @@
           allowUnfree = true;
         };
         overlays = [
-          nix-cachyos-kernel.overlay
+          nix-cachyos-kernel.overlays.pinned
         ];
       };
 
