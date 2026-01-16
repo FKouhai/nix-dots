@@ -18,6 +18,7 @@
       ];
 
       plugins = {
+        jdtls.enable = true;
         avante = {
           enable = true;
           settings = {
@@ -32,7 +33,7 @@
         };
 
         minuet = {
-          enable = true;
+          enable = false;
           settings = {
             lsp = {
               enabled_ft = [
