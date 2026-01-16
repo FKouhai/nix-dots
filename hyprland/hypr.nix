@@ -48,6 +48,10 @@
 
         settings = {
           input = {
+            touchpad = {
+              clickfinger_behavior = true;
+              natural_scroll = true;
+            };
             kb_layout = "us";
             kb_variant = "altgr-intl";
           };
@@ -68,6 +72,7 @@
 
         }
         // (import ./config/general.nix)
+        // (import ./config/gestures.nix)
         // (import ./config/decoration.nix)
         // (import ./config/exec.nix { inherit vars lib; })
         // (import ./config/animations.nix)
