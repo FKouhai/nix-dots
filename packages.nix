@@ -38,6 +38,7 @@ with pkgs;
   heroic
   hubble
   hyprshot
+  jetbrains.idea-oss
   jetbrains-mono
   jq
   kanagawa-gtk-theme
