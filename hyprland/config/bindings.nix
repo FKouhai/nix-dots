@@ -62,7 +62,7 @@
     "$mod, S, exec, flameshot gui"
     "$mod+shift, R, exec, noctalia-shell ipc call sessionMenu toggle"
     "$mod, X, exec, noctalia-shell ipc call settings toggle"
-    "$mod+shift, S, exec, noctalia-shell ipc call screenRecorder toggle"
+    "$mod+shift, S, exec, obs"
     "$mod+shift, N, exec, noctalia-shell ipc call nightLight toggle"
     "$mod, N, exec, noctalia-shell ipc call notifications toggleHistory"
     "$mod+shift, W, exec, noctalia-shell ipc call wallpaper toggle"
