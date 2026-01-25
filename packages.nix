@@ -5,6 +5,7 @@ with pkgs;
 
   age
   ags
+  beads
   bind
   bitwarden-desktop
   brave
@@ -53,6 +54,7 @@ with pkgs;
   nixos-generators
   nvidia-docker
   nwg-look
+  obs-studio
   obsidian
   oci-cli
   opencloud-desktop
