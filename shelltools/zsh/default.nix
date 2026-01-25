@@ -30,10 +30,6 @@
           src = pkgs.zsh-vi-mode;
           file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
-        {
-          name = "fzf";
-          src = pkgs.fzf-zsh;
-        }
       ];
 
       shellAliases = {
