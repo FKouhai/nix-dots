@@ -18,7 +18,6 @@
       ];
 
       plugins = {
-        jdtls.enable = true;
         avante = {
           enable = true;
           settings = {
