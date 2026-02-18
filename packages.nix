@@ -5,6 +5,7 @@ with pkgs;
 
   age
   ags
+  argocd
   beads
   bind
   bitwarden-desktop
@@ -15,6 +16,7 @@ with pkgs;
   cliphist
   coreutils
   cosmic-files
+  cozy
   devenv
   dysk
   element-desktop
@@ -44,6 +46,7 @@ with pkgs;
   jq
   kanagawa-gtk-theme
   kanagawa-icon-theme
+  kubernetes-helm
   lazygit
   libnotify
   libnvidia-container
@@ -76,6 +79,8 @@ with pkgs;
   tmux
   tokyonight-gtk-theme
   treefmt
+  upower
+  unzip
   vesktop
   vial
   vulkan-tools
