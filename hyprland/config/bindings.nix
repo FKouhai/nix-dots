@@ -11,7 +11,7 @@
   ];
   bind = [
     "$mod, RETURN, exec,ghostty"
-    "$mod, W, exec, zen"
+    "$mod, W, exec, helium"
     "$mod, C, exec, Cider"
     "$mod, D, exec,vesktop"
     "$mod, Q, killactive,"
