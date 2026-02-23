@@ -18,6 +18,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
     frostvim.url = "github:FKouhai/frostvim/main";
+    helium.url = "github:FKouhai/helium2nix";
     agenix.url = "github:ryantm/agenix";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     noctalia = {
@@ -95,6 +96,7 @@
           opencode.packages.x86_64-linux.default
           wallpapers.packages.x86_64-linux.default
           zmk-cli.packages.x86_64-linux.default
+          inputs.helium.defaultPackage.x86_64-linux
         ]
         ++ (
           if shell == "caelestia" then
