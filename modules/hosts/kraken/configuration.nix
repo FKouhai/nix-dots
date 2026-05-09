@@ -38,7 +38,7 @@ _: {
           efi.canTouchEfiVariables = true;
         };
         plymouth.enable = true;
-        kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+        kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v4;
         kernelParams = [
           "pci=nomsi"
           "acpi_enforce_reosurces=lax"
