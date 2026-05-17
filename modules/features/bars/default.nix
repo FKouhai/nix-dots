@@ -5,7 +5,7 @@
 {
   imports = [
     ./caelestia.nix
-    ./noctalia.nix
+    ./noctalia
     ./hyprpanel.nix
   ];
 
