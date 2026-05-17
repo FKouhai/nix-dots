@@ -11,6 +11,16 @@
     bars.noctalia.enable = lib.mkEnableOption "Enable noctalia bar";
   };
   config = lib.mkIf config.bars.noctalia.enable {
+    home.activation.unlockNoctaliaColors = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      colors="$HOME/.config/noctalia/colors.json"
+      if [ -L "$colors" ]; then
+        tmp=$(${pkgs.coreutils}/bin/mktemp)
+        ${pkgs.coreutils}/bin/cp "$(${pkgs.coreutils}/bin/readlink "$colors")" "$tmp"
+        ${pkgs.coreutils}/bin/rm "$colors"
+        ${pkgs.coreutils}/bin/mv "$tmp" "$colors"
+      fi
+    '';
+
     programs.noctalia-shell = {
       enable = lib.mkIf (osConfig.host.bar == "noctalia") true;
       systemd.enable = lib.mkIf (osConfig.host.bar == "noctalia") true;
@@ -473,12 +483,12 @@
           enableUserTemplates = false;
           foot = false;
           fuzzel = false;
-          ghostty = false;
+          ghostty = true;
           gtk = false;
           helix = false;
           hyprland = false;
           kcolorscheme = false;
-          kitty = false;
+          kitty = true;
           mango = false;
           niri = false;
           pywalfox = false;

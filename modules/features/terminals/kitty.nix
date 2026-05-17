@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   osConfig,
   ...
 }:
@@ -9,6 +10,16 @@
     kitty.enable = lib.mkEnableOption "Enable kitty module";
   };
   config = lib.mkIf config.kitty.enable {
+    # Seed current-theme.conf as an empty placeholder until Noctalia writes the real theme.
+    # Noctalia's template-apply.sh will replace this with a symlink to themes/noctalia.conf.
+    home.activation.kittyNoctaliaTheme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      themeFile="$HOME/.config/kitty/current-theme.conf"
+      if [ ! -e "$themeFile" ]; then
+        ${pkgs.coreutils}/bin/mkdir -p "$HOME/.config/kitty"
+        ${pkgs.coreutils}/bin/touch "$themeFile"
+      fi
+    '';
+
     programs.kitty = {
       enable = true;
       settings = {
@@ -25,6 +36,7 @@
         enableZshIntegration = true;
       };
       themeFile = osConfig.host.themeData.kittyTheme;
+      extraConfig = "include current-theme.conf";
     };
   };
 }
