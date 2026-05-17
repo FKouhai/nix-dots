@@ -231,8 +231,8 @@ YAML
   };
 
   wallpaperHook = pkgs.writeShellScript "noctalia-wallpaper-hook" ''
-    ${generateVesktopTheme}/bin/generate-vesktop-theme &
-    ${generateCiderTheme}/bin/generate-cider-theme &
+    ${generateVesktopTheme}/bin/generate-vesktop-theme || true &
+    ${generateCiderTheme}/bin/generate-cider-theme || true &
     wait
   '';
 in
