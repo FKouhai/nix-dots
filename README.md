@@ -51,59 +51,127 @@ The config uses the **dendritic pattern** with [flake-parts](https://github.com/
 
 ```
 .
-├── flake.nix                          # flake-parts wrapper; import-tree scans hosts/, services/, flake-parts/
-├── modules/
-│   ├── home.nix                       # root Home Manager config (imports all features)
-│   ├── packages.nix                   # user packages (home.packages)
-│   ├── hosts/                         # auto-scanned by import-tree
-│   │   ├── franktory/
-│   │   │   ├── default.nix            # flake.nixosConfigurations.franktory
-│   │   │   ├── configuration.nix      # flake.nixosModules.franktory
-│   │   │   └── hardware-configuration.nix  # flake.nixosModules.franktoryHardware
-│   │   └── kraken/
-│   │       ├── default.nix            # flake.nixosConfigurations.kraken
-│   │       ├── configuration.nix      # flake.nixosModules.kraken
-│   │       ├── hardware-configuration.nix  # flake.nixosModules.krakenHardware
-│   │       ├── udev.nix               # flake.nixosModules.krakenUdev
-│   │       └── logiops.nix            # flake.nixosModules.krakenLogiops
-│   ├── services/                      # reusable NixOS modules, auto-scanned by import-tree
-│   │   ├── gpu.nix                    # flake.nixosModules.gpu    — AMD/NVIDIA hardware, nvtop, lact
-│   │   ├── greeter.nix                # flake.nixosModules.greeter — greetd/tuigreet or SDDM
-│   │   ├── ollama.nix                 # flake.nixosModules.ollama  — GPU-aware package selection
-│   │   ├── glance.nix                 # flake.nixosModules.glance  — dashboard (port 8080)
-│   │   ├── otel.nix                   # flake.nixosModules.otel    — OpenTelemetry collector
-│   │   └── prometheus.nix             # flake.nixosModules.prometheus — node exporter + Promtail
-│   ├── flake-parts/                   # flake-level exports, auto-scanned by import-tree
-│   │   └── homeManagerModules.nix     # flake.homeManagerModules.*
-│   └── features/                      # HM modules, imported by home.nix (not scanned by import-tree)
-│       ├── host-options.nix           # options.host.{hostName,isDesktop,class,bar,greeter,gpuType,...}
-│       ├── env-packages.nix           # flake-input packages injected into environment.systemPackages
-│       ├── nix-config.nix             # shared nix daemon config (substituters, gc, optimise)
-│       ├── bars/                      # bar modules selected by host.bar
-│       │   ├── default.nix
-│       │   ├── noctalia.nix
-│       │   ├── caelestia.nix
-│       │   └── hyprpanel.nix
-│       ├── desktops/
-│       │   └── hyprland/
-│       │       ├── default.nix
-│       │       ├── hypr.nix
-│       │       ├── hyprlock.nix
-│       │       ├── hyprpaper.nix
-│       │       ├── wlogout.nix
-│       │       └── config/            # animations, bindings, decoration, exec, gestures, windowrules
-│       ├── devtooling/                # git, rust, go, lua, gleam, kubernetes, tmux, nixvim
-│       ├── shelltools/                # fish, zsh, fzf, eza, bat, direnv, atuin, yazi, zoxide
-│       ├── prompt/                    # starship
-│       ├── terminals/                 # kitty, ghostty
-│       ├── stylix/                    # system-wide Kanagawa Dragon theming
-│       ├── gtk/                       # GTK theme config
-│       └── flameshot.nix
-├── secrets/                           # agenix-encrypted secrets
-│   ├── secrets.nix                    # declares SSH public keys for decryption
-│   ├── ollama.age
-│   └── gemini.age
-└── treefmt.toml
+|--README.md
+|--flake.lock
+|--flake.nix
+|--modules
+|   |--features
+|   |   |--bars
+|   |   |   |--caelestia.nix
+|   |   |   |--default.nix
+|   |   |   |--hyprpanel.nix
+|   |   |   L__noctalia
+|   |   |       |--default.nix
+|   |   |       |--settings
+|   |   |       |   |--bar.nix
+|   |   |       |   L__default.nix
+|   |   |       L__themes.nix
+|   |   |--desktops
+|   |   |   L__hyprland
+|   |   |       |--config
+|   |   |       |   |--animations.nix
+|   |   |       |   |--bindings.nix
+|   |   |       |   |--decoration.nix
+|   |   |       |   |--exec.nix
+|   |   |       |   |--general.nix
+|   |   |       |   |--gestures.nix
+|   |   |       |   L__windowrules.nix
+|   |   |       |--default.nix
+|   |   |       |--hypr.nix
+|   |   |       |--hyprlock.nix
+|   |   |       |--hyprpaper.nix
+|   |   |       L__wlogout.nix
+|   |   |--devtooling
+|   |   |   |--default.nix
+|   |   |   |--git
+|   |   |   |   L__default.nix
+|   |   |   |--gleam
+|   |   |   |   L__default.nix
+|   |   |   |--go
+|   |   |   |   L__default.nix
+|   |   |   |--kubernetes
+|   |   |   |   |--default.nix
+|   |   |   |   L__skin.yml
+|   |   |   |--lua
+|   |   |   |   L__default.nix
+|   |   |   |--nixvim
+|   |   |   |   L__default.nix
+|   |   |   |--rust
+|   |   |   |   L__default.nix
+|   |   |   L__tmux
+|   |   |       L__default.nix
+|   |   |--env-packages.nix
+|   |   |--fish-config.nix
+|   |   |--flameshot.nix
+|   |   |--gtk
+|   |   |   |--conf
+|   |   |   |   L__default.nix
+|   |   |   L__default.nix
+|   |   |--host-options.nix
+|   |   |--nix-config.nix
+|   |   |--prompt
+|   |   |   |--default.nix
+|   |   |   L__starship
+|   |   |       |--default.nix
+|   |   |       |--kanagawa.nix
+|   |   |       |--oxo.toml
+|   |   |       |--oxocarbon.nix
+|   |   |       L__tokyonight.nix
+|   |   |--shelltools
+|   |   |   |--atuin
+|   |   |   |   L__default.nix
+|   |   |   |--bat
+|   |   |   |   L__default.nix
+|   |   |   |--default.nix
+|   |   |   |--direnv
+|   |   |   |   L__default.nix
+|   |   |   |--eza
+|   |   |   |   L__default.nix
+|   |   |   |--fish
+|   |   |   |   L__default.nix
+|   |   |   |--fzf
+|   |   |   |   L__default.nix
+|   |   |   |--yazi
+|   |   |   |   L__default.nix
+|   |   |   |--zoxide
+|   |   |   |   L__default.nix
+|   |   |   L__zsh
+|   |   |       L__default.nix
+|   |   |--stylix
+|   |   |   L__default.nix
+|   |   L__terminals
+|   |       |--default.nix
+|   |       |--ghostty.nix
+|   |       L__kitty.nix
+|   |--flake-parts
+|   |   L__homeManagerModules.nix
+|   |--home.nix
+|   |--hosts
+|   |   |--franktory
+|   |   |   |--configuration.nix
+|   |   |   |--default.nix
+|   |   |   L__hardware-configuration.nix
+|   |   L__kraken
+|   |       |--configuration.nix
+|   |       |--default.nix
+|   |       |--hardware-configuration.nix
+|   |       |--logiops.nix
+|   |       L__udev.nix
+|   |--packages.nix
+|   L__services
+|       |--glance.nix
+|       |--gpu.nix
+|       |--greeter.nix
+|       |--ollama.nix
+|       |--otel.nix
+|       |--prometheus.nix
+|       L__theme-data.nix
+|--secrets
+|   |--gemini.age
+|   |--grafana.age
+|   |--ollama.age
+|   L__secrets.nix
+L__treefmt.toml
 ```
 
 ## Key concepts
@@ -159,7 +227,7 @@ All HM feature modules are exported for reuse by other flakes. Add them to `home
 | Module | What it provides |
 |--------|-----------------|
 | `homeManagerModules.bars` | All bars bundle (selects active bar via `osConfig.host.bar`) |
-| `homeManagerModules.barNoctalia` | Noctalia shell bar |
+| `homeManagerModules.barNoctalia` | Noctalia shell bar; auto-generates Vesktop + Cider themes from wallpaper colors on change |
 | `homeManagerModules.barCaelestia` | Caelestia shell bar |
 | `homeManagerModules.barHyprpanel` | Hyprpanel bar |
 | `homeManagerModules.desktops` | Hyprland + hyprlock + hyprpaper + wlogout |
@@ -200,6 +268,7 @@ Non-nixpkgs packages injected via `modules/features/env-packages.nix`:
 | `opencode` | AI coding assistant |
 | `wallpapers` | Kanagawa wallpaper collection |
 | `caelestia-shell` / `noctalia` | Desktop panel (selected by `host.bar`) |
+| `trigo` | File tree CLI (`trigo`) |
 
 ### Secrets
 
