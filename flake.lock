@@ -1328,11 +1328,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1774459608,
-        "narHash": "sha256-e4Bd3FatTGMSg65n8GlqR//yuAzIBhANEVjDR1aSWNU=",
+        "lastModified": 1779051303,
+        "narHash": "sha256-+YsMlk2KeMFSQBkjPMAURNCWWDIureVMNs5c3NF2oac=",
         "owner": "FKouhai",
         "repo": "Kanagawa-wallpapers",
-        "rev": "1392eff51965e741710964c005ce8391a5330748",
+        "rev": "8a09df9f95f7ed8ac16507865bd2829ecfbb119a",
         "type": "github"
       },
       "original": {
