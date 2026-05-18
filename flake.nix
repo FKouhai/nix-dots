@@ -37,7 +37,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     opencode = {
-      url = "github:anomalyco/opencode";
+      url = "github:anomalyco/opencode/refs/tags/v1.15.3";
     };
     tokyonight.url = "github:mrjones2014/tokyonight.nix";
     stylix = {
