@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  osConfig,
   ...
 }:
 {
@@ -42,13 +41,11 @@
         {
           plugin = ukiyo;
           extraConfig = ''
-            set -g @ukiyo-theme "${osConfig.host.themeData.tmuxTheme}"
             set -g @ukiyo-playerctl-format "►  {{ artist }} - {{ title }}"
             set -g @ukiyo-ignore-window-colors true
             set -g @ukiyo-refresh-rate 10
             set -g @ukiyo-show-battery false
             set -g @ukiyo-show-powerline true
-            set -g @ukiyo-refresh-rate 10
           '';
         }
       ];
@@ -61,6 +58,7 @@
         set -g mouse "on"
         set -g allow-passthrough on
         set-option -g status-position top
+        run-shell "generate-tmux-theme || true"
       '';
     };
   };
