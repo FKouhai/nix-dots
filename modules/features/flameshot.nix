@@ -42,9 +42,19 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    windowrule = [
-      "no_anim on, float on, move (0) (0), pin on, no_initial_focus on, match:title ^(flameshot)$"
-      "monitor 1, match:class ^(flameshot)$"
+    window_rule = [
+      {
+        no_anim = true;
+        float = true;
+        move = "(0) (0)";
+        pin = true;
+        no_initial_focus = true;
+        match.title = "^(flameshot)$";
+      }
+      {
+        monitor = 1;
+        match.class = "^(flameshot)$";
+      }
     ];
   };
 }

@@ -19,7 +19,7 @@
         bat.enable = true;
         btop.enable = true;
         gtk.enable = false;
-        hyprland.enable = true;
+        hyprland.enable = false;
         hyprpanel.enable = true;
         k9s.enable = true;
         kubecolor.enable = true;

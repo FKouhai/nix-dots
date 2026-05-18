@@ -1,9 +1,12 @@
+{ lib }:
 {
-  gestures = {
-    gesture = [
-      "3,horizontal,workspace"
-      "3,down,close"
-      "3,up,dispatcher, exec,noctalia-shell ipc call launcher toggle"
-    ];
-  };
+  gesture = [
+    { fingers = 3; direction = "horizontal"; action = "workspace"; }
+    { fingers = 3; direction = "down"; action = "close"; }
+    {
+      fingers = 3;
+      direction = "up";
+      action = lib.generators.mkLuaInline ''function() hl.exec_cmd("noctalia-shell ipc call launcher toggle") end'';
+    }
+  ];
 }

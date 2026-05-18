@@ -67,6 +67,7 @@ with pkgs;
   obsidian
   oci-cli
   opentofu
+  opencode-claude-auth
   opencloud-desktop
   pavucontrol
   playerctl
