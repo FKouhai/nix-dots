@@ -11,7 +11,13 @@ _: {
       nixpkgs.config.allowUnfree = true;
 
       host = {
-        greeter = "sddm";
+        hostName = "franktory";
+        isDesktop = false;
+        class = "laptop";
+        bar = "noctalia";
+        greeter = "greetd";
+        theme = "kanagawa-dragon";
+        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/3895e.jpg";
         mainMonitor = {
           name = "eDP-1";
           width = "1920";
@@ -88,6 +94,7 @@ _: {
 
       programs = {
         zsh.enable = true;
+        nh.enable = true;
         hyprland = {
           enable = true;
           xwayland.enable = true;
