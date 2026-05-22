@@ -21,7 +21,6 @@
     ./features/flameshot.nix
     inputs.stylix.homeModules.stylix
     inputs.nixvim.homeModules.nixvim
-    inputs.caelestia-shell.homeManagerModules.default
     inputs.noctalia.homeModules.default
     inputs.tokyonight.homeManagerModules.default
   ];
@@ -54,6 +53,7 @@
       OZONE_PLATFORM = "wayland";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       EDITOR = "nvim";
+      OPENCODE_DISABLE_AUTOUPDATE = true;
     };
 
     packages = import ./packages.nix { inherit pkgs; };

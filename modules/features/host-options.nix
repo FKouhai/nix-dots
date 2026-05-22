@@ -20,8 +20,6 @@
     bar = lib.mkOption {
       type = lib.types.enum [
         "noctalia"
-        "caelestia"
-        "hyprpanel"
       ];
       description = "The desktop bar/panel to use.";
     };

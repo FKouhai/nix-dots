@@ -184,6 +184,196 @@ EOF
     '';
   };
 
+  generateBtopTheme = pkgs.writeShellApplication {
+    name = "generate-btop-theme";
+    runtimeInputs = [ pkgs.jq ];
+    text = ''
+      colors="$HOME/.config/noctalia/colors.json"
+      out="$HOME/.config/btop/themes/noctalia.theme"
+
+      [ -f "$colors" ] || exit 0
+
+      surface=$(jq -r '.mSurface' "$colors")
+      surface_variant=$(jq -r '.mSurfaceVariant' "$colors")
+      on_surface=$(jq -r '.mOnSurface' "$colors")
+      on_surface_variant=$(jq -r '.mOnSurfaceVariant' "$colors")
+      outline=$(jq -r '.mOutline' "$colors")
+      primary=$(jq -r '.mPrimary' "$colors")
+      secondary=$(jq -r '.mSecondary' "$colors")
+      tertiary=$(jq -r '.mTertiary' "$colors")
+      error=$(jq -r '.mError' "$colors")
+
+      mkdir -p "$(dirname "$out")"
+
+      cat > "$out" << EOF
+# Noctalia btop theme - auto-generated from wallpaper colors
+theme[main_bg]=$surface
+theme[main_fg]=$on_surface
+theme[title]=$on_surface
+theme[hi_fg]=$primary
+theme[selected_bg]=$surface_variant
+theme[selected_fg]=$on_surface
+theme[inactive_fg]=$on_surface_variant
+theme[graph_text]=$on_surface
+theme[meter_bg]=$outline
+theme[proc_misc]=$on_surface
+theme[cpu_box]=$primary
+theme[mem_box]=$tertiary
+theme[net_box]=$secondary
+theme[proc_box]=$primary
+theme[div_line]=$outline
+theme[temp_start]=$tertiary
+theme[temp_mid]=$on_surface_variant
+theme[temp_end]=$error
+theme[cpu_start]=$primary
+theme[cpu_mid]=$on_surface_variant
+theme[cpu_end]=$secondary
+theme[free_start]=$tertiary
+theme[free_mid]=
+theme[free_end]=$tertiary
+theme[cached_start]=$secondary
+theme[cached_mid]=
+theme[cached_end]=$secondary
+theme[available_start]=$on_surface_variant
+theme[available_mid]=$outline
+theme[available_end]=$surface_variant
+theme[used_start]=$error
+theme[used_mid]=
+theme[used_end]=$error
+theme[download_start]=$secondary
+theme[download_mid]=
+theme[download_end]=$secondary
+theme[upload_start]=$tertiary
+theme[upload_mid]=
+theme[upload_end]=$tertiary
+theme[process_start]=$primary
+theme[process_mid]=$secondary
+theme[process_end]=$tertiary
+EOF
+    '';
+  };
+
+  generateK9sTheme = pkgs.writeShellApplication {
+    name = "generate-k9s-theme";
+    runtimeInputs = [ pkgs.jq ];
+    text = ''
+      colors="$HOME/.config/noctalia/colors.json"
+      out="$HOME/.config/k9s/skins/noctalia.yaml"
+
+      [ -f "$colors" ] || exit 0
+
+      surface=$(jq -r '.mSurface' "$colors")
+      surface_variant=$(jq -r '.mSurfaceVariant' "$colors")
+      on_surface=$(jq -r '.mOnSurface' "$colors")
+      on_surface_variant=$(jq -r '.mOnSurfaceVariant' "$colors")
+      primary=$(jq -r '.mPrimary' "$colors")
+      secondary=$(jq -r '.mSecondary' "$colors")
+      tertiary=$(jq -r '.mTertiary' "$colors")
+      error=$(jq -r '.mError' "$colors")
+
+      mkdir -p "$(dirname "$out")"
+
+      cat > "$out" << EOF
+# K9s Noctalia skin - auto-generated from wallpaper colors
+foreground: &foreground "$on_surface"
+background: &background "$surface"
+current_line: &current_line "$surface_variant"
+selection: &selection "$surface_variant"
+comment: &comment "$on_surface_variant"
+cyan: &cyan "$tertiary"
+green: &green "$tertiary"
+orange: &orange "$secondary"
+magenta: &magenta "$secondary"
+blue: &blue "$primary"
+red: &red "$error"
+
+k9s:
+  body:
+    fgColor: *foreground
+    bgColor: *background
+    logoColor: *blue
+  prompt:
+    fgColor: *foreground
+    bgColor: *background
+    suggestColor: *orange
+  info:
+    fgColor: *magenta
+    sectionColor: *foreground
+  dialog:
+    fgColor: *foreground
+    bgColor: *background
+    buttonFgColor: *foreground
+    buttonBgColor: *magenta
+    buttonFocusFgColor: *background
+    buttonFocusBgColor: *cyan
+    labelFgColor: *orange
+    fieldFgColor: *foreground
+  frame:
+    border:
+      fgColor: *selection
+      focusColor: *current_line
+    menu:
+      fgColor: *foreground
+      keyColor: *magenta
+      numKeyColor: *magenta
+    crumbs:
+      fgColor: *foreground
+      bgColor: *current_line
+      activeColor: *current_line
+    status:
+      newColor: *cyan
+      modifyColor: *blue
+      addColor: *green
+      errorColor: *red
+      highlightColor: *orange
+      killColor: *comment
+      completedColor: *comment
+    title:
+      fgColor: *foreground
+      bgColor: *current_line
+      highlightColor: *orange
+      counterColor: *blue
+      filterColor: *magenta
+  views:
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - *blue
+        - *red
+      defaultChartColors:
+        - *blue
+        - *red
+    table:
+      fgColor: *foreground
+      bgColor: *background
+      cursorFgColor: *selection
+      cursorBgColor: *current_line
+      header:
+        fgColor: *foreground
+        bgColor: *background
+        sorterColor: *cyan
+    xray:
+      fgColor: *foreground
+      bgColor: *background
+      cursorColor: *current_line
+      graphicColor: *blue
+      showIcons: false
+    yaml:
+      keyColor: *magenta
+      colonColor: *blue
+      valueColor: *foreground
+    logs:
+      fgColor: *foreground
+      bgColor: *background
+      indicator:
+        fgColor: *foreground
+        bgColor: *selection
+        toggleOnColor: *magenta
+        toggleOffColor: *blue
+EOF
+    '';
+  };
+
   generateTmuxTheme = pkgs.writeShellApplication {
     name = "generate-tmux-theme";
     runtimeInputs = [ pkgs.jq ];
@@ -284,6 +474,8 @@ YAML
     ${generateVesktopTheme}/bin/generate-vesktop-theme || true &
     ${generateCiderTheme}/bin/generate-cider-theme || true &
     ${generateTmuxTheme}/bin/generate-tmux-theme || true &
+    ${generateBtopTheme}/bin/generate-btop-theme || true &
+    ${generateK9sTheme}/bin/generate-k9s-theme || true &
     wait
   '';
 in
@@ -323,7 +515,21 @@ in
       ${generateTmuxTheme}/bin/generate-tmux-theme || true
     '';
 
-    home.packages = [ generateTmuxTheme ];
+    home.activation.seedBtopTheme = lib.hm.dag.entryAfter [ "unlockNoctaliaColors" ] ''
+      ${generateBtopTheme}/bin/generate-btop-theme || true
+    '';
+
+    home.activation.seedK9sTheme = lib.hm.dag.entryAfter [ "unlockNoctaliaColors" ] ''
+      ${generateK9sTheme}/bin/generate-k9s-theme || true
+    '';
+
+    home.packages = [ generateTmuxTheme generateBtopTheme generateK9sTheme ];
+
+    stylix.targets.btop.enable = lib.mkForce false;
+    stylix.targets.k9s.enable = lib.mkForce false;
+
+    programs.btop.settings.color_theme = lib.mkForce "noctalia";
+    programs.k9s.settings.k9s.ui.skin = lib.mkForce "noctalia";
 
     programs.noctalia-shell.settings = {
       colorSchemes = {

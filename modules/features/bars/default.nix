@@ -4,9 +4,7 @@
 }:
 {
   imports = [
-    ./caelestia.nix
     ./noctalia
-    ./hyprpanel.nix
   ];
 
   options = {
@@ -15,9 +13,7 @@
 
   config = {
     bars = {
-      caelestia.enable = lib.mkDefault false;
       noctalia.enable = lib.mkDefault false;
-      hyprpanel.enable = lib.mkDefault false;
     };
   };
 }

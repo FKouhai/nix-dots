@@ -18,7 +18,6 @@
   config = lib.mkIf config.bars.noctalia.enable {
     programs.noctalia-shell = {
       enable = lib.mkIf (osConfig.host.bar == "noctalia") true;
-      systemd.enable = lib.mkIf (osConfig.host.bar == "noctalia") true;
     };
   };
 }

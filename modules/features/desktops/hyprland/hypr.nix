@@ -51,10 +51,7 @@
           let
             execOnce =
               [ "add_record_player" ]
-              ++ lib.optionals (osConfig.host.bar == "caelestia") [
-                "caelestia wallpaper --file ${osConfig.host.wallpaper}"
-                "caelestia scheme set -n dynamic --variant fidelity"
-              ]
+              ++ lib.optionals (osConfig.host.bar == "noctalia") [ "noctalia-shell" ]
               ++ [ "wl-paste --watch cliphist store &" ];
           in
           ''

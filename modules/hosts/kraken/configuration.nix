@@ -40,9 +40,7 @@ _: {
         plymouth.enable = true;
         kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v4;
         kernelParams = [
-          "pci=nomsi"
-          "acpi_enforce_reosurces=lax"
-          "clearcpuid=514"
+          "nvme_core.default_ps_max_latency_us=0"
         ];
       };
 
@@ -148,11 +146,6 @@ _: {
           pulse.enable = true;
           wireplumber.enable = true;
         };
-      };
-
-      hardware = {
-        logitech.wireless.enable = true;
-        logitech.wireless.enableGraphical = true;
       };
 
       virtualisation = {

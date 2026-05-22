@@ -36,25 +36,6 @@ in
       (mkO "SUPER + mouse:272" "hl.dsp.window.drag()" { drag = true; })
       (mkO "SUPER + mouse:273" "hl.dsp.window.resize()" { drag = true; })
     ]
-    ++ lib.optionals (bar == "caelestia") [
-      (mk "SUPER + B" (global "caelestia:lock"))
-      (mk "SUPER + F" (global "caelestia:launcher"))
-      (mk "SUPER + R" (exec "fuzzel"))
-      (mk "SUPER + S" (exec "caelestia screenshot -r"))
-      (mk "SUPER + SHIFT + S" (global "caelestia:screenshotFreeze"))
-      (mk "SUPER + SHIFT + ALT + S" (global "caelestia:screenshot"))
-      (mk "SUPER + N" (exec "caelestia shell drawers toggle sidebar"))
-      (mk "XF86AudioPlay" (global "caelestia:mediaToggle"))
-      (mk "XF86AudioPause" (global "caelestia:mediaToggle"))
-      (mk "XF86AudioNext" (global "caelestia:mediaNext"))
-      (mk "XF86AudioPrev" (global "caelestia:mediaPrev"))
-      (mk "XF86MonBrightnessUp" (global "caelestia:brightnessUp"))
-      (mk "XF86MonBrightnessDown" (global "caelestia:brightnessDown"))
-      (mk "SUPER + SHIFT + L" (exec "systemctl suspend-then-hibernate"))
-      (mk "SUPER + ALT + R" (exec "caelestia record -s"))
-      (mk "CTRL + ALT + R" (exec "caelestia record"))
-      (mk "SUPER + SHIFT + ALT + R" (exec "caelestia record -r"))
-    ]
     ++ lib.optionals (bar == "noctalia") [
       (mk "SUPER + B" (exec "noctalia-shell ipc call lockScreen lock"))
       (mk "SUPER + F" (exec "noctalia-shell ipc call launcher toggle"))
@@ -66,14 +47,6 @@ in
       (mk "SUPER + N" (exec "noctalia-shell ipc call notifications toggleHistory"))
       (mk "SUPER + SHIFT + W" (exec "noctalia-shell ipc call wallpaper toggle"))
       (mk "SUPER + SHIFT + C" (exec "noctalia-shell ipc call controlCenter toggle"))
-    ]
-    ++ lib.optionals (bar == "hyprpanel") [
-      (mk "SUPER + B" (exec "hyprpanel -t power"))
-      (mk "SUPER + SHIFT + R" (exec "wlogout"))
-      (mk "SUPER + F" (exec "fuzzel"))
-      (mk "SUPER + R" (exec "wofi --show drun"))
-      (mk "SUPER + S" (exec "grimblast --freeze copy area"))
-      (mk "SUPER + N" (exec "swaync-client -t -sw"))
     ]
     ++ (builtins.concatLists (
       builtins.genList (

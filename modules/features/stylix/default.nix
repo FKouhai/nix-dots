@@ -20,7 +20,6 @@
         btop.enable = true;
         gtk.enable = false;
         hyprland.enable = false;
-        hyprpanel.enable = true;
         k9s.enable = true;
         kubecolor.enable = true;
         lazygit.enable = true;

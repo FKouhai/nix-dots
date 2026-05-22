@@ -55,7 +55,6 @@ with pkgs;
   lazygit
   libnotify
   liquidctl
-  lmstudio
   mcp-k8s-go
   mcp-grafana
   mpv

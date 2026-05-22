@@ -2,8 +2,6 @@ _: {
   flake.homeManagerModules = {
     bars = import ../features/bars;
     barNoctalia = import ../features/bars/noctalia;
-    barCaelestia = import ../features/bars/caelestia.nix;
-    barHyprpanel = import ../features/bars/hyprpanel.nix;
     desktops = import ../features/desktops/hyprland;
     devtooling = import ../features/devtooling;
     shelltools = import ../features/shelltools;
