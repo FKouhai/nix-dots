@@ -22,6 +22,10 @@
     import-tree.url = "github:vic/import-tree";
     nixvim.url = "github:nix-community/nixvim";
     frostvim.url = "github:FKouhai/frostvim";
+    kanoxo = {
+      url = "github:FKouhai/kanoxo-colorscheme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     helium.url = "github:FKouhai/helium2nix";
     agenix.url = "github:ryantm/agenix";
     trigo.url = "github:FKouhai/trigo";

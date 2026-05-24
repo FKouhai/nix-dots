@@ -16,6 +16,7 @@
       _module.args.inputs = inputs;
       enable = true;
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.overlays = [ inputs.kanoxo.overlays.default ];
       imports = [
         inputs.frostvim.nixvimModules.base
         inputs.frostvim.nixvimModules.blink
@@ -42,8 +43,14 @@
         inputs.frostvim.nixvimModules.trouble
         inputs.frostvim.nixvimModules.web-devicons
         inputs.frostvim.nixvimModules.which-key
-        inputs.frostvim.nixvimModules.kanagawa
+        inputs.frostvim.nixvimModules.kanoxo
       ];
+
+      kanoxo = {
+        enable      = true;
+        variant     = "wave";
+        transparent = true;
+      };
 
       plugins = {
         copilot-lsp = {
