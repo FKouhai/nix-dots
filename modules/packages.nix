@@ -16,7 +16,6 @@ with pkgs;
   cliphist
   coreutils
   copilot-language-server
-  cosmic-files
   cozy
   claude-code
   claude-monitor
@@ -46,7 +45,6 @@ with pkgs;
   heroic
   hubble
   hyprshot
-  jetbrains.idea-oss
   jetbrains-mono
   jq
   kanagawa-gtk-theme
@@ -55,6 +53,7 @@ with pkgs;
   lazygit
   libnotify
   liquidctl
+  lm_sensors
   mcp-k8s-go
   mcp-grafana
   mpv
@@ -92,6 +91,7 @@ with pkgs;
   upower
   unzip
   vesktop
+  xdg-desktop-portal-termfilechooser
   vial
   vulkan-tools
   wl-clipboard

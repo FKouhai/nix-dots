@@ -7,7 +7,10 @@ _: {
     }:
     {
       nixpkgs.config.allowUnfree = true;
-      nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+      nixpkgs.overlays = [
+        inputs.nix-cachyos-kernel.overlays.pinned
+        inputs.kanoxo.overlays.default
+      ];
 
       host = {
         hostName = "kraken";
@@ -152,6 +155,8 @@ _: {
         docker.enable = true;
         libvirtd.enable = true;
       };
+
+      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-termfilechooser ];
 
       programs = {
         gpu-screen-recorder.enable = true;
