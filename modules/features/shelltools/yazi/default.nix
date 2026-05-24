@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -9,18 +10,46 @@
   };
 
   config = lib.mkIf config.yazi.enable {
+    home.packages = [
+      (pkgs.writeShellScriptBin "yazi-open" ''
+        dir="''${1#file://}"
+        exec ghostty -e yazi "$dir"
+      '')
+    ];
+
+    xdg.desktopEntries."yazi-open" = {
+      name = "Yazi";
+      exec = "yazi-open %u";
+      terminal = false;
+      mimeType = [ "inode/directory" ];
+    };
+
+    xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
+      [filechooser]
+      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+      env=TERMCMD=ghostty -e
+    '';
+
+    xdg.configFile."xdg-desktop-portal/portals.conf".text = ''
+      [preferred]
+      default=hyprland
+      org.freedesktop.impl.portal.FileChooser=termfilechooser
+    '';
+
     programs.yazi = {
       enable = true;
       enableZshIntegration = true;
       shellWrapperName = "yy";
       settings = {
-        linemode = "size";
-        show_hidden = true;
-        show_symlink = true;
-        sort_by = "natural";
-        sort_dir_first = true;
-        sort_reverse = false;
-        sort_sensitive = false;
+        manager = {
+          linemode = "size";
+          "show-hidden" = true;
+          "show-symlink" = true;
+          "sort-by" = "natural";
+          "sort-dir-first" = true;
+          "sort-reverse" = false;
+          "sort-sensitive" = false;
+        };
       };
     };
   };

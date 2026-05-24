@@ -54,6 +54,8 @@
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       EDITOR = "nvim";
       OPENCODE_DISABLE_AUTOUPDATE = true;
+      GTK_USE_PORTAL = "1";
+      NIXOS_OZONE_WL = "1";
     };
 
     packages = import ./packages.nix { inherit pkgs; };
@@ -64,6 +66,42 @@
       size = 22;
     };
   };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = "yazi-open.desktop";
+      "x-scheme-handler/itunes" = "Cider.desktop";
+      "x-scheme-handler/music" = "Cider.desktop";
+      "x-scheme-handler/cider" = "Cider.desktop";
+      "x-scheme-handler/itms" = "Cider.desktop";
+      "x-scheme-handler/itmss" = "Cider.desktop";
+      "x-scheme-handler/cider2" = "Cider.desktop";
+      "x-scheme-handler/discord" = "vesktop.desktop";
+      "x-scheme-handler/http" = "helium.desktop";
+      "x-scheme-handler/https" = "helium.desktop";
+      "x-scheme-handler/chrome" = "zen-beta.desktop";
+      "text/html" = "helium.desktop";
+      "application/x-extension-htm" = "zen-beta.desktop";
+      "application/x-extension-html" = "zen-beta.desktop";
+      "application/x-extension-shtml" = "zen-beta.desktop";
+      "application/xhtml+xml" = "zen-beta.desktop";
+      "application/x-extension-xhtml" = "zen-beta.desktop";
+      "application/x-extension-xht" = "zen-beta.desktop";
+      "x-scheme-handler/about" = "helium.desktop";
+      "x-scheme-handler/unknown" = "helium.desktop";
+      "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+      "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+      "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
+    };
+  };
+
+  xdg.configFile."environment.d/wayland-session.conf".text = ''
+    GTK_USE_PORTAL=1
+    NIXOS_OZONE_WL=1
+    OZONE_PLATFORM=wayland
+    ELECTRON_OZONE_PLATFORM_HINT=wayland
+  '';
 
   # Custom modules
   prompt.enable = true;

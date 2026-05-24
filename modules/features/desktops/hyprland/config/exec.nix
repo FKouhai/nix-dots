@@ -4,7 +4,7 @@
 }:
 {
   exec-once = [
-    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+    "dbus-update-activation-environment --systemd --all"
     "add_record_player"
   ]
   ++ lib.optionals (bar == "noctalia") [ "noctalia-shell" ]
