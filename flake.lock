@@ -380,16 +380,17 @@
     "frostvim": {
       "inputs": {
         "flake-parts": "flake-parts_2",
+        "kanoxo": "kanoxo",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1778771555,
-        "narHash": "sha256-98fgnWBetWvsMmp/WnVDmArdC4hM6kOcNRnxI/RhflY=",
+        "lastModified": 1779651135,
+        "narHash": "sha256-VD4X6DUJQC8N+L3QVi6rxL8Vvpc+ZtP3Y3QVcbqRIOY=",
         "owner": "FKouhai",
         "repo": "frostvim",
-        "rev": "6274e1362d764c5c35107f9440dc007d7fc19c6f",
+        "rev": "68574388a93ad14c9c2b80144558fd403cc48a0f",
         "type": "github"
       },
       "original": {
@@ -444,11 +445,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1778771462,
-        "narHash": "sha256-pF2tD9qMl+D//yUEs+zl8Sa4Dp8F7lcKBQZlkZlW4sE=",
+        "lastModified": 1779562118,
+        "narHash": "sha256-gcpXflm6K6BYKZOuMYOx8YPLTOYwqPaN5h0PBPiWExU=",
         "owner": "FKouhai",
         "repo": "helium2nix",
-        "rev": "50d4037a4f9b4b458bdd9ec408756322472be947",
+        "rev": "0767f2259f7a07549be718c8b1b6f9cc267d6496",
         "type": "github"
       },
       "original": {
@@ -531,6 +532,47 @@
       "original": {
         "owner": "vic",
         "repo": "import-tree",
+        "type": "github"
+      }
+    },
+    "kanoxo": {
+      "inputs": {
+        "nixpkgs": [
+          "frostvim",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779651078,
+        "narHash": "sha256-D5yTGWxitO0sM5+NytbKJJzqmamBzltqJV6esvSthhU=",
+        "owner": "FKouhai",
+        "repo": "kanoxo-colorscheme",
+        "rev": "06a46aba1bf1e16bb5c5dbc51dcaa84422d5f853",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FKouhai",
+        "repo": "kanoxo-colorscheme",
+        "type": "github"
+      }
+    },
+    "kanoxo_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779651078,
+        "narHash": "sha256-D5yTGWxitO0sM5+NytbKJJzqmamBzltqJV6esvSthhU=",
+        "owner": "FKouhai",
+        "repo": "kanoxo-colorscheme",
+        "rev": "06a46aba1bf1e16bb5c5dbc51dcaa84422d5f853",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FKouhai",
+        "repo": "kanoxo-colorscheme",
         "type": "github"
       }
     },
@@ -949,6 +991,7 @@
         "helium": "helium",
         "home-manager": "home-manager_2",
         "import-tree": "import-tree",
+        "kanoxo": "kanoxo_2",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_7",
         "nixvim": "nixvim_2",
@@ -1260,11 +1303,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1779051303,
-        "narHash": "sha256-+YsMlk2KeMFSQBkjPMAURNCWWDIureVMNs5c3NF2oac=",
+        "lastModified": 1779648922,
+        "narHash": "sha256-XFRhFQgpLZZQf/00o5IyeDw281NqgcPu2ZDbUVspGXU=",
         "owner": "FKouhai",
         "repo": "Kanagawa-wallpapers",
-        "rev": "8a09df9f95f7ed8ac16507865bd2829ecfbb119a",
+        "rev": "1ff2b657cb71374128300b85dbc68ea76e38d478",
         "type": "github"
       },
       "original": {
