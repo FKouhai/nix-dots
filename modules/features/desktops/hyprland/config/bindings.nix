@@ -45,8 +45,8 @@ in
     (mk "SUPER + mouse_up" (wsSwitch "\"e-1\""))
     (mk "XF86AudioRaiseVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
     (mk "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
-    (mkO "SUPER + mouse:272" "hl.dsp.window.drag()" { drag = true; })
-    (mkO "SUPER + mouse:273" "hl.dsp.window.resize()" { drag = true; })
+    (mkO "SUPER + mouse:272" "hl.dsp.window.drag()" { mouse = true; })
+    (mkO "SUPER + mouse:273" "hl.dsp.window.resize()" { mouse = true; })
   ]
   ++ lib.optionals (bar == "noctalia") [
     (mk "SUPER + B" (exec "noctalia-shell ipc call lockScreen lock"))
