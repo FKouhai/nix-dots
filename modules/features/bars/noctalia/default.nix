@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ./themes.nix
+    ./themes
     ./settings/bar.nix
     ./settings/default.nix
   ];
