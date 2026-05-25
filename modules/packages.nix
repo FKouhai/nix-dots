@@ -23,7 +23,6 @@ with pkgs;
   dysk
   element-desktop
   exercism
-  fastfetch
   fd
   ffmpeg
   gamemode
