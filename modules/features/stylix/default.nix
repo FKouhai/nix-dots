@@ -22,7 +22,7 @@
         hyprland.enable = false;
         k9s.enable = true;
         kubecolor.enable = true;
-        lazygit.enable = true;
+        lazygit.enable = false;
         mpv.enable = true;
         opencode.enable = true;
         noctalia-shell.enable = false;

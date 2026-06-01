@@ -7,7 +7,7 @@
 let
   generator = pkgs.writeShellApplication {
     name = "generate-bat-theme";
-    runtimeInputs = [ pkgs.jq pkgs.bat ];
+    runtimeInputs = [ pkgs.jq ];
     text = ''
       colors="$HOME/.config/noctalia/colors.json"
       theme_dir="$HOME/.config/bat/themes"
@@ -22,9 +22,11 @@ let
       outline=$(jq -r '.mOutline' "$colors")
       primary=$(jq -r '.mPrimary' "$colors")
       secondary=$(jq -r '.mSecondary' "$colors")
-      tertiary=$(jq -r '.mTertiary' "$colors")
       error=$(jq -r '.mError' "$colors")
       hover=$(jq -r '.mHover' "$colors")
+      green=$(jq -r '.mGreen' "$colors")
+      orange=$(jq -r '.mOrange' "$colors")
+      yellow=$(jq -r '.mYellow' "$colors")
 
       mkdir -p "$theme_dir"
 
@@ -62,19 +64,19 @@ let
       <key>name</key><string>String</string>
       <key>scope</key><string>string, string.quoted, string.template</string>
       <key>settings</key>
-      <dict><key>foreground</key><string>$secondary</string></dict>
+      <dict><key>foreground</key><string>$green</string></dict>
     </dict>
     <dict>
       <key>name</key><string>Keyword</string>
       <key>scope</key><string>keyword, keyword.control, storage, storage.type, storage.modifier</string>
       <key>settings</key>
-      <dict><key>foreground</key><string>$primary</string></dict>
+      <dict><key>foreground</key><string>$secondary</string></dict>
     </dict>
     <dict>
       <key>name</key><string>Function</string>
       <key>scope</key><string>entity.name.function, entity.name.method, support.function</string>
       <key>settings</key>
-      <dict><key>foreground</key><string>$tertiary</string></dict>
+      <dict><key>foreground</key><string>$primary</string></dict>
     </dict>
     <dict>
       <key>name</key><string>Type</string>
@@ -83,10 +85,22 @@ let
       <dict><key>foreground</key><string>$hover</string></dict>
     </dict>
     <dict>
+      <key>name</key><string>Section</string>
+      <key>scope</key><string>entity.name.section, entity.name.tag</string>
+      <key>settings</key>
+      <dict><key>foreground</key><string>$primary</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Property</string>
+      <key>scope</key><string>support.type.property-name, variable.other.key, meta.mapping.key</string>
+      <key>settings</key>
+      <dict><key>foreground</key><string>$primary</string></dict>
+    </dict>
+    <dict>
       <key>name</key><string>Constant</string>
       <key>scope</key><string>constant.numeric, constant.language, constant.character</string>
       <key>settings</key>
-      <dict><key>foreground</key><string>$error</string></dict>
+      <dict><key>foreground</key><string>$orange</string></dict>
     </dict>
     <dict>
       <key>name</key><string>Variable</string>
@@ -107,16 +121,10 @@ let
       <dict><key>foreground</key><string>$outline</string></dict>
     </dict>
     <dict>
-      <key>name</key><string>Tag</string>
-      <key>scope</key><string>entity.name.tag, meta.tag</string>
-      <key>settings</key>
-      <dict><key>foreground</key><string>$primary</string></dict>
-    </dict>
-    <dict>
       <key>name</key><string>Attribute</string>
       <key>scope</key><string>entity.other.attribute-name</string>
       <key>settings</key>
-      <dict><key>foreground</key><string>$tertiary</string></dict>
+      <dict><key>foreground</key><string>$yellow</string></dict>
     </dict>
     <dict>
       <key>name</key><string>Invalid</string>
@@ -132,7 +140,6 @@ let
 </plist>
 EOF
 
-      bat cache --build 2>/dev/null || true
     '';
   };
 in
@@ -146,9 +153,10 @@ in
 
     home.activation.seedBatTheme = lib.hm.dag.entryAfter [ "unlockNoctaliaColors" ] ''
       ${generator}/bin/generate-bat-theme || true
+      ${pkgs.bat}/bin/bat cache --build 2>/dev/null || true
     '';
 
     stylix.targets.bat.enable = lib.mkForce false;
-    programs.bat.config.theme = "Noctalia";
+    programs.bat.config.theme = "noctalia";
   };
 }
