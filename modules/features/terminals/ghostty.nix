@@ -35,9 +35,11 @@ in
 
     programs.ghostty = {
       enable = true;
+      enableFishIntegration = true;
       settings = {
         font-family = "Maple Mono NF";
         background-opacity = 0.9;
+        shell-integration-features = "ssh-env,ssh-terminfo";
         window-decoration = false;
         theme = "noctalia";
       };
