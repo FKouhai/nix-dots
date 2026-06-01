@@ -17,7 +17,7 @@ _: {
         bar = "noctalia";
         greeter = "sddm";
         theme = "kanagawa-dragon";
-        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/3895e.jpg";
+        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanoxo-wave/call_of_the_night_2.jpg";
         mainMonitor = {
           name = "eDP-1";
           width = "1920";
@@ -84,7 +84,7 @@ _: {
           pulse.enable = true;
         };
         xserver = {
-          enable = true;
+          enable = false;
           xkb = {
             layout = "us";
             variant = "";
@@ -93,7 +93,6 @@ _: {
       };
 
       programs = {
-        gpu-screen-recorder.enable = true;
         zsh.enable = true;
         hyprland = {
           enable = true;
@@ -134,17 +133,10 @@ _: {
           extraGroups = [
             "networkmanager"
             "wheel"
-          ];
-          packages = with pkgs; [
-            nixfmt
-            nixd
+            "plugdev"
           ];
         };
       };
-
-      environment.systemPackages = [
-        pkgs.tailscale
-      ];
 
       system.stateVersion = "24.11";
     };

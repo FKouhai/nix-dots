@@ -22,7 +22,6 @@
     inputs.stylix.homeModules.stylix
     inputs.nixvim.homeModules.nixvim
     inputs.noctalia.homeModules.default
-    inputs.tokyonight.homeManagerModules.default
   ];
   fonts.fontconfig.enable = true;
 
@@ -106,6 +105,8 @@
   # Custom modules
   prompt.enable = true;
   devtooling.enable = true;
+  gleam.enable = false;
+  lua.enable = false;
   shelltools.enable = true;
   stylix-mod.enable = true;
   gtk-mod.enable = true;
@@ -122,7 +123,6 @@
       };
     };
     git = {
-      delta.tokyonight.enable = false;
       lfs.enable = true;
     };
     onlyoffice.enable = true;

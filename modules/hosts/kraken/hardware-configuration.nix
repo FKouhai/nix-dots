@@ -52,10 +52,10 @@ _: {
           device = "/dev/disk/by-uuid/4b0344e8-255f-4709-9e76-7e7b499d5521";
           fsType = "ext4";
         };
-        "/home/franky/games2" = {
-          device = "/dev/disk/by-uuid/442159ec-9409-420b-ba62-6c0d08b6e2f8";
-          fsType = "ext4";
-        };
+        # "/home/franky/games2" = {
+        #   device = "/dev/disk/by-uuid/442159ec-9409-420b-ba62-6c0d08b6e2f8";
+        #   fsType = "ext4";
+        # };
         "/mnt/NAS" = {
           device = "192.168.0.33:/mnt/user/Babylon";
           fsType = "nfs";

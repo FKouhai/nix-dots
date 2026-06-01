@@ -3,97 +3,54 @@
 with pkgs;
 [
 
-  age
-  ags
   argocd
-  beads
-  bind
   bitwarden-desktop
-  brave
-  btop
-  bulletty
-  cava
   cliphist
-  coreutils
-  copilot-language-server
-  cozy
   claude-code
-  claude-monitor
-  devenv
-  dysk
-  element-desktop
-  exercism
   fd
   ffmpeg
   gamemode
-  gemini-cli
   gcc
   gh
-  git-lfs
   gnome-keyring
-  gnome-secrets
-  gnome-themes-extra
-  grim
   gowall
   gpgme
-  gtk-engine-murrine
-  gum
-  hack-font
   pkgs.maple-mono.NF-unhinted
   pkgs.maple-mono.truetype
-  heroic
   hubble
   hyprshot
   jetbrains-mono
   jq
-  kanagawa-gtk-theme
-  kanagawa-icon-theme
+  keymapp
   kubernetes-helm
   lazygit
   libnotify
-  liquidctl
-  lm_sensors
   mcp-k8s-go
   mcp-grafana
   mpv
-  nitch
+  nixd
+  nixfmt
   nix-search-tv
-  nixos-generators
-  nwg-look
   obs-studio
-  obsidian
   oci-cli
   opentofu
   opencode-claude-auth
-  opencloud-desktop
   pavucontrol
   playerctl
-  pulseaudio
-  pulseaudio-ctl
   pulsemixer
   protonup-rs
   python3
-  revive
   ripgrep
   sesh
-  slack
   statix
-  statping-ng
-  teamspeak6-client
   telegram-desktop
   terraform-ls
-  tflint
   tldr
-  tmux
-  tokyonight-gtk-theme
   treefmt
   upower
   unzip
   vesktop
-  xdg-desktop-portal-termfilechooser
   vial
-  vulkan-tools
   wl-clipboard
   wlogout
-
 ]

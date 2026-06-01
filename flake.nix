@@ -41,7 +41,6 @@
     opencode = {
       url = "github:anomalyco/opencode/refs/tags/v1.15.3";
     };
-    tokyonight.url = "github:mrjones2014/tokyonight.nix";
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -6,13 +6,12 @@
     modules = [
       inputs.self.nixosModules.kraken
       inputs.self.nixosModules.krakenHardware
-      inputs.self.nixosModules.krakenUdev
+      inputs.self.nixosModules.udev
       inputs.self.nixosModules.greeter
       inputs.self.nixosModules.themeData
       inputs.self.nixosModules.gpu
       inputs.self.nixosModules.ollama
       inputs.self.nixosModules.glance
-      inputs.self.nixosModules.otel
       inputs.self.nixosModules.prometheus
 "${inputs.self}/modules/features/host-options.nix"
       "${inputs.self}/modules/features/env-packages.nix"

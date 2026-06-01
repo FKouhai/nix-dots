@@ -20,7 +20,7 @@ _: {
         greeter = "greetd";
         gpuType = "amd";
         theme = "kanagawa-aqua";
-        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/call_of_the_night_2.jpg";
+        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanoxo-wave/call_of_the_night_2.jpg";
         mainMonitor = {
           name = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. GS27QA 24286B001135";
           width = "2560";
@@ -44,6 +44,7 @@ _: {
         kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v4;
         kernelParams = [
           "nvme_core.default_ps_max_latency_us=0"
+          "libata.force=4:norst"
         ];
       };
 
@@ -85,10 +86,6 @@ _: {
       services = {
         journald.extraConfig = "SystemMaxUse=50M";
         pulseaudio.enable = false;
-        hardware.openrgb = {
-          enable = true;
-          motherboard = "amd";
-        };
         openssh = {
           enable = true;
           ports = [ 22 ];
@@ -104,7 +101,7 @@ _: {
         };
         rpcbind.enable = true;
         xserver = {
-          enable = true;
+          enable = false;
           xkb = {
             layout = "us";
             variant = "";
@@ -159,10 +156,8 @@ _: {
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-termfilechooser ];
 
       programs = {
-        gpu-screen-recorder.enable = true;
         zsh.enable = true;
         nh.enable = true;
-        firefox.enable = true;
         steam.enable = true;
         hyprland.enable = true;
         hyprland.xwayland.enable = true;
@@ -232,17 +227,12 @@ _: {
             "disk"
             "wheel"
             "docker"
+            "plugdev"
           ];
           packages = with pkgs; [
-            nixfmt
-            nixd
             openssl
-            openssl.dev
-            qemu
-            qemu_kvm
             nfs-utils
             wireguard-tools
-            kdePackages.qtmultimedia
           ];
         };
       };
