@@ -2,8 +2,8 @@
 
 with pkgs;
 [
-
   argocd
+  asciinema
   bitwarden-desktop
   cliphist
   claude-code

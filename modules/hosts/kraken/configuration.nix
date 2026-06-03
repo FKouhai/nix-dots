@@ -7,9 +7,13 @@ _: {
     }:
     {
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.permittedInsecurePackages = [ "electron-39.8.10" ];
       nixpkgs.overlays = [
         inputs.nix-cachyos-kernel.overlays.pinned
         inputs.kanoxo.overlays.default
+        (final: prev: {
+          bitwarden-desktop = prev.bitwarden-desktop.override { electron_39 = final.electron_39-bin; };
+        })
       ];
 
       host = {
@@ -153,7 +157,10 @@ _: {
         libvirtd.enable = true;
       };
 
-      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-termfilechooser ];
+      xdg.portal = {
+        extraPortals = [ pkgs.xdg-desktop-portal-termfilechooser ];
+        config.common."org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+      };
 
       programs = {
         zsh.enable = true;
