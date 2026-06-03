@@ -178,60 +178,13 @@ in
       ${pkgs.jq}/bin/jq -f ${augmentFilter} "$colors" > "$tmp" && ${pkgs.coreutils}/bin/mv "$tmp" "$colors"
     '';
 
-    home.activation.patchNoctaliaGuiSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      guiSettings="$HOME/.config/noctalia/gui-settings.json"
-      if [ -f "$guiSettings" ]; then
-        tmp=$(${pkgs.coreutils}/bin/mktemp)
-        ${pkgs.jq}/bin/jq --arg hook '${hookCmd}' '.hooks.wallpaperChange = $hook' "$guiSettings" > "$tmp"
-        ${pkgs.coreutils}/bin/mv "$tmp" "$guiSettings"
-      fi
-    '';
-
-    programs.noctalia-shell.settings = {
-      colorSchemes = {
-        darkMode = true;
-        manualSunrise = "06:30";
-        manualSunset = "18:30";
-        matugenSchemeType = "scheme-content";
-        schedulingMode = "off";
-        useWallpaperColors = true;
+    programs.noctalia.settings = {
+      theme = {
+        source = "wallpaper";
+        mode = "dark";
       };
       hooks = {
-        darkModeChange = "";
-        enabled = true;
-        performanceModeDisabled = "";
-        performanceModeEnabled = "";
-        screenLock = "";
-        screenUnlock = "";
-        wallpaperChange = hookCmd;
-      };
-      templates = {
-        alacritty = false;
-        cava = false;
-        code = false;
-        discord = false;
-        emacs = false;
-        enableUserTemplates = false;
-        foot = false;
-        fuzzel = false;
-        ghostty = true;
-        gtk = false;
-        helix = false;
-        hyprland = false;
-        kcolorscheme = false;
-        kitty = true;
-        mango = false;
-        niri = false;
-        pywalfox = false;
-        qt = false;
-        spicetify = false;
-        telegram = false;
-        vicinae = false;
-        walker = false;
-        wezterm = false;
-        yazi = false;
-        zed = false;
-        zenBrowser = false;
+        wallpaper_changed = hookCmd;
       };
     };
   };

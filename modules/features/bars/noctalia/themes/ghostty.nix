@@ -73,7 +73,7 @@ in
   config = lib.mkIf (config.bars.noctalia.enable && config.bars.noctalia.themes.ghostty.enable) {
     bars.noctalia.themeGenerators = [ generator ];
 
-    programs.noctalia-shell.settings.templates.ghostty = lib.mkForce false;
+    programs.noctalia.settings.theme.templates.ghostty = lib.mkForce false;
 
     home.activation.seedGhosttyTheme = lib.hm.dag.entryAfter [ "unlockNoctaliaColors" ] ''
       ${generator}/bin/generate-ghostty-theme || true
