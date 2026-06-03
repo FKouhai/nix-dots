@@ -25,7 +25,6 @@
         lazygit.enable = false;
         mpv.enable = true;
         opencode.enable = true;
-        noctalia-shell.enable = false;
         vesktop.enable = true;
         wofi.enable = true;
       };

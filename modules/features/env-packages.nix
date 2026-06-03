@@ -11,6 +11,7 @@
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.agenix.packages.x86_64-linux.default
     inputs.trigo.packages.x86_64-linux.default
+    inputs.aphelion.packages.x86_64-linux.default
     (inputs.opencode.packages.x86_64-linux.opencode.overrideAttrs (old: {
       preBuild = (old.preBuild or "") + ''
         substituteInPlace packages/opencode/src/cli/cmd/generate.ts \
