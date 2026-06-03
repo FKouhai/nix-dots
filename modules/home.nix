@@ -100,6 +100,7 @@
     NIXOS_OZONE_WL=1
     OZONE_PLATFORM=wayland
     ELECTRON_OZONE_PLATFORM_HINT=wayland
+    QT_QPA_PLATFORMTHEME=xdgdesktopportal
   '';
 
   # Custom modules

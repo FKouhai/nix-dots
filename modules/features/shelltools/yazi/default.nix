@@ -28,12 +28,7 @@
       [filechooser]
       cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
       env=TERMCMD=ghostty -e
-    '';
-
-    xdg.configFile."xdg-desktop-portal/portals.conf".text = ''
-      [preferred]
-      default=hyprland
-      org.freedesktop.impl.portal.FileChooser=termfilechooser
+      default_dir=$HOME/Downloads
     '';
 
     programs.yazi = {
