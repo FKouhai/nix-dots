@@ -51,7 +51,7 @@
           let
             execOnce =
               [ "add_record_player" ]
-              ++ lib.optionals (osConfig.host.bar == "noctalia") [ "noctalia-shell" ]
+              ++ lib.optionals (osConfig.host.bar == "noctalia") [ "noctalia" ]
               ++ [ "wl-paste --watch cliphist store &" ];
           in
           ''

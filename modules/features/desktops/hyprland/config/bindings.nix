@@ -30,9 +30,7 @@ in
     (mk "SUPER + E" (exec "cosmic-files"))
     (mk "SUPER + V" "hl.dsp.window.float()")
     (mk "SUPER + P" (exec "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
-    (mk "SUPER + D" (
-      exec "vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --ozone-platform-hint=auto"
-    ))
+    (mk "SUPER + D" (exec "vesktop"))
     (mk "SUPER + H" (focus "l"))
     (mk "SUPER + L" (focus "r"))
     (mk "SUPER + K" (focus "u"))
@@ -49,17 +47,18 @@ in
     (mkO "SUPER + mouse:273" "hl.dsp.window.resize()" { mouse = true; })
   ]
   ++ lib.optionals (bar == "noctalia") [
-    (mk "SUPER + B" (exec "noctalia-shell ipc call lockScreen lock"))
-    (mk "SUPER + SHIFT + B" (exec "noctalia-shell ipc call bluetooth togglePanel"))
-    (mk "SUPER + F" (exec "noctalia-shell ipc call launcher toggle"))
+    (mk "SUPER + B" (exec "noctalia msg session lock"))
+    (mk "SUPER + SHIFT + A" (exec "noctalia msg control-center audio"))
+    (mk "SUPER + SHIFT + B" (exec "noctalia msg control-center bluetooth"))
+    (mk "SUPER + F" (exec "noctalia msg panel-toggle launcher"))
     (mk "SUPER + S" (exec "hyprshot -m region --clipboard-only"))
-    (mk "SUPER + SHIFT + R" (exec "noctalia-shell ipc call sessionMenu toggle"))
-    (mk "SUPER + X" (exec "noctalia-shell ipc call settings toggle"))
+    (mk "SUPER + SHIFT + R" (exec "noctalia msg panel-toggle session"))
+    (mk "SUPER + X" (exec "noctalia msg settings-toggle"))
     (mk "SUPER + SHIFT + S" (exec "obs"))
-    (mk "SUPER + SHIFT + N" (exec "noctalia-shell ipc call nightLight toggle"))
-    (mk "SUPER + N" (exec "noctalia-shell ipc call notifications toggleHistory"))
-    (mk "SUPER + SHIFT + W" (exec "noctalia-shell ipc call wallpaper toggle"))
-    (mk "SUPER + SHIFT + C" (exec "noctalia-shell ipc call controlCenter toggle"))
+    (mk "SUPER + SHIFT + N" (exec "noctalia msg nightlight-toggle"))
+    (mk "SUPER + N" (exec "noctalia msg control-center notifications"))
+    (mk "SUPER + SHIFT + W" (exec "noctalia msg panel-toggle wallpaper"))
+    (mk "SUPER + SHIFT + C" (exec "noctalia msg panel-toggle control-center"))
   ]
   ++ (builtins.concatLists (
     builtins.genList (
