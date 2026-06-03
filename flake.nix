@@ -21,6 +21,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     nixvim.url = "github:nix-community/nixvim";
+    aphelion.url = "github:FKouhai/aphelion";
     frostvim.url = "github:FKouhai/frostvim";
     kanoxo = {
       url = "github:FKouhai/kanoxo-colorscheme";
@@ -31,7 +32,7 @@
     trigo.url = "github:FKouhai/trigo";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell/v5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
