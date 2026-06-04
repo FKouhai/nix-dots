@@ -29,7 +29,6 @@ in
     (mk "SUPER + M" "hl.dsp.exit()")
     (mk "SUPER + E" (exec "cosmic-files"))
     (mk "SUPER + V" "hl.dsp.window.float()")
-    (mk "SUPER + P" (exec "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
     (mk "SUPER + D" (exec "vesktop"))
     (mk "SUPER + H" (focus "l"))
     (mk "SUPER + L" (focus "r"))
@@ -48,17 +47,18 @@ in
   ]
   ++ lib.optionals (bar == "noctalia") [
     (mk "SUPER + B" (exec "noctalia msg session lock"))
-    (mk "SUPER + SHIFT + A" (exec "noctalia msg control-center audio"))
-    (mk "SUPER + SHIFT + B" (exec "noctalia msg control-center bluetooth"))
+    (mk "SUPER + SHIFT + A" (exec "noctalia msg panel-open control-center audio"))
+    (mk "SUPER + SHIFT + B" (exec "noctalia msg panel-open control-center bluetooth"))
+    (mk "SUPER + P" (exec "noctalia msg panel-open clipboard"))
     (mk "SUPER + F" (exec "noctalia msg panel-toggle launcher"))
-    (mk "SUPER + S" (exec "hyprshot -m region --clipboard-only"))
+    (mk "SUPER + S" (exec "noctalia msg screenshot-region"))
     (mk "SUPER + SHIFT + R" (exec "noctalia msg panel-toggle session"))
     (mk "SUPER + X" (exec "noctalia msg settings-toggle"))
     (mk "SUPER + SHIFT + S" (exec "obs"))
     (mk "SUPER + SHIFT + N" (exec "noctalia msg nightlight-toggle"))
-    (mk "SUPER + N" (exec "noctalia msg control-center notifications"))
-    (mk "SUPER + SHIFT + W" (exec "noctalia msg panel-toggle wallpaper"))
-    (mk "SUPER + SHIFT + C" (exec "noctalia msg panel-toggle control-center"))
+    (mk "SUPER + N" (exec "noctalia msg panel-open control-center notifications"))
+    (mk "SUPER + SHIFT + W" (exec "noctalia msg panel-open wallpaper"))
+    (mk "SUPER + SHIFT + C" (exec "noctalia msg panel-open control-center"))
   ]
   ++ (builtins.concatLists (
     builtins.genList (

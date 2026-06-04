@@ -18,7 +18,6 @@ with pkgs;
   pkgs.maple-mono.NF-unhinted
   pkgs.maple-mono.truetype
   hubble
-  hyprshot
   jetbrains-mono
   jq
   keymapp
