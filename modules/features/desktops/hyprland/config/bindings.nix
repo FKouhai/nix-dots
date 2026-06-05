@@ -22,7 +22,7 @@ let
 in
 {
   bind = [
-    (mk "SUPER + RETURN" (exec "ghostty"))
+    (mk "SUPER + RETURN" (exec "kitty"))
     (mk "SUPER + W" (exec "helium"))
     (mk "SUPER + C" (exec "Cider"))
     (mk "SUPER + Q" "hl.dsp.window.close()")

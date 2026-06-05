@@ -21,8 +21,8 @@
     bars = {
       noctalia.enable = lib.mkIf (osConfig.host.bar == "noctalia") true;
     };
-    hyprlock.enable = lib.mkDefault true;
-    hyprpaper.enable = lib.mkDefault true;
-    wlogout.enable = lib.mkDefault true;
+    hyprlock.enable = lib.mkForce false;
+    hyprpaper.enable = lib.mkForce false;
+    wlogout.enable = lib.mkForce false;
   };
 }
