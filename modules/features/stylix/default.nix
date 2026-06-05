@@ -17,7 +17,7 @@
       inherit (osConfig.host.themeData) base16Scheme;
       targets = {
         bat.enable = true;
-        btop.enable = true;
+        btop.enable = false;
         gtk.enable = false;
         hyprland.enable = false;
         k9s.enable = true;

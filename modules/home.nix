@@ -111,6 +111,7 @@
   shelltools.enable = true;
   stylix-mod.enable = true;
   gtk-mod.enable = true;
+  gtk-conf.enable = true;
   hyprland.enable = true;
   terminals.enable = true;
 
@@ -121,6 +122,7 @@
       enable = true;
       settings = {
         theme_background = false;
+        color_theme = "noctalia";
       };
     };
     git = {

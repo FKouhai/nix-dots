@@ -21,7 +21,7 @@
         inherit (osConfig.host.themeData.gtk) name;
         package = pkgs.kanagawa-gtk-theme;
       };
-      gtk4.theme = config.gtk.theme;
+      gtk4.theme = null;
     };
   };
 }

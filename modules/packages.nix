@@ -7,6 +7,7 @@ with pkgs;
   bitwarden-desktop
   cliphist
   claude-code
+  ddcutil
   fd
   ffmpeg
   gamemode
@@ -34,6 +35,7 @@ with pkgs;
   oci-cli
   opentofu
   opencode-claude-auth
+  pulseaudio-ctl
   pavucontrol
   playerctl
   pulsemixer
