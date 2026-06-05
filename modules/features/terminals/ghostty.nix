@@ -37,7 +37,7 @@ in
       enable = true;
       enableFishIntegration = true;
       settings = {
-        font-family = "Maple Mono NF";
+        font-family = "Hack Nerd Font";
         background-opacity = 0.9;
         shell-integration-features = "ssh-env,ssh-terminfo";
         window-decoration = false;

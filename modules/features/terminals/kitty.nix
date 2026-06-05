@@ -23,14 +23,16 @@
     programs.kitty = {
       enable = true;
       settings = {
-        font_family = "Maple Mono NF";
+        font_family = "Hack Nerd Font";
         bold_font = "auto";
         italic_font = "auto";
+        background_opacity = 0.7;
         bold_italic_font = "auto";
         enable_audio_bell = false;
         scrollback_lines = -1;
         tab_bar_edge = "top";
         allow_remote_control = "yes";
+        cursor_trail = 1;
       };
       shellIntegration = {
         enableZshIntegration = true;
