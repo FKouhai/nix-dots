@@ -24,9 +24,25 @@
         scale = 1.0;
         thickness = 34;
         layer = "top";
-        start = [ "launcher" "clock" "sysmon" "active_window" ];
-        center = [ "workspaces" "media" ];
-        end = [ "tray" "notifications" "battery" "volume" "brightness" "control-center" "clipboard" ];
+        start = [
+          "launcher"
+          "clock"
+          "sysmon"
+          "active_window"
+        ];
+        center = [
+          "workspaces"
+          "media"
+        ];
+        end = [
+          "tray"
+          "notifications"
+          "battery"
+          "volume"
+          "brightness"
+          "control-center"
+          "clipboard"
+        ];
       };
 
       widget = {
