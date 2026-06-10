@@ -12,111 +12,163 @@
       settings = {
         logo = {
           source = "nixos";
-          padding.right = 1;
+          padding = {
+            top = 2;
+            left = 1;
+            right = 2;
+          };
         };
         display = {
-          separator = "   ";
+          separator = "  ";
           color.keys = "cyan";
         };
         modules = [
-          "break"
+          {
+            type = "title";
+            format = "{#1}╭───────────── {#}{user-name-colored}";
+          }
+          # Hardware
           {
             type = "custom";
-            format = "| 󰊧 HARDWARE";
+            format = "{#1}│ {#}Hardware Information";
           }
           {
             type = "cpu";
-            key = "󰻠  CPU";
+            key = "{#1}│  {#keys}󰻠 CPU";
           }
           {
             type = "gpu";
-            key = "󰍛  GPU";
-          }
-          {
-            type = "os";
-            key = "  OS";
-          }
-          {
-            type = "kernel";
-            key = "󰌽  Kernel";
-          }
-          {
-            type = "uptime";
-            key = "󱑌  Uptime";
-          }
-          {
-            type = "packages";
-            key = "󰏖  Packages";
+            key = "{#1}│  {#keys}󰢮 GPU";
           }
           {
             type = "memory";
-            key = "󰘚  Memory";
+            key = "{#1}│  {#keys}󰍛 Memory";
             percentType = 3;
           }
           {
             type = "disk";
-            key = "󰋊  Disk (/)";
+            key = "{#1}│  {#keys}󰋊 Disk (/)";
             folders = "/";
             percentType = 3;
           }
-          "break"
           {
             type = "custom";
-            format = "| 󰊧 SOFTWARE";
+            format = "{#1}│";
+          }
+          # System
+          {
+            type = "custom";
+            format = "{#1}│ {#}System Information";
+          }
+          {
+            type = "os";
+            key = "{#1}│  {#keys}󰍹 OS";
+          }
+          {
+            type = "kernel";
+            key = "{#1}│  {#keys}󰒋 Kernel";
+          }
+          {
+            type = "uptime";
+            key = "{#1}│  {#keys}󰅐 Uptime";
+          }
+          {
+            type = "packages";
+            key = "{#1}│  {#keys}󰏖 Packages";
+            format = "{all}";
+          }
+          {
+            type = "custom";
+            format = "{#1}│";
+          }
+          # Software
+          {
+            type = "custom";
+            format = "{#1}│ {#}Desktop Environment";
           }
           {
             type = "wm";
-            key = "󱂬  WM";
+            key = "{#1}│  {#keys}󱂬 WM";
           }
           {
             type = "shell";
-            key = "󰆍  Shell";
+            key = "{#1}│  {#keys}󰆍 Shell";
           }
           {
             type = "terminal";
-            key = "󰽙  Terminal";
+            key = "{#1}│  {#keys}󰽙 Terminal";
           }
           {
             type = "theme";
-            key = "󰏘  Theme";
+            key = "{#1}│  {#keys}󰏘 Theme";
           }
           {
             type = "icons";
-            key = "󰀻  Icons";
+            key = "{#1}│  {#keys}󰀻 Icons";
           }
           {
             type = "cursor";
-            key = "󰆿  Cursor";
+            key = "{#1}│  {#keys}󰆿 Cursor";
           }
-          "break"
           {
             type = "custom";
-            format = "| 󰊧 SIGNAL";
+            format = "{#1}│";
+          }
+          # Signal
+          {
+            type = "custom";
+            format = "{#1}│ {#}Signal";
           }
           {
             type = "command";
-            key = "󰑓  rebuild";
-            shell = "/run/current-system/sw/bin/date -r /run/current-system +'rebuilt %b %d'";
+            key = "{#1}│  {#keys}󰑓 Rebuilt";
+            shell = "/run/current-system/sw/bin/bash";
+            text = "nh os info | awk '/current/ {print $3, $4}'";
           }
-          "break"
+          {
+            type = "command";
+            key = "{#1}│  {#keys}󰋊 Closure";
+            shell = "/run/current-system/sw/bin/bash";
+            text = "nh os info | awk '/current/ {print $7, $8}'";
+          }
           {
             type = "custom";
-            format = "| 󰊧 NOW PLAYING";
+            format = "{#1}│";
+          }
+          # Now Playing
+          {
+            type = "custom";
+            format = "{#1}│ {#}Now Playing";
           }
           {
             type = "media";
-            key = "󰎵  title";
+            key = "{#1}│  {#keys}󰎵 Title";
             format = "{title}";
           }
           {
             type = "media";
-            key = "󰠃  artist";
+            key = "{#1}│  {#keys}󰠃 Artist";
             format = "{artist}";
           }
           {
             type = "media";
-            key = "󰀅  album";
+            key = "{#1}│  {#keys}󰀅 Album";
             format = "{album}";
+          }
+          {
+            type = "custom";
+            format = "{#1}│";
+          }
+          # Colors
+          {
+            type = "colors";
+            key = "{#1}│";
+            symbol = "circle";
+          }
+          # Footer
+          {
+            type = "custom";
+            format = "{#1}╰───────────────────────────────╯";
           }
         ];
       };
