@@ -32,7 +32,7 @@
     trigo.url = "github:FKouhai/trigo";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/v5";
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
