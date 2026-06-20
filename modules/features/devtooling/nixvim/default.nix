@@ -49,7 +49,7 @@
         enable = true;
         variant = "wave";
         transparent = true;
-        terminal_colors = false;
+        terminalColors = false;
       };
 
       plugins = {

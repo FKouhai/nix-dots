@@ -4,6 +4,7 @@ with pkgs;
 [
   argocd
   asciinema
+  antigravity-cli
   bitwarden-desktop
   cliphist
   claude-code

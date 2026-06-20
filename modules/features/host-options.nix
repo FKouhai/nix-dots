@@ -27,6 +27,7 @@
       type = lib.types.enum [
         "sddm"
         "greetd"
+        "noctalia-greet"
       ];
       default = "greetd";
       description = "The display manager / greeter to use.";

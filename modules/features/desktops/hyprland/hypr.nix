@@ -49,10 +49,10 @@
 
         extraConfig =
           let
-            execOnce =
-              [ "add_record_player" ]
-              ++ lib.optionals (osConfig.host.bar == "noctalia") [ "noctalia" ]
-              ++ [ "wl-paste --watch cliphist store &" ];
+            execOnce = [
+              "add_record_player"
+            ]
+            ++ [ "wl-paste --watch cliphist store &" ];
           in
           ''
             hl.on("hyprland.start", function()
@@ -100,22 +100,56 @@
                   mode = "${toString osConfig.host.mainMonitor.width}x${toString osConfig.host.mainMonitor.height}@${toString osConfig.host.mainMonitor.refresh}";
                   position = "0x0";
                   scale = 1;
+                  cm = "srgb";
+                  icc = toString ./assets/GS27QA.icm;
                 }
                 {
                   output = osConfig.host.secondaryMonitor.name;
                   mode = "${toString osConfig.host.secondaryMonitor.width}x${toString osConfig.host.secondaryMonitor.height}@${toString osConfig.host.secondaryMonitor.refresh}";
                   position = "2560x0";
                   scale = 1;
+                  cm = "srgb";
+                  icc = toString ./assets/GS27QA.icm;
                 }
               ];
 
               env = [
-                { _args = [ "BROWSER" "helium" ]; }
-                { _args = [ "XDG_CONFIG_HOME" "/home/franky/.config" ]; }
-                { _args = [ "XDG_SESSION_TYPE" "wayland" ]; }
-                { _args = [ "XCURSOR_SIZE" "22" ]; }
-                { _args = [ "EDITOR" "nvim" ]; }
-                { _args = [ "QT_STYLE_OVERRIDE" "" ]; }
+                {
+                  _args = [
+                    "BROWSER"
+                    "helium"
+                  ];
+                }
+                {
+                  _args = [
+                    "XDG_CONFIG_HOME"
+                    "/home/franky/.config"
+                  ];
+                }
+                {
+                  _args = [
+                    "XDG_SESSION_TYPE"
+                    "wayland"
+                  ];
+                }
+                {
+                  _args = [
+                    "XCURSOR_SIZE"
+                    "22"
+                  ];
+                }
+                {
+                  _args = [
+                    "EDITOR"
+                    "nvim"
+                  ];
+                }
+                {
+                  _args = [
+                    "QT_STYLE_OVERRIDE"
+                    ""
+                  ];
+                }
               ];
             }
             [

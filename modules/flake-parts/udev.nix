@@ -169,6 +169,14 @@ _: {
         # Performance Designed Products Victrix Pro FS-12 for PS4 & PS5
         KERNEL=="hidraw*", ATTRS{idVendor}=="0e6f", ATTRS{idProduct}=="020c", MODE="0660", TAG+="uaccess"
 
+        # ── Keyboard joystick suppression (fixes Sekiro/DS2 controller detection) ──
+
+        # ZSA Moonlander Mark I
+        SUBSYSTEM=="input", ATTRS{idVendor}=="3297", ATTRS{idProduct}=="1969", ENV{ID_INPUT_JOYSTICK}=""
+
+        # MTKB W-SOFLE
+        SUBSYSTEM=="input", ATTRS{idVendor}=="55d4", ATTRS{idProduct}=="0664", ENV{ID_INPUT_JOYSTICK}=""
+
         # ── QMK / Vial ─────────────────────────────────────────────────────────
 
         # Vial udev rule

@@ -21,7 +21,7 @@ _: {
         isDesktop = true;
         class = "desktop";
         bar = "noctalia";
-        greeter = "greetd";
+        greeter = "noctalia-greet";
         gpuType = "amd";
         theme = "kanagawa-aqua";
         wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanoxo-wave/call_of_the_night_2.jpg";

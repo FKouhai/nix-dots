@@ -20,6 +20,10 @@ _: {
           };
         })
 
+        (lib.mkIf (config.host.greeter == "noctalia-greet") {
+          programs.noctalia-greeter.enable = true;
+        })
+
         (lib.mkIf (config.host.greeter == "sddm") {
           services.displayManager.sddm = {
             enable = true;
