@@ -5,12 +5,8 @@
   inputs,
   ...
 }:
-{
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-
   imports = [
-    ./features/desktops/hyprland
+    ./features/desktops
     ./features/bars
     ./features/prompt
     ./features/shelltools
@@ -18,7 +14,7 @@
     ./features/gtk
     ./features/terminals
     ./features/stylix
-    ./features/flameshot.nix
+    ./features/flameshot
     inputs.stylix.homeModules.stylix
     inputs.nixvim.homeModules.nixvim
     inputs.noctalia.homeModules.default
@@ -47,7 +43,7 @@
     username = "franky";
     enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/franky";
-    stateVersion = "24.11"; # Please read the comment before changing.
+    stateVersion = "24.11";
     sessionVariables = {
       OZONE_PLATFORM = "wayland";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
@@ -59,6 +55,7 @@
 
     packages = import ./packages.nix { inherit pkgs; };
     pointerCursor = {
+      enable = true;
       gtk.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
@@ -103,17 +100,8 @@
     QT_QPA_PLATFORMTHEME=xdgdesktopportal
   '';
 
-  # Custom modules
-  prompt.enable = true;
-  devtooling.enable = true;
-  shelltools.enable = true;
-  stylix-mod.enable = true;
-  gtk-mod.enable = true;
   gtk-conf.enable = true;
-  hyprland.enable = true;
-  terminals.enable = true;
 
-  # Minimal programs configuration
   programs = {
     home-manager.enable = true;
     btop = {
