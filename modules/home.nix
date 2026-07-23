@@ -106,8 +106,6 @@
   # Custom modules
   prompt.enable = true;
   devtooling.enable = true;
-  gleam.enable = false;
-  lua.enable = false;
   shelltools.enable = true;
   stylix-mod.enable = true;
   gtk-mod.enable = true;
