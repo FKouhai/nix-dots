@@ -1,28 +1,87 @@
 {
   lib,
   config,
-  osConfig,
+  osConfig ? { },
   ...
 }:
 {
   imports = [
     ./hypr.nix
-    ./hyprlock.nix
-    ./hyprpaper.nix
-    ./wlogout.nix
   ];
 
   options = {
-    hyprland.enable = lib.mkEnableOption "Enable hyprland module";
-  };
-  config = lib.mkIf config.hyprland.enable {
-    hypr.enable = lib.mkDefault true;
-    # Bar selection based on host.bar option
-    bars = {
-      noctalia.enable = lib.mkIf (osConfig.host.bar == "noctalia") true;
+    desktops.hyprland = {
+      enable = lib.mkEnableOption "Enable hyprland desktop";
+
+      monitors = lib.mkOption {
+        type = lib.types.nullOr (
+          lib.types.submodule {
+            options = {
+              main = lib.mkOption {
+                type = lib.types.submodule {
+                  options = {
+                    name = lib.mkOption {
+                      type = lib.types.str;
+                      default = "";
+                    };
+                    width = lib.mkOption {
+                      type = lib.types.str;
+                      default = "1920";
+                    };
+                    height = lib.mkOption {
+                      type = lib.types.str;
+                      default = "1080";
+                    };
+                    refresh = lib.mkOption {
+                      type = lib.types.str;
+                      default = "60";
+                    };
+                  };
+                };
+                default = { };
+              };
+              secondary = lib.mkOption {
+                type = lib.types.submodule {
+                  options = {
+                    name = lib.mkOption {
+                      type = lib.types.str;
+                      default = "";
+                    };
+                    width = lib.mkOption {
+                      type = lib.types.str;
+                      default = "1920";
+                    };
+                    height = lib.mkOption {
+                      type = lib.types.str;
+                      default = "1080";
+                    };
+                    refresh = lib.mkOption {
+                      type = lib.types.str;
+                      default = "60";
+                    };
+                  };
+                };
+                default = { };
+              };
+            };
+          }
+        );
+        default = null;
+      };
+
+      bar = lib.mkOption {
+        type = lib.types.nullOr (lib.types.enum [ "noctalia" ]);
+        default = null;
+      };
+
+      wallpaper = lib.mkOption {
+        type = lib.types.nullOr lib.types.path;
+        default = null;
+      };
     };
-    hyprlock.enable = lib.mkForce false;
-    hyprpaper.enable = lib.mkForce false;
-    wlogout.enable = lib.mkForce false;
+  };
+
+  config = lib.mkIf config.desktops.hyprland.enable {
+    hypr.enable = lib.mkDefault true;
   };
 }
