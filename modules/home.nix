@@ -127,27 +127,6 @@
       lfs.enable = true;
     };
     onlyoffice.enable = true;
-    wofi.enable = false;
-
-    fuzzel = {
-      enable = true;
-      settings = {
-        main = {
-          font = "Hack Nerd Font";
-          prompt = ''">    "'';
-          lines = 20;
-          width = 60;
-          horizontal-pad = 40;
-          vertical-pad = 16;
-          inner-pad = 6;
-        };
-        colors = {
-          background = "1e1e2efa";
-          text = "19617813801";
-          border = "#c4b28a";
-        };
-      };
-    };
   };
 
   qt = {
