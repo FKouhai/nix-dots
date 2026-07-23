@@ -15,9 +15,7 @@
       tmux.enableShellIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
-      historyWidgetOptions = [
-        "--sort"
-      ];
+      historyWidget.enable = false;
       colors = {
         bg = "-1";
         "bg+" = "#2A2A37";
