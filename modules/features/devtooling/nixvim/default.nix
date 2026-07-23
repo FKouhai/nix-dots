@@ -13,7 +13,6 @@
 
   config = lib.mkIf config.nixvim.enable {
     programs.nixvim = {
-      _module.args.inputs = inputs;
       enable = true;
       nixpkgs.config.allowUnfree = true;
       nixpkgs.overlays = [ inputs.kanoxo.overlays.default ];
@@ -53,26 +52,13 @@
       };
 
       plugins = {
-        avante = {
-          enable = true;
-          settings = {
-            provider = "opencode";
-            acp_providrs = {
-              opencode = {
-                command = "opencode";
-                args = [ "acp" ];
-              };
-            };
-          };
-        };
-
         lsp.servers.nixd.settings =
           let
             flake = ''(builtins.getFlake "${inputs.self}")'';
           in
           {
             nixpkgs.expr = "import ${flake}.inputs.nixpkgs {}";
-            nixos.expr = "${flake}.nixosConfigurations.${osConfig.host.hostName}.options";
+            nixos.expr = "${flake}.nixosConfigurations.${osConfig.networking.hostName}.options";
           };
       };
     };

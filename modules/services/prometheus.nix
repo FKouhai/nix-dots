@@ -27,7 +27,7 @@ _: {
         loki.source.journal "read" {
           forward_to    = [loki.write.endpoint.receiver]
           relabel_rules = loki.relabel.journal.rules
-          labels        = {job = "systemd-journal", host = "${config.host.hostName}"}
+          labels        = {job = "systemd-journal", host = "${config.networking.hostName}"}
           max_age       = "12h"
         }
 
