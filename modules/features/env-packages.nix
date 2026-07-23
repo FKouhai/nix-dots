@@ -22,6 +22,6 @@
     }))
     inputs.wallpapers.packages.x86_64-linux.default
     inputs.helium.defaultPackage.x86_64-linux
-  ]
-  ++ lib.optional (config.host.bar == "noctalia") inputs.noctalia.packages.x86_64-linux.default;
+    inputs.noctalia.packages.x86_64-linux.default
+  ];
 }

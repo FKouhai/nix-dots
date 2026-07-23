@@ -17,7 +17,7 @@
 
   config = lib.mkIf config.bars.noctalia.enable {
     programs.noctalia = {
-      enable = lib.mkIf (osConfig.host.bar == "noctalia") true;
+      enable = true;
     };
   };
 }

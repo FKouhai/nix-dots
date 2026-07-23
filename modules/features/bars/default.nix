@@ -1,5 +1,7 @@
 {
   lib,
+  config,
+  osConfig ? { },
   ...
 }:
 {
@@ -11,9 +13,12 @@
     bars.enable = lib.mkEnableOption "Enable bars module";
   };
 
-  config = {
-    bars = {
-      noctalia.enable = lib.mkDefault false;
-    };
-  };
+  config = lib.mkMerge [
+    {
+      bars = {
+        enable = lib.mkDefault true;
+        noctalia.enable = lib.mkDefault true;
+      };
+    }
+  ];
 }

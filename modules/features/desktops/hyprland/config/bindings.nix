@@ -1,4 +1,4 @@
-{ lib, bar, ... }:
+{ lib, ... }:
 let
   mk = keys: dsp: {
     _args = [
@@ -45,7 +45,7 @@ in
     (mkO "SUPER + mouse:272" "hl.dsp.window.drag()" { mouse = true; })
     (mkO "SUPER + mouse:273" "hl.dsp.window.resize()" { mouse = true; })
   ]
-  ++ lib.optionals (bar == "noctalia") [
+  ++ [
     (mk "SUPER + B" (exec "noctalia msg session lock"))
     (mk "SUPER + SHIFT + A" (exec "noctalia msg panel-open control-center audio"))
     (mk "SUPER + SHIFT + B" (exec "noctalia msg panel-open control-center bluetooth"))
@@ -55,7 +55,7 @@ in
     (mk "SUPER + SHIFT + R" (exec "noctalia msg panel-toggle session"))
     (mk "SUPER + X" (exec "noctalia msg settings-toggle"))
     (mk "SUPER + SHIFT + S" (exec "obs"))
-    (mk "SUPER + SHIFT + N" (exec "noctalia msg nightlight-toggle"))
+    (mk "SUPER + SHIFT + N" (exec "pkill -x hyprsunset || hyprsunset -t 3700 &"))
     (mk "SUPER + N" (exec "noctalia msg panel-open control-center notifications"))
     (mk "SUPER + SHIFT + W" (exec "noctalia msg panel-open wallpaper"))
     (mk "SUPER + SHIFT + C" (exec "noctalia msg panel-open control-center"))

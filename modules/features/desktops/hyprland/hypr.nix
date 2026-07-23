@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  osConfig,
+  osConfig ? { },
   config,
   inputs,
   ...
@@ -30,13 +30,40 @@
           echo "PCM2900C to Scarlett Solo loopback configured successfully"
         '';
       };
+      hasHost = osConfig ? host && osConfig.host ? mainMonitor;
+      cfg = config.desktops.hyprland;
+      bar = "noctalia";
+      mainMonitor =
+        if cfg.monitors != null && cfg.monitors.main.name != "" then
+          cfg.monitors.main
+        else if hasHost then
+          osConfig.host.mainMonitor
+        else
+          {
+            name = "";
+            width = "1920";
+            height = "1080";
+            refresh = "60";
+          };
+      secondaryMonitor =
+        if cfg.monitors != null && cfg.monitors.secondary.name != "" then
+          cfg.monitors.secondary
+        else if hasHost then
+          osConfig.host.secondaryMonitor
+        else
+          {
+            name = "";
+            width = "1920";
+            height = "1080";
+            refresh = "60";
+          };
     in
     {
       home.packages = [
         add_record_player
+        pkgs.hyprsunset
       ];
       dbus.packages = [
-        pkgs.pass-secret-service
         pkgs.gcr
         pkgs.gnome-settings-daemon
         pkgs.libsecret
@@ -51,6 +78,7 @@
           let
             execOnce = [
               "add_record_player"
+              "hyprsunset &"
             ]
             ++ [ "wl-paste --watch cliphist store &" ];
           in
@@ -96,16 +124,16 @@
 
               monitor = [
                 {
-                  output = osConfig.host.mainMonitor.name;
-                  mode = "${toString osConfig.host.mainMonitor.width}x${toString osConfig.host.mainMonitor.height}@${toString osConfig.host.mainMonitor.refresh}";
+                  output = mainMonitor.name;
+                  mode = "${mainMonitor.width}x${mainMonitor.height}@${mainMonitor.refresh}";
                   position = "0x0";
                   scale = 1;
                   cm = "srgb";
                   icc = toString ./assets/GS27QA.icm;
                 }
                 {
-                  output = osConfig.host.secondaryMonitor.name;
-                  mode = "${toString osConfig.host.secondaryMonitor.width}x${toString osConfig.host.secondaryMonitor.height}@${toString osConfig.host.secondaryMonitor.refresh}";
+                  output = secondaryMonitor.name;
+                  mode = "${secondaryMonitor.width}x${secondaryMonitor.height}@${secondaryMonitor.refresh}";
                   position = "2560x0";
                   scale = 1;
                   cm = "srgb";
@@ -160,7 +188,6 @@
               (import ./config/windowrules.nix)
               (import ./config/bindings.nix {
                 inherit lib;
-                inherit (osConfig.host) bar;
               })
             ];
       };
