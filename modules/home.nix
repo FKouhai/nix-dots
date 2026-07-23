@@ -5,6 +5,7 @@
   inputs,
   ...
 }:
+{
   imports = [
     ./features/desktops
     ./features/bars

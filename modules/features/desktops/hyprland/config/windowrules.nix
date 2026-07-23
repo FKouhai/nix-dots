@@ -9,8 +9,14 @@
       no_initial_focus = true;
       match.title = "Picture-in-Picture";
     }
-    { float = true; match.class = "^(pavucontrol)$"; }
-    { float = true; match.title = "^(Volume Control)$"; }
+    {
+      float = true;
+      match.class = "^(pavucontrol)$";
+    }
+    {
+      float = true;
+      match.title = "^(Volume Control)$";
+    }
     {
       float = true;
       pin = true;
@@ -20,9 +26,22 @@
       no_initial_focus = true;
       match.class = "mpv";
     }
-    { opacity = 0.90; match.class = "^(Cider)$"; }
-    { opacity = 0.90; match.class = "^(cosmic-files)$"; }
-    { opacity = 0.90; match.class = "^(vesktop)$"; }
-    { opacity = 1.0; no_blur = true; match.class = "^(zen-beta)$"; }
+    {
+      opacity = 0.90;
+      match.class = "^(Cider)$";
+    }
+    {
+      opacity = 0.90;
+      match.class = "^(cosmic-files)$";
+    }
+    {
+      opacity = 0.90;
+      match.class = "^(vesktop)$";
+    }
+    {
+      opacity = 1.0;
+      no_blur = true;
+      match.class = "^(zen-beta)$";
+    }
   ];
 }
