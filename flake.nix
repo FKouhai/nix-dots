@@ -29,6 +29,10 @@
     };
     helium.url = "github:FKouhai/helium2nix";
     agenix.url = "github:ryantm/agenix";
+    llm = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     trigo.url = "github:FKouhai/trigo";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     noctalia = {
