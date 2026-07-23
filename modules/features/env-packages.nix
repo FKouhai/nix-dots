@@ -7,6 +7,8 @@
 }:
 {
   environment.systemPackages = [
+    pkgs.ghostty
+    pkgs.kitty
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.agenix.packages.x86_64-linux.default
     inputs.trigo.packages.x86_64-linux.default
