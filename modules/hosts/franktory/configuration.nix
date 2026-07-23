@@ -9,15 +9,10 @@ _: {
     }:
     {
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.permittedInsecurePackages = [ "electron-40.10.5" ];
 
       host = {
-        hostName = "franktory";
-        isDesktop = false;
-        class = "laptop";
-        bar = "noctalia";
         greeter = "sddm";
-        theme = "kanagawa-dragon";
-        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanoxo-wave/call_of_the_night_2.jpg";
         mainMonitor = {
           name = "eDP-1";
           width = "1920";

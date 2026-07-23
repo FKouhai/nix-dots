@@ -7,7 +7,10 @@ _: {
     }:
     {
       nixpkgs.config.allowUnfree = true;
-      nixpkgs.config.permittedInsecurePackages = [ "electron-39.8.10" ];
+      nixpkgs.config.permittedInsecurePackages = [
+        "electron-39.8.10"
+        "electron-40.10.5"
+      ];
       nixpkgs.overlays = [
         inputs.nix-cachyos-kernel.overlays.pinned
         inputs.kanoxo.overlays.default
@@ -17,14 +20,8 @@ _: {
       ];
 
       host = {
-        hostName = "kraken";
-        isDesktop = true;
-        class = "desktop";
-        bar = "noctalia";
         greeter = "noctalia-greet";
         gpuType = "amd";
-        theme = "kanagawa-aqua";
-        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanoxo-wave/call_of_the_night_2.jpg";
         mainMonitor = {
           name = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. GS27QA 24286B001135";
           width = "2560";
@@ -45,15 +42,41 @@ _: {
           efi.canTouchEfiVariables = true;
         };
         plymouth.enable = true;
-        kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v4;
+        kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+        extraModulePackages = [
+          (pkgs.linuxPackagesFor pkgs.cachyosKernels.linuxPackages-cachyos-latest.kernel).r8125
+        ];
+        # r8169 incorrectly binds to the RTL8125 2.5GbE NIC; r8125 is the proper driver
+        blacklistedKernelModules = [ "r8169" ];
+        kernelModules = [ "r8125" ];
         kernelParams = [
           "nvme_core.default_ps_max_latency_us=0"
           "libata.force=4:norst"
         ];
       };
 
+      boot.kernel.sysctl = {
+        "net.core.netdev_max_backlog" = 5000;
+        "net.core.netdev_budget" = 600;
+        "net.core.netdev_budget_usecs" = 8000;
+        "net.core.rps_sock_flow_entries" = 32768;
+      };
+
+      services.irqbalance.enable = true;
+
       systemd.services = {
         dhcpd.enable = false;
+        rps-enp10s0 = {
+          description = "Enable RPS for enp10s0";
+          after = [ "network.target" ];
+          wantedBy = [ "multi-user.target" ];
+          serviceConfig = {
+            Type = "oneshot";
+            RemainAfterExit = true;
+            ExecStart = "${pkgs.bash}/bin/bash -c 'echo ffff > /sys/class/net/enp10s0/queues/rx-0/rps_cpus && echo 2048 > /sys/class/net/enp10s0/queues/rx-0/rps_flow_cnt'";
+          };
+        };
+
       };
 
       networking = {
@@ -157,6 +180,10 @@ _: {
         libvirtd.enable = true;
       };
 
+      hardware = {
+        i2c.enable = true;
+      };
+
       xdg.portal = {
         extraPortals = [ pkgs.xdg-desktop-portal-termfilechooser ];
         config.common."org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
@@ -235,6 +262,8 @@ _: {
             "wheel"
             "docker"
             "plugdev"
+            "i2c"
+            "video"
           ];
           packages = with pkgs; [
             openssl
