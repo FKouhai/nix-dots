@@ -15,10 +15,10 @@
       enable = true;
       iconTheme = {
         package = pkgs.kanagawa-icon-theme;
-        name = osConfig.host.themeData.gtk.iconName;
+        name = "Kanagawa";
       };
       theme = {
-        inherit (osConfig.host.themeData.gtk) name;
+        name = "Kanagawa-B";
         package = pkgs.kanagawa-gtk-theme;
       };
       gtk4.theme = null;

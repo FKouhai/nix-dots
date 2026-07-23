@@ -51,7 +51,25 @@ let
   };
 
   defaultNoctaliaColors = pkgs.writeText "noctalia-colors-default.json" (
-    builtins.toJSON (mkColors osConfig.host.themeData.base16Scheme)
+    builtins.toJSON (mkColors {
+      scheme = "Kanagawa Dragon";
+      base00 = "181616";
+      base01 = "1f1c1c";
+      base02 = "282727";
+      base03 = "625e5a";
+      base04 = "a6a69c";
+      base05 = "c5c9c5";
+      base06 = "c8c093";
+      base07 = "dcd7ba";
+      base08 = "c4746e";
+      base09 = "b6927b";
+      base0A = "c4b28a";
+      base0B = "8a9a7b";
+      base0C = "8ea4a2";
+      base0D = "8ba4b0";
+      base0E = "a292a3";
+      base0F = "c4b28a";
+    })
   );
 
   # jq filter that fills in derived fields noctalia doesn't write (using // null-coalescing)

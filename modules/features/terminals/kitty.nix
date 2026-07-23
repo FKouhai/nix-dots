@@ -37,7 +37,6 @@
       shellIntegration = {
         enableZshIntegration = true;
       };
-      themeFile = osConfig.host.themeData.kittyTheme;
       extraConfig = "include current-theme.conf";
     };
   };
