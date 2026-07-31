@@ -4,16 +4,34 @@
   curve = [
     {
       _args = [
-        "md3_decel"
+        "easeOutQuint"
         {
           type = "bezier";
           points = [
             [
+              0.23
+              1
+            ]
+            [
+              0.32
+              1
+            ]
+          ];
+        }
+      ];
+    }
+    {
+      _args = [
+        "easeInOutCubic"
+        {
+          type = "bezier";
+          points = [
+            [
+              0.65
               0.05
-              0.7
             ]
             [
-              0.1
+              0.36
               1
             ]
           ];
@@ -22,111 +40,68 @@
     }
     {
       _args = [
-        "md3_accel"
+        "linear"
         {
           type = "bezier";
           points = [
             [
-              0.3
+              0
               0
             ]
             [
-              0.8
+              1
+              1
+            ]
+          ];
+        }
+      ];
+    }
+    {
+      _args = [
+        "almostLinear"
+        {
+          type = "bezier";
+          points = [
+            [
+              0.5
+              0.5
+            ]
+            [
+              0.75
+              1
+            ]
+          ];
+        }
+      ];
+    }
+    {
+      _args = [
+        "quick"
+        {
+          type = "bezier";
+          points = [
+            [
               0.15
+              0
             ]
-          ];
-        }
-      ];
-    }
-    {
-      _args = [
-        "menu_decel"
-        {
-          type = "bezier";
-          points = [
             [
               0.1
               1
-            ]
-            [
-              0
-              1
-            ]
-          ];
-        }
-      ];
-    }
-    {
-      _args = [
-        "menu_accel"
-        {
-          type = "bezier";
-          points = [
-            [
-              0.38
-              0.04
-            ]
-            [
-              1
-              0.07
             ]
           ];
         }
       ];
     }
 
+    # Default springs
     {
       _args = [
-        "spring_menu"
+        "easy"
         {
           type = "spring";
           mass = 1;
-          stiffness = 80;
-          dampening = 14;
-        }
-      ];
-    }
-    {
-      _args = [
-        "spring_window"
-        {
-          type = "spring";
-          mass = 1;
-          stiffness = 30;
-          dampening = 8;
-        }
-      ];
-    }
-    {
-      _args = [
-        "spring_open"
-        {
-          type = "spring";
-          mass = 1;
-          stiffness = 30;
-          dampening = 8;
-        }
-      ];
-    }
-    {
-      _args = [
-        "spring_workspace"
-        {
-          type = "spring";
-          mass = 1.2;
-          stiffness = 30;
-          dampening = 10;
-        }
-      ];
-    }
-    {
-      _args = [
-        "spring_special"
-        {
-          type = "spring";
-          mass = 1;
-          stiffness = 30;
-          dampening = 8;
+          stiffness = 238.1191;
+          dampening = 24.21279333;
         }
       ];
     }
@@ -134,84 +109,113 @@
 
   animation = [
     {
+      leaf = "global";
+      enabled = true;
+      speed = 10;
+      bezier = "default";
+    }
+    {
+      leaf = "border";
+      enabled = true;
+      speed = 5.39;
+      bezier = "easeOutQuint";
+    }
+    {
       leaf = "windows";
       enabled = true;
-      speed = 1;
-      spring = "spring_window";
+      speed = 4.79;
+      spring = "easy";
     }
     {
       leaf = "windowsIn";
       enabled = true;
-      speed = 1;
-      spring = "spring_open";
-      style = "popin 40%";
+      speed = 4.1;
+      spring = "easy";
+      style = "popin 87%";
     }
     {
       leaf = "windowsOut";
       enabled = true;
-      speed = 3;
-      bezier = "md3_accel";
-      style = "popin 60%";
+      speed = 1.49;
+      bezier = "linear";
+      style = "popin 87%";
     }
     {
-      leaf = "border";
-      enabled = false;
+      leaf = "fadeIn";
+      enabled = true;
+      speed = 1.73;
+      bezier = "almostLinear";
     }
     {
-      leaf = "borderangle";
-      enabled = false;
+      leaf = "fadeOut";
+      enabled = true;
+      speed = 1.46;
+      bezier = "almostLinear";
     }
     {
       leaf = "fade";
       enabled = true;
-      speed = 3;
-      bezier = "md3_decel";
+      speed = 3.03;
+      bezier = "quick";
     }
     {
-      leaf = "zoomFactor";
+      leaf = "layers";
       enabled = true;
-      speed = 6;
-      bezier = "md3_decel";
+      speed = 3.81;
+      bezier = "easeOutQuint";
     }
     {
       leaf = "layersIn";
       enabled = true;
-      speed = 3;
-      spring = "spring_menu";
-      style = "slide";
+      speed = 4;
+      bezier = "easeOutQuint";
+      style = "fade";
     }
     {
       leaf = "layersOut";
       enabled = true;
-      speed = 1.6;
-      bezier = "menu_accel";
-      style = "slide";
+      speed = 1.5;
+      bezier = "linear";
+      style = "fade";
     }
     {
       leaf = "fadeLayersIn";
       enabled = true;
-      speed = 2;
-      bezier = "menu_decel";
+      speed = 1.79;
+      bezier = "almostLinear";
     }
     {
       leaf = "fadeLayersOut";
       enabled = true;
-      speed = 1.6;
-      bezier = "menu_accel";
+      speed = 1.39;
+      bezier = "almostLinear";
     }
     {
       leaf = "workspaces";
       enabled = true;
-      speed = 1;
-      spring = "spring_workspace";
-      style = "slide";
+      speed = 1.94;
+      bezier = "almostLinear";
+      style = "fade";
     }
     {
-      leaf = "specialWorkspace";
+      leaf = "workspacesIn";
       enabled = true;
-      speed = 1;
-      spring = "spring_special";
-      style = "slidefadevert 40%";
+      speed = 1.21;
+      bezier = "almostLinear";
+      style = "fade";
+    }
+    {
+      leaf = "workspacesOut";
+      enabled = true;
+      speed = 1.94;
+      bezier = "almostLinear";
+      style = "fade";
+    }
+    {
+      leaf = "zoomFactor";
+      enabled = true;
+      speed = 7;
+      bezier = "quick";
     }
   ];
 }
