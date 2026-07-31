@@ -5,16 +5,13 @@ with pkgs;
   argocd
   asciinema
   antigravity-cli
+  bandwhich
   bitwarden-desktop
-  cliphist
-  claude-code
   ddcutil
+  eva
   fd
-  ffmpeg
   gamemode
-  gcc
   gh
-  gnome-keyring
   gowall
   gpgme
   pkgs.maple-mono.NF-unhinted
@@ -23,6 +20,7 @@ with pkgs;
   jetbrains-mono
   jq
   keymapp
+  kmon
   kubernetes-helm
   lazygit
   libnotify
@@ -32,27 +30,22 @@ with pkgs;
   nixd
   nixfmt
   nix-search-tv
+  nodejs
   obs-studio
-  oci-cli
   opentofu
-  opencode-claude-auth
   pulseaudio-ctl
   pavucontrol
   playerctl
   pulsemixer
   protonup-rs
-  python3
   ripgrep
   sesh
   statix
   telegram-desktop
-  terraform-ls
   tldr
   treefmt
   upower
   unzip
   vesktop
-  vial
   wl-clipboard
-  wlogout
 ]
