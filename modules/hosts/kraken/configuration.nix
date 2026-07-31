@@ -7,16 +7,9 @@ _: {
     }:
     {
       nixpkgs.config.allowUnfree = true;
-      nixpkgs.config.permittedInsecurePackages = [
-        "electron-39.8.10"
-        "electron-40.10.5"
-      ];
       nixpkgs.overlays = [
         inputs.nix-cachyos-kernel.overlays.pinned
         inputs.kanoxo.overlays.default
-        (final: prev: {
-          bitwarden-desktop = prev.bitwarden-desktop.override { electron_39 = final.electron_39-bin; };
-        })
       ];
 
       host = {
@@ -137,37 +130,6 @@ _: {
         blueman.enable = true;
         pipewire = {
           enable = true;
-          extraConfig = {
-            pipewire = {
-              "10-custom-latency.conf"."context.properties" = {
-                "default.clock.min-quantum" = 256;
-                "default.clock.quantum" = 1024;
-                "api.alsa.headroom" = 1024;
-              };
-              "99-pcm2900c-loopback.conf"."context.modules" = [
-                {
-                  name = "libpipewire-module-loopback";
-                  args = {
-                    "node.name" = "pcm2900c-loopback";
-                    "node.description" = "PCM2900C Loopback";
-                    "auto.connect" = true;
-                    "capture.props" = {
-                      "node.target" = "alsa_input.usb-BurrBrown_from_Texas_Instruments_USB_AUDIO_CODEC-00.pro-input-0";
-                      "media.class" = "Audio/Source";
-                    };
-                    "playback.props" = {
-                      "node.passive" = true;
-                      "media.class" = "Audio/Sink";
-                    };
-                  };
-                }
-              ];
-            };
-            pipewire-pulse."10-custom-latency.conf"."context.properties" = {
-              "default.clock.min-quantum" = 256;
-              "default.clock.quantum" = 1024;
-            };
-          };
           alsa.enable = true;
           alsa.support32Bit = true;
           pulse.enable = true;
