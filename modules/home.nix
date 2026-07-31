@@ -115,7 +115,6 @@
     git = {
       lfs.enable = true;
     };
-    onlyoffice.enable = true;
   };
 
   qt = {
