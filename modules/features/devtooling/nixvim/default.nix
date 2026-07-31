@@ -21,7 +21,6 @@
         inputs.frostvim.nixvimModules.blink
         inputs.frostvim.nixvimModules.clipboard-image
         inputs.frostvim.nixvimModules.dashboard
-        inputs.frostvim.nixvimModules.dap
         inputs.frostvim.nixvimModules.git
         inputs.frostvim.nixvimModules.go
         inputs.frostvim.nixvimModules.images
