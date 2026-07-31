@@ -60,7 +60,6 @@
     in
     {
       home.packages = [
-        add_record_player
         pkgs.hyprsunset
       ];
       dbus.packages = [
