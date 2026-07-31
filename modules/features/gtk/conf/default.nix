@@ -17,10 +17,6 @@
         package = pkgs.kanagawa-icon-theme;
         name = "Kanagawa";
       };
-      theme = {
-        name = "Kanagawa-B";
-        package = pkgs.kanagawa-gtk-theme;
-      };
       gtk4.theme = null;
     };
   };
