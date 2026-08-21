@@ -12,6 +12,9 @@ _: {
         port = 11434;
         host = "0.0.0.0";
         openFirewall = true;
+        environmentVariables = {
+          OLLAMA_CONTEXT_LENGTH = "100000";
+        };
         package =
           if config.host.gpuType == "amd" then
             pkgs.ollama-rocm
