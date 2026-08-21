@@ -15,7 +15,6 @@
     inputs.aphelion.packages.x86_64-linux.default
     inputs.llm.packages.x86_64-linux.opencode
     inputs.llm.packages.x86_64-linux.pi
-    inputs.llm.packages.x86_64-linux.crush
     inputs.wallpapers.packages.x86_64-linux.default
     inputs.helium.defaultPackage.x86_64-linux
     inputs.noctalia.packages.x86_64-linux.default
