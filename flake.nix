@@ -27,7 +27,10 @@
       url = "github:FKouhai/kanoxo-colorscheme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helium.url = "github:FKouhai/helium2nix";
+    helium = {
+      url = "github:FKouhai/helium2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix.url = "github:ryantm/agenix";
     llm = {
       url = "github:numtide/llm-agents.nix";
