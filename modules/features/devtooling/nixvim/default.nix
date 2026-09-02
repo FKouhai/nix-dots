@@ -49,6 +49,32 @@
         transparent = true;
         terminalColors = false;
       };
+      keymaps = [
+        {
+          mode = "n";
+          key = "<leader>nv";
+          action = ":vertical new <CR>";
+
+        }
+        {
+          mode = "n";
+          key = "<leader>nh";
+          action = ":horizontal new <CR>";
+
+        }
+        {
+          mode = "n";
+          key = "<leader>pb";
+          action = ":bprev <CR>";
+
+        }
+        {
+          mode = "n";
+          key = "<leader>pn";
+          action = ":bnext <CR>";
+
+        }
+      ];
 
       plugins = {
         lsp.servers.nixd.settings =
