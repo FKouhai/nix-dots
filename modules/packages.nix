@@ -12,7 +12,6 @@ with pkgs;
   fd
   gamemode
   gh
-  gowall
   gpgme
   pkgs.maple-mono.NF-unhinted
   pkgs.maple-mono.truetype
@@ -30,10 +29,8 @@ with pkgs;
   nixd
   nixfmt
   nix-search-tv
-  nodejs
   obs-studio
   opentofu
-  pulseaudio-ctl
   pavucontrol
   playerctl
   pulsemixer
@@ -43,7 +40,6 @@ with pkgs;
   statix
   telegram-desktop
   tldr
-  treefmt
   upower
   unzip
   vesktop

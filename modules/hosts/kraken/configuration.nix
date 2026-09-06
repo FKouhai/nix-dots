@@ -104,7 +104,7 @@ _: {
       i18n.defaultLocale = "en_US.UTF-8";
 
       services = {
-        journald.extraConfig = "SystemMaxUse=50M";
+        journald.settings.Journal.SystemMaxUse = "50M";
         pulseaudio.enable = false;
         openssh = {
           enable = true;
@@ -187,30 +187,6 @@ _: {
 
       users = {
         defaultUserShell = pkgs.fish;
-        motd = ''
-
-                    ▗▄▄▄       ▗▄▄▄▄    ▄▄▄▖
-                    ▜███▙       ▜███▙  ▟███▛
-                     ▜███▙       ▜███▙▟███▛
-                      ▜███▙       ▜██████▛
-               ▟█████████████████▙ ▜████▛     ▟▙
-              ▟███████████████████▙ ▜███▙    ▟██▙
-                     ▄▄▄▄▖           ▜███▙  ▟███▛
-                    ▟███▛             ▜██▛ ▟███▛
-                   ▟███▛               ▜▛ ▟███▛
-          ▟███████████▛                  ▟██████████▙
-          ▜██████████▛                  ▟███████████▛
-                ▟███▛ ▟▙               ▟███▛
-               ▟███▛ ▟██▙             ▟███▛
-              ▟███▛  ▜███▙           ▝▀▀▀▀
-              ▜██▛    ▜███▙ ▜██████████████████▛
-               ▜▛     ▟████▙ ▜████████████████▛
-                     ▟██████▙       ▜███▙
-                    ▟███▛▜███▙       ▜███▙
-                   ▟███▛  ▜███▙       ▜███▙
-                   ▝▀▀▀    ▀▀▀▀▘       ▀▀▀▘
-                   welcome!
-        '';
         users.franky = {
           isNormalUser = true;
           description = "franky";
