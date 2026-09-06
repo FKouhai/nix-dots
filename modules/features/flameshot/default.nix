@@ -31,8 +31,6 @@
             filenamePattern = "%F_%H-%M";
             drawThickness = 1;
             copyPathAfterSave = true;
-            useGrimAdapter = true;
-            disabledGrimWarning = true;
           };
         };
       };
