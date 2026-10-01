@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  osConfig,
   ...
 }:
 {
@@ -16,8 +15,6 @@
   };
 
   config = lib.mkIf config.bars.noctalia.enable {
-    programs.noctalia = {
-      enable = true;
-    };
+    programs.noctalia.enable = true;
   };
 }

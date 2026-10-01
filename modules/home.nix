@@ -18,7 +18,6 @@
     ./features/flameshot
     inputs.stylix.homeModules.stylix
     inputs.nixvim.homeModules.nixvim
-    inputs.noctalia.homeModules.default
   ];
   fonts.fontconfig.enable = true;
 

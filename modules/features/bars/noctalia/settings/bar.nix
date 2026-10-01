@@ -67,7 +67,6 @@
         };
         keyboard_layout = {
           type = "keyboard_layout";
-          cycle_command = "";
           hide_when_single_layout = false;
         };
         lock_keys = {

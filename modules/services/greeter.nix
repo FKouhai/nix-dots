@@ -21,7 +21,7 @@ _: {
         })
 
         (lib.mkIf (config.host.greeter == "noctalia-greet") {
-          programs.noctalia-greeter.enable = true;
+          services.displayManager.noctalia-greeter.enable = true;
         })
 
         (lib.mkIf (config.host.greeter == "sddm") {

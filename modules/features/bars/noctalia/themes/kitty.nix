@@ -81,8 +81,6 @@ in
   config = lib.mkIf (config.bars.noctalia.enable && config.bars.noctalia.themes.kitty.enable) {
     bars.noctalia.themeGenerators = [ generator ];
 
-    programs.noctalia.settings.theme.templates.kitty = lib.mkForce false;
-
     home.activation.seedKittyTheme = lib.hm.dag.entryAfter [ "unlockNoctaliaColors" ] ''
       ${generator}/bin/generate-kitty-theme || true
     '';

@@ -30,6 +30,6 @@
         "--enable-zero-copy"
       ];
     })
-    inputs.noctalia.packages.x86_64-linux.default
+    pkgs.noctalia
   ];
 }

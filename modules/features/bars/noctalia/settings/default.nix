@@ -10,15 +10,13 @@
       systemd.enable = true;
       enable = true;
       settings = {
-        launch_apps_as_systemd_services = true;
         shell = {
           font_family = lib.mkForce "Hack Nerd Font";
-          ui_scale = 1.0;
+          launch_apps_as_systemd_services = true;
           corner_radius_scale = 1.0;
           clipboard_enabled = true;
           clipboard_history_max_entries = 50;
           clipboard_auto_paste = "auto";
-          middle_click_opens_widget_settings = true;
           telemetry_enabled = false;
           shared_gl_context = true;
           show_location = true;
@@ -30,11 +28,15 @@
             transparency_mode = "solid";
             borders = true;
             shadow = true;
-            launcher_placement = "centered";
-            clipboard_placement = "centered";
+            launcher_placement = "floating";
+            launcher_position = "center";
+            clipboard_placement = "floating";
+            clipboard_position = "center";
             control_center_placement = "floating";
-            wallpaper_placement = "centered";
-            session_placement = "centered";
+            wallpaper_placement = "floating";
+            wallpaper_position = "center";
+            session_placement = "floating";
+            session_position = "center";
             open_near_click_control_center = false;
             open_near_click_launcher = false;
             open_near_click_clipboard = false;
@@ -47,8 +49,8 @@
           };
         };
 
-        launcher = {
-          terminal_command = "ghostty -e";
+        accessibility = {
+          ui_scale = 1.0;
         };
 
         audio = {
@@ -76,8 +78,10 @@
           offset_x = 20;
           offset_y = 8;
           scale = 1.0;
-          lock_keys = true;
-          keyboard_layout = true;
+          kinds = {
+            lock_keys = true;
+            keyboard_layout = true;
+          };
         };
 
         location = {
@@ -111,7 +115,6 @@
               "gtk4"
               "ghostty"
               "hyprland"
-              "kitty"
               "qt"
             ];
             community_ids = [
@@ -158,7 +161,6 @@
               cy = 1317.0;
               output = "DP-2";
               rotation = 0.0;
-              scale = 1.0;
               type = "login_box";
             };
             "lockscreen-login-box@HDMI-A-1" = {
@@ -166,7 +168,6 @@
               cy = 1317.0;
               output = "HDMI-A-1";
               rotation = 0.0;
-              scale = 1.0;
               type = "login_box";
             };
             "lockscreen-widget-0000000000000001" = {
@@ -174,7 +175,6 @@
               cy = 580.5;
               output = "HDMI-A-1";
               rotation = 0.0;
-              scale = 4.2353177070617676;
               type = "clock";
               settings = {
                 background_opacity = 0.0;
@@ -185,7 +185,6 @@
               cy = 832.0;
               output = "HDMI-A-1";
               rotation = 0.0;
-              scale = 1.7782632112503052;
               type = "media_player";
               settings = {
                 background = false;
@@ -202,7 +201,6 @@
               cy = 770.0;
               output = "HDMI-A-1";
               rotation = 0.0;
-              scale = 1.0;
               type = "weather";
               settings = {
                 background = false;
@@ -214,7 +212,6 @@
               cy = 884.5;
               output = "HDMI-A-1";
               rotation = 0.0;
-              scale = 1.0;
               type = "sysmon";
               settings = {
                 background = false;
@@ -229,7 +226,6 @@
               cy = 544.0;
               output = "DP-2";
               rotation = 0.0;
-              scale = 4.4676055908203125;
               type = "clock";
               settings = {
                 background = false;
@@ -241,10 +237,8 @@
               cy = 720.0;
               output = "DP-2";
               rotation = 0.0;
-              scale = 1.0;
               type = "audio_visualizer";
               settings = {
-                aspect_ratio = 2.5;
                 background = false;
                 background_opacity = 1.0;
                 bands = 32;
@@ -256,7 +250,6 @@
               cy = 836.5;
               output = "DP-2";
               rotation = 0.0;
-              scale = 1.0;
               type = "sysmon";
               settings = {
                 background = false;
@@ -267,7 +260,6 @@
               cy = 846.5;
               output = "DP-2";
               rotation = 0.0;
-              scale = 1.0;
               type = "sysmon";
               settings = {
                 background = false;
@@ -281,7 +273,6 @@
               cy = 846.5;
               output = "DP-2";
               rotation = 0.0;
-              scale = 1.0;
               type = "sysmon";
               settings = {
                 background = false;
@@ -293,7 +284,6 @@
               cy = 846.5;
               output = "DP-2";
               rotation = 0.0;
-              scale = 1.0;
               type = "sysmon";
               settings = {
                 background = false;
@@ -305,7 +295,6 @@
               cy = 994.0;
               output = "DP-2";
               rotation = 0.0;
-              scale = 1.0;
               type = "weather";
               settings = {
                 background = false;
