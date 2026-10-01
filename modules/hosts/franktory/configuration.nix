@@ -1,23 +1,15 @@
 _: {
   flake.nixosModules.franktory =
     {
-      config,
       lib,
       pkgs,
-      inputs,
       ...
     }:
     {
       nixpkgs.config.allowUnfree = true;
 
       host = {
-        hostName = "franktory";
-        isDesktop = false;
-        class = "laptop";
-        bar = "noctalia";
         greeter = "greetd";
-        theme = "kanagawa-dragon";
-        wallpaper = "${inputs.wallpapers.packages.x86_64-linux.default}/share/wallpapers/kanagawa-dragon/3895e.jpg";
         mainMonitor = {
           name = "eDP-1";
           width = "1920";

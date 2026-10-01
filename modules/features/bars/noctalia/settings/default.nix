@@ -113,7 +113,6 @@
               "hyprland"
               "kitty"
               "qt"
-              "starship"
             ];
             community_ids = [
               "pywalfox"
