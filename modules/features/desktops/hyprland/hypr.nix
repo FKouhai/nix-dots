@@ -63,7 +63,7 @@
         pkgs.hyprsunset
       ];
       dbus.packages = [
-        pkgs.gcr
+        # pkgs.gcr
         pkgs.gnome-settings-daemon
         pkgs.libsecret
       ];
