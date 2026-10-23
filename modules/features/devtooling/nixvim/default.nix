@@ -53,7 +53,7 @@
         enable = true;
         variant = "wave";
         transparent = true;
-        terminalColors = false;
+        terminalColors = true;
       };
       keymaps = [
         {

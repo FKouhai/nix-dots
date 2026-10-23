@@ -402,11 +402,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1792793816,
-        "narHash": "sha256-mUMWxyVk03hdSE8RG6F6de0ZReiejzMsM+PGooH6XXQ=",
+        "lastModified": 1792799635,
+        "narHash": "sha256-Pe++GbCsHMHh2prVz+LZitkr3vWjC2HdZkbQ7lJwfQQ=",
         "owner": "FKouhai",
         "repo": "frostvim",
-        "rev": "9bf848910c9d5c3793a9e074b8d78f925812f830",
+        "rev": "04c7f727fb20e1ff16bc8c130d682968393a17a3",
         "type": "github"
       },
       "original": {
@@ -520,11 +520,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779651078,
-        "narHash": "sha256-D5yTGWxitO0sM5+NytbKJJzqmamBzltqJV6esvSthhU=",
+        "lastModified": 1792797206,
+        "narHash": "sha256-FMsVKR95mcSbXSwanljIEaUJD24CSps1I7rKfBDV6YA=",
         "owner": "FKouhai",
         "repo": "kanoxo-colorscheme",
-        "rev": "06a46aba1bf1e16bb5c5dbc51dcaa84422d5f853",
+        "rev": "e60e88d6ab479b8496362cccc50d7c64c98d2dda",
         "type": "github"
       },
       "original": {
@@ -540,11 +540,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779651078,
-        "narHash": "sha256-D5yTGWxitO0sM5+NytbKJJzqmamBzltqJV6esvSthhU=",
+        "lastModified": 1792797206,
+        "narHash": "sha256-FMsVKR95mcSbXSwanljIEaUJD24CSps1I7rKfBDV6YA=",
         "owner": "FKouhai",
         "repo": "kanoxo-colorscheme",
-        "rev": "06a46aba1bf1e16bb5c5dbc51dcaa84422d5f853",
+        "rev": "e60e88d6ab479b8496362cccc50d7c64c98d2dda",
         "type": "github"
       },
       "original": {
