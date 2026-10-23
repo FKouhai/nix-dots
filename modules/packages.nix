@@ -25,6 +25,7 @@ with pkgs;
   libnotify
   mcp-k8s-go
   mcp-grafana
+  microfetch
   mpv
   nixd
   nixfmt

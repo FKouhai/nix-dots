@@ -14,8 +14,14 @@
   config = lib.mkIf config.nixvim.enable {
     programs.nixvim = {
       enable = true;
-      nixpkgs.config.allowUnfree = true;
-      nixpkgs.overlays = [ inputs.kanoxo.overlays.default ];
+      # Use host (system) pkgs instead of nixvim's pinned nixpkgs.
+      # nixvim's pin is at 0.12.5; system pkgs is at 0.12.6 (same as
+      # frostvim's standalone build). Without this, frostvim's
+      # `package = pkgs.neovim-unwrapped` resolves against the old pin.
+      # NOTE: do NOT set programs.nixvim.nixpkgs.config/overlays with this;
+      # assertions require them empty. Global allowUnfree + kanoxo overlay
+      # are already set in modules/hosts/kraken/configuration.nix.
+      nixpkgs.useGlobalPackages = true;
       imports = [
         inputs.frostvim.nixvimModules.base
         inputs.frostvim.nixvimModules.blink

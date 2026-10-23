@@ -13,7 +13,7 @@
     inputs.agenix.packages.x86_64-linux.default
     inputs.trigo.packages.x86_64-linux.default
     inputs.aphelion.packages.x86_64-linux.default
-    inputs.llm.packages.x86_64-linux.opencode
+    inputs.llm.packages.x86_64-linux.opencode2
     inputs.wallpapers.packages.x86_64-linux.default
     (inputs.helium.helium.x86_64-linux {
       enableFeatures = [

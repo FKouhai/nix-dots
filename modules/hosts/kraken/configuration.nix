@@ -36,9 +36,26 @@ _: {
         };
         plymouth.enable = true;
         kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-        extraModulePackages = [
-          (pkgs.linuxPackagesFor pkgs.cachyosKernels.linuxPackages-cachyos-latest.kernel).r8125
-        ];
+        extraModulePackages =
+          let
+            cachyKernel = pkgs.cachyosKernels.linuxPackages-cachyos-latest.kernel;
+          in
+          [
+            # nixpkgs' r8125 only installs r8125.ko, but recent kernels'
+            # aggregateModules step expects a kmodigest sidecar (r8125.ko.cer)
+            # for every external module and fails with:
+            #   cat: kernel/drivers/net/ethernet/realtek/r8125.ko.cer: No such file or directory
+            # KBUILD's cmd_sign=kmodigest override doesn't fire for this
+            # package, so generate the sidecar explicitly.
+            ((pkgs.linuxPackagesFor cachyKernel).r8125.overrideAttrs (old: {
+              nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.kmodigest ];
+              installPhase =
+                old.installPhase
+                + ''
+                  ${pkgs.kmodigest}/bin/kmodigest "$out/lib/modules/${cachyKernel.modDirVersion}/kernel/drivers/net/ethernet/realtek/r8125.ko"
+                '';
+            }))
+          ];
         # r8169 incorrectly binds to the RTL8125 2.5GbE NIC; r8125 is the proper driver
         blacklistedKernelModules = [ "r8169" ];
         kernelModules = [ "r8125" ];
