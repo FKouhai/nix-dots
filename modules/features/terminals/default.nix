@@ -11,6 +11,14 @@
 
   options = {
     terminals.enable = lib.mkEnableOption "Enable terminals module";
+    terminals.variant = lib.mkOption {
+      type = lib.types.enum [
+        "dragon"
+        "wave"
+      ];
+      default = "wave";
+      description = "Kanoxo colorscheme variant for kitty and ghostty (matches nixvim).";
+    };
   };
   config = lib.mkMerge [
     {
