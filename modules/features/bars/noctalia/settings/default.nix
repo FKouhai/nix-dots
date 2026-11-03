@@ -109,11 +109,12 @@
         theme = {
           wallpaper_scheme = "m3-tonal-spot";
           templates = {
+            # NOTE: no "ghostty" here — ghostty uses static kanoxo themes
+            # (see modules/features/terminals/ghostty.nix + terminals.variant).
             builtin_ids = [
               "btop"
               "gtk3"
               "gtk4"
-              "ghostty"
               "hyprland"
               "qt"
             ];
