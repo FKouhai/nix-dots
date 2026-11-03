@@ -102,6 +102,8 @@
 
   gtk-conf.enable = true;
 
+  terminals.variant = "wave";
+
   programs = {
     home-manager.enable = true;
     btop = {
