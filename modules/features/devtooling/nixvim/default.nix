@@ -80,6 +80,42 @@
           action = ":bnext <CR>";
 
         }
+        {
+          mode = "t";
+          action = "<C-\\><C-n>:wincmd h<CR>";
+          key = "<c-h>";
+          options = {
+            noremap = true;
+            silent = true;
+          };
+        }
+        {
+          mode = "t";
+          action = "<C-\\><C-n>:wincmd l<CR>";
+          key = "<c-l>";
+          options = {
+            noremap = true;
+            silent = true;
+          };
+        }
+        {
+          mode = "t";
+          action = "<C-\\><C-n>:wincmd j<CR>";
+          key = "<c-j>";
+          options = {
+            noremap = true;
+            silent = true;
+          };
+        }
+        {
+          mode = "t";
+          action = "<C-\\><C-n>:wincmd k<CR>";
+          key = "<c-k>";
+          options = {
+            noremap = true;
+            silent = true;
+          };
+        }
       ];
 
       plugins = {
