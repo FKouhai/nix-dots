@@ -8,8 +8,8 @@
 {
   imports = [
     ./features/desktops
+    ./features/filemanagers
     ./features/bars
-    ./features/prompt
     ./features/shelltools
     ./features/devtooling
     ./features/gtk
@@ -66,7 +66,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "inode/directory" = "yazi-open.desktop";
+      "inode/directory" = "nemo.desktop";
       "x-scheme-handler/itunes" = "Cider.desktop";
       "x-scheme-handler/music" = "Cider.desktop";
       "x-scheme-handler/cider" = "Cider.desktop";

@@ -109,14 +109,6 @@ The config uses the **dendritic pattern** with [flake-parts](https://github.com/
 |   |   |   L__default.nix
 |   |   |--host-options.nix
 |   |   |--nix-config.nix
-|   |   |--prompt
-|   |   |   |--default.nix
-|   |   |   L__starship
-|   |   |       |--default.nix
-|   |   |       |--kanagawa.nix
-|   |   |       |--oxo.toml
-|   |   |       |--oxocarbon.nix
-|   |   |       L__tokyonight.nix
 |   |   |--shelltools
 |   |   |   |--atuin
 |   |   |   |   L__default.nix

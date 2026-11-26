@@ -117,6 +117,7 @@ _: {
       services = {
         journald.settings.Journal.SystemMaxUse = "50M";
         pulseaudio.enable = false;
+        gvfs.enable = true;
         openssh = {
           enable = true;
           ports = [ 22 ];
@@ -164,6 +165,7 @@ _: {
 
       programs = {
         zsh.enable = true;
+        dconf.enable = true;
         nh.enable = true;
         steam.enable = true;
         hyprland.enable = true;
