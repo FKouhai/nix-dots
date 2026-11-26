@@ -51,6 +51,7 @@ in
         tab_bar_edge = "top";
         allow_remote_control = "yes";
         cursor_trail = 1;
+        remember_window_size = false;
       };
       shellIntegration = {
         enableZshIntegration = true;
