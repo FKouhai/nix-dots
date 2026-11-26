@@ -32,7 +32,7 @@
     }
     {
       opacity = 0.90;
-      match.class = "^(cosmic-files)$";
+      match.class = "^(nemo|Nemo)$";
     }
     {
       opacity = 0.90;
