@@ -32,6 +32,7 @@ with pkgs;
   nix-search-tv
   obs-studio
   opentofu
+  openbao
   pavucontrol
   playerctl
   pulsemixer
@@ -39,6 +40,7 @@ with pkgs;
   ripgrep
   sesh
   statix
+  tea
   telegram-desktop
   tldr
   upower
