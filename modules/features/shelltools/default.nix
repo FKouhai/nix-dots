@@ -25,6 +25,10 @@
       shelltools.enable = lib.mkDefault true;
     }
     (lib.mkIf config.shelltools.enable {
+      xdg.configFile."kanoxo/prompt.sh" = {
+        source = ./prompt.sh;
+        executable = true;
+      };
       atuin.enable = lib.mkDefault true;
       fastfetch.enable = lib.mkDefault true;
       bat.enable = lib.mkDefault true;

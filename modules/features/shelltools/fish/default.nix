@@ -38,6 +38,13 @@
         seshc = "sesh connect $(sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --prompt='⚡')";
         oc = "opencode";
       };
+
+      # Thin wrapper around the shared kanoxo prompt (../prompt.sh).
+      # The script emits zsh-safe output, so strip the %{...%} markers
+      # and un-double %% back to %.
+      functions = {
+        fish_prompt = "bash ${config.home.homeDirectory}/.config/kanoxo/prompt.sh $status | string replace -a '%{' '' | string replace -a '%}' '' | string replace -a '%%' '%'";
+      };
     };
   };
 }

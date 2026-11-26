@@ -23,6 +23,15 @@
         source <(fzf --zsh)
         export GEMINI_API_KEY=$(cat ${config.age.secrets.gemini.path})
         export SSH_AUTH_SOCK=/home/franky/.bitwarden-ssh-agent.sock
+
+        # Thin wrapper around the shared kanoxo prompt (../prompt.sh),
+        # which emits zsh-ready output (width-safe %{...%} escapes).
+        autoload -U add-zsh-hook
+        _kanoxo_prompt() {
+          local rc=$?
+          PROMPT=$(bash ${config.home.homeDirectory}/.config/kanoxo/prompt.sh $rc)
+        }
+        add-zsh-hook precmd _kanoxo_prompt
       '';
       plugins = [
         {
