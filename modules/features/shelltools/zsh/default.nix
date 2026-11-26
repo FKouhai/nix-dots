@@ -42,7 +42,7 @@
       ];
 
       shellAliases = {
-        ll = "eza --icons --git --git-ignore --git -F -l";
+        ll = "ls -lh --color=auto -F";
         cat = "bat";
         ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
         hms = "home-manager switch";

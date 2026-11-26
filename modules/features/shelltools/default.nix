@@ -8,7 +8,6 @@
     ./atuin
     ./bat
     ./direnv
-    ./eza
     ./fastfetch
     ./fish
     ./fzf
@@ -25,6 +24,7 @@
       shelltools.enable = lib.mkDefault true;
     }
     (lib.mkIf config.shelltools.enable {
+      programs.dircolors.enable = true;
       xdg.configFile."kanoxo/prompt.sh" = {
         source = ./prompt.sh;
         executable = true;
@@ -33,7 +33,6 @@
       fastfetch.enable = lib.mkDefault true;
       bat.enable = lib.mkDefault true;
       direnv.enable = lib.mkDefault true;
-      eza.enable = lib.mkDefault true;
       fzf.enable = lib.mkDefault true;
       zoxide.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;

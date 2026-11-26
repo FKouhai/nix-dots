@@ -25,7 +25,7 @@
       '';
 
       shellAliases = {
-        ll = "eza --icons --git --git-ignore --git -F -l";
+        ll = "ls -lh --color=auto -F";
         cat = "bat";
         ff = "fastfetch";
         ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
